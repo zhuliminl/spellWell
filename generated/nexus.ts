@@ -63,8 +63,10 @@ export interface NexusGenInputs {
     age?: string | null; // String
     email?: string | null; // String
     id?: string | null; // ID
+    job?: string | null; // String
     name: string; // String!
     posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
+    username?: string | null; // String
   }
   UserWhereInput: { // input type
     age?: string | null; // String
@@ -110,6 +112,20 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    job?: string | null; // String
+    job_contains?: string | null; // String
+    job_ends_with?: string | null; // String
+    job_gt?: string | null; // String
+    job_gte?: string | null; // String
+    job_in?: string[] | null; // [String!]
+    job_lt?: string | null; // String
+    job_lte?: string | null; // String
+    job_not?: string | null; // String
+    job_not_contains?: string | null; // String
+    job_not_ends_with?: string | null; // String
+    job_not_in?: string[] | null; // [String!]
+    job_not_starts_with?: string | null; // String
+    job_starts_with?: string | null; // String
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -129,6 +145,20 @@ export interface NexusGenInputs {
     posts_every?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    username?: string | null; // String
+    username_contains?: string | null; // String
+    username_ends_with?: string | null; // String
+    username_gt?: string | null; // String
+    username_gte?: string | null; // String
+    username_in?: string[] | null; // [String!]
+    username_lt?: string | null; // String
+    username_lte?: string | null; // String
+    username_not?: string | null; // String
+    username_not_contains?: string | null; // String
+    username_not_ends_with?: string | null; // String
+    username_not_in?: string[] | null; // [String!]
+    username_not_starts_with?: string | null; // String
+    username_starts_with?: string | null; // String
   }
 }
 
