@@ -51,7 +51,6 @@ type PageInfo {
 type Post {
   id: ID!
   title: String!
-  desc: String!
   published: Boolean!
   author: User
 }
@@ -65,7 +64,6 @@ type PostConnection {
 input PostCreateInput {
   id: ID
   title: String!
-  desc: String!
   published: Boolean
   author: UserCreateOneWithoutPostsInput
 }
@@ -78,7 +76,6 @@ input PostCreateManyWithoutAuthorInput {
 input PostCreateWithoutAuthorInput {
   id: ID
   title: String!
-  desc: String!
   published: Boolean
 }
 
@@ -92,8 +89,6 @@ enum PostOrderByInput {
   id_DESC
   title_ASC
   title_DESC
-  desc_ASC
-  desc_DESC
   published_ASC
   published_DESC
 }
@@ -101,7 +96,6 @@ enum PostOrderByInput {
 type PostPreviousValues {
   id: ID!
   title: String!
-  desc: String!
   published: Boolean!
 }
 
@@ -134,20 +128,6 @@ input PostScalarWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
-  desc: String
-  desc_not: String
-  desc_in: [String!]
-  desc_not_in: [String!]
-  desc_lt: String
-  desc_lte: String
-  desc_gt: String
-  desc_gte: String
-  desc_contains: String
-  desc_not_contains: String
-  desc_starts_with: String
-  desc_not_starts_with: String
-  desc_ends_with: String
-  desc_not_ends_with: String
   published: Boolean
   published_not: Boolean
   AND: [PostScalarWhereInput!]
@@ -175,20 +155,17 @@ input PostSubscriptionWhereInput {
 
 input PostUpdateInput {
   title: String
-  desc: String
   published: Boolean
   author: UserUpdateOneWithoutPostsInput
 }
 
 input PostUpdateManyDataInput {
   title: String
-  desc: String
   published: Boolean
 }
 
 input PostUpdateManyMutationInput {
   title: String
-  desc: String
   published: Boolean
 }
 
@@ -211,7 +188,6 @@ input PostUpdateManyWithWhereNestedInput {
 
 input PostUpdateWithoutAuthorDataInput {
   title: String
-  desc: String
   published: Boolean
 }
 
@@ -255,20 +231,6 @@ input PostWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
-  desc: String
-  desc_not: String
-  desc_in: [String!]
-  desc_not_in: [String!]
-  desc_lt: String
-  desc_lte: String
-  desc_gt: String
-  desc_gte: String
-  desc_contains: String
-  desc_not_contains: String
-  desc_starts_with: String
-  desc_not_starts_with: String
-  desc_ends_with: String
-  desc_not_ends_with: String
   published: Boolean
   published_not: Boolean
   author: UserWhereInput
