@@ -1,4 +1,28 @@
+import * as path from 'path'
+
+import { idArg, stringArg } from 'nexus'
+import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
+
+import { GraphQLServer } from 'graphql-yoga'
+import datamodelInfo from './generated/nexus-prisma'
 import { prisma } from './generated/prisma-client'
+import * as allTypes from './resolvers'
+
+const schema = makePrismaSchema({
+  types: allTypes,
+  prisma: {
+    datamodelInfo,
+    client: prisma,
+  },
+
+  outputs: {
+    schema: path.join(__dirname, './generated/schema.graphql'),
+    typegen: path.join(__dirname, './generated/nexus.ts'),
+  },
+})
+
+
+
 
 // A `main` function so that we can use async/await
 async function main() {
@@ -30,7 +54,7 @@ async function main() {
   // const newUser = await prisma.createUser({
   //   name: 'saul', 
   //   age: '34',
-  //   email: 'zhulimilnl@gmail.com',
+  //   email: 'zihulimilnl@gmail.com',
   //   posts: {
   //     create: [
   //       {
@@ -47,11 +71,11 @@ async function main() {
   // console.log(allPosts)
 
 
-  const postsByUser = await prisma.user({
-    email: 'zhuliminl@gmail.com'
-  }).posts()
+  // const postsByUser = await prisma.user({
+  //   email: 'zhuliminl@gmail.com'
+  // }).posts()
 
-  console.log('FIN xxxxxx', JSON.stringify(postsByUser))
+  // console.log('FIN xxxxxx', JSON.stringify(postsByUser))
 
 
 }
