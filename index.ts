@@ -6,10 +6,59 @@ import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
 import { GraphQLServer } from 'graphql-yoga'
 import datamodelInfo from './generated/nexus-prisma'
 import { prisma } from './generated/prisma-client'
-import * as allTypes from './resolvers'
+// import * as allTypes from './resolvers'
+
+const Query = prismaObjectType({
+  name: 'Query',
+  definition(t) {
+    t.prismaFields(['post'])
+    t.list.field('feed', {
+      type: 'Post',
+      resolve: (_, args, ctx) =>
+        ctx.prisma.posts({ where: { published: true } }),
+    })
+    t.list.field('postsByUser', {
+      type: 'Post',
+      args: { email: stringArg() },
+      resolve: (_, { email }, ctx) =>
+        ctx.prisma.posts({ where: { author: { email } } }),
+    })
+  },
+})
+
+const Mutation = prismaObjectType({
+  name: 'Mutation',
+  definition(t) {
+    t.prismaFields(['createUser', 'deletePost'])
+    t.field('createDraft', {
+      type: 'Post',
+      args: {
+        title: stringArg(),
+        authorId: idArg({ nullable: true }),
+      },
+      resolve: (_, { title, authorId }, ctx) =>
+        ctx.prisma.createPost({
+          title,
+          author: { connect: { id: authorId } },
+        }),
+    })
+    t.field('publish', {
+      type: 'Post',
+      nullable: true,
+      args: { id: idArg() },
+      resolve: (_, { id }, ctx) =>
+        ctx.prisma.updatePost({
+          where: { id },
+          data: { published: true },
+        }),
+    })
+  },
+})
+
 
 const schema = makePrismaSchema({
-  types: allTypes,
+  // types: allTypes,
+  types: [Query, Mutation],
   prisma: {
     datamodelInfo,
     client: prisma,
