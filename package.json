@@ -7,7 +7,8 @@
     "start": "ts-node index.ts",
     "dev": "ts-node-dev --no-notify --respawn  ./",
     "build": "tsc",
-    "lint": "eslint '**/*.ts'"
+    "lint": "eslint '**/*.ts'",
+    "nexus-prisma-generate": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma"
   },
   "dependencies": {
     "@types/zxcvbn": "^4.4.0",
