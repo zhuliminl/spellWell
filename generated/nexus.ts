@@ -146,7 +146,6 @@ export interface NexusGenRootTypes {
   Query: {};
   User: { // root type
     age?: string | null; // String
-    email?: string | null; // String
     id: string; // ID!
     name: string; // String!
   }
@@ -184,10 +183,8 @@ export interface NexusGenFieldTypes {
   }
   User: { // field return type
     age: string | null; // String
-    email: string | null; // String
     id: string; // ID!
     name: string; // String!
-    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
   }
 }
 
@@ -202,17 +199,6 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
-    posts: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    }
-  }
-  User: {
     posts: { // args
       after?: string | null; // String
       before?: string | null; // String

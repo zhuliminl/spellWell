@@ -86,10 +86,8 @@ type Query {
 
 type User {
   age: String
-  email: String
   id: ID!
   name: String!
-  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
 }
 
 input UserCreateInput {
