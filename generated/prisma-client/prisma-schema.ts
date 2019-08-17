@@ -262,7 +262,7 @@ type User {
   id: ID!
   email: String
   name: String!
-  age: String!
+  age: String
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
 
@@ -276,7 +276,7 @@ input UserCreateInput {
   id: ID
   email: String
   name: String!
-  age: String!
+  age: String
   posts: PostCreateManyWithoutAuthorInput
 }
 
@@ -289,7 +289,7 @@ input UserCreateWithoutPostsInput {
   id: ID
   email: String
   name: String!
-  age: String!
+  age: String
 }
 
 type UserEdge {
@@ -312,7 +312,7 @@ type UserPreviousValues {
   id: ID!
   email: String
   name: String!
-  age: String!
+  age: String
 }
 
 type UserSubscriptionPayload {

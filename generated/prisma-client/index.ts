@@ -197,7 +197,7 @@ export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   email?: Maybe<String>;
   name: String;
-  age: String;
+  age?: Maybe<String>;
   posts?: Maybe<PostCreateManyWithoutAuthorInput>;
 }
 
@@ -244,7 +244,7 @@ export interface UserCreateWithoutPostsInput {
   id?: Maybe<ID_Input>;
   email?: Maybe<String>;
   name: String;
-  age: String;
+  age?: Maybe<String>;
 }
 
 export type UserWhereUniqueInput = AtLeastOne<{
@@ -465,7 +465,7 @@ export interface UserPreviousValues {
   id: ID_Output;
   email?: String;
   name: String;
-  age: String;
+  age?: String;
 }
 
 export interface UserPreviousValuesPromise
@@ -513,7 +513,7 @@ export interface User {
   id: ID_Output;
   email?: String;
   name: String;
-  age: String;
+  age?: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
