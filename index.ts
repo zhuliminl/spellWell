@@ -17,6 +17,11 @@ const Query = prismaObjectType({
       resolve: (_, args, ctx) =>
         ctx.prisma.posts({ where: { published: true } }),
     })
+    t.list.field('unfeed', {
+      type: 'Post',
+      resolve: (_, args, ctx) =>
+        ctx.prisma.posts({ where: { published: false } }),
+    })
     t.list.field('postsByUser', {
       type: 'Post',
       args: { email: stringArg() },
@@ -130,3 +135,10 @@ async function main() {
 }
 
 main().catch(e => console.error(e))
+
+const server = new GraphQLServer({
+  schema,
+  context: { prisma },
+})
+
+server.start(() => console.log('Server is running on http://localhost:4000'))

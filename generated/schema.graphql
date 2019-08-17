@@ -85,6 +85,7 @@ type Query {
   feed: [Post!]!
   post(where: PostWhereUniqueInput!): Post
   postsByUser(email: String): [Post!]!
+  unfeed: [Post!]!
 }
 
 type User {

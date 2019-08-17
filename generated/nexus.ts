@@ -184,6 +184,7 @@ export interface NexusGenFieldTypes {
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
     post: NexusGenRootTypes['Post'] | null; // Post
     postsByUser: NexusGenRootTypes['Post'][]; // [Post!]!
+    unfeed: NexusGenRootTypes['Post'][]; // [Post!]!
   }
   User: { // field return type
     age: string | null; // String
