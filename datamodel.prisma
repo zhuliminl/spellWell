@@ -3,6 +3,7 @@ type User {
   email: String @unique
   name: String!
   job: String
+  nickname: String
   username: String! @default(value: "saul") 
   age: String
   posts: [Post!]!

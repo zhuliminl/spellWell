@@ -157,6 +157,8 @@ export type UserOrderByInput =
   | "name_DESC"
   | "job_ASC"
   | "job_DESC"
+  | "nickname_ASC"
+  | "nickname_DESC"
   | "username_ASC"
   | "username_DESC"
   | "age_ASC"
@@ -202,6 +204,7 @@ export interface UserCreateInput {
   email?: Maybe<String>;
   name: String;
   job?: Maybe<String>;
+  nickname?: Maybe<String>;
   username?: Maybe<String>;
   age?: Maybe<String>;
   posts?: Maybe<PostCreateManyWithoutAuthorInput>;
@@ -234,6 +237,7 @@ export interface UserUpdateManyMutationInput {
   email?: Maybe<String>;
   name?: Maybe<String>;
   job?: Maybe<String>;
+  nickname?: Maybe<String>;
   username?: Maybe<String>;
   age?: Maybe<String>;
 }
@@ -253,6 +257,7 @@ export interface UserCreateWithoutPostsInput {
   email?: Maybe<String>;
   name: String;
   job?: Maybe<String>;
+  nickname?: Maybe<String>;
   username?: Maybe<String>;
   age?: Maybe<String>;
 }
@@ -277,6 +282,7 @@ export interface UserUpdateInput {
   email?: Maybe<String>;
   name?: Maybe<String>;
   job?: Maybe<String>;
+  nickname?: Maybe<String>;
   username?: Maybe<String>;
   age?: Maybe<String>;
   posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
@@ -339,6 +345,20 @@ export interface UserWhereInput {
   job_not_starts_with?: Maybe<String>;
   job_ends_with?: Maybe<String>;
   job_not_ends_with?: Maybe<String>;
+  nickname?: Maybe<String>;
+  nickname_not?: Maybe<String>;
+  nickname_in?: Maybe<String[] | String>;
+  nickname_not_in?: Maybe<String[] | String>;
+  nickname_lt?: Maybe<String>;
+  nickname_lte?: Maybe<String>;
+  nickname_gt?: Maybe<String>;
+  nickname_gte?: Maybe<String>;
+  nickname_contains?: Maybe<String>;
+  nickname_not_contains?: Maybe<String>;
+  nickname_starts_with?: Maybe<String>;
+  nickname_not_starts_with?: Maybe<String>;
+  nickname_ends_with?: Maybe<String>;
+  nickname_not_ends_with?: Maybe<String>;
   username?: Maybe<String>;
   username_not?: Maybe<String>;
   username_in?: Maybe<String[] | String>;
@@ -379,6 +399,7 @@ export interface UserUpdateWithoutPostsDataInput {
   email?: Maybe<String>;
   name?: Maybe<String>;
   job?: Maybe<String>;
+  nickname?: Maybe<String>;
   username?: Maybe<String>;
   age?: Maybe<String>;
 }
@@ -508,6 +529,7 @@ export interface UserPreviousValues {
   email?: String;
   name: String;
   job?: String;
+  nickname?: String;
   username: String;
   age?: String;
 }
@@ -519,6 +541,7 @@ export interface UserPreviousValuesPromise
   email: () => Promise<String>;
   name: () => Promise<String>;
   job: () => Promise<String>;
+  nickname: () => Promise<String>;
   username: () => Promise<String>;
   age: () => Promise<String>;
 }
@@ -530,6 +553,7 @@ export interface UserPreviousValuesSubscription
   email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   job: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
   username: () => Promise<AsyncIterator<String>>;
   age: () => Promise<AsyncIterator<String>>;
 }
@@ -562,6 +586,7 @@ export interface User {
   email?: String;
   name: String;
   job?: String;
+  nickname?: String;
   username: String;
   age?: String;
 }
@@ -571,6 +596,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   email: () => Promise<String>;
   name: () => Promise<String>;
   job: () => Promise<String>;
+  nickname: () => Promise<String>;
   username: () => Promise<String>;
   age: () => Promise<String>;
   posts: <T = FragmentableArray<Post>>(args?: {
@@ -591,6 +617,7 @@ export interface UserSubscription
   email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   job: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
   username: () => Promise<AsyncIterator<String>>;
   age: () => Promise<AsyncIterator<String>>;
   posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
@@ -611,6 +638,7 @@ export interface UserNullablePromise
   email: () => Promise<String>;
   name: () => Promise<String>;
   job: () => Promise<String>;
+  nickname: () => Promise<String>;
   username: () => Promise<String>;
   age: () => Promise<String>;
   posts: <T = FragmentableArray<Post>>(args?: {

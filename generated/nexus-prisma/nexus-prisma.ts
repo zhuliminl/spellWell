@@ -237,6 +237,7 @@ type UserObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'job', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'age', args?: [] | false, alias?: string  } 
   | { name: 'posts', args?: UserPostsArgs[] | false, alias?: string  } 
@@ -246,6 +247,7 @@ type UserFields =
   | 'email'
   | 'name'
   | 'job'
+  | 'nickname'
   | 'username'
   | 'age'
   | 'posts'
@@ -287,6 +289,14 @@ export interface UserFieldDetails {
     resolve: undefined
   }
   job: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nickname: {
     type: 'String'
     args: {}
     description: string
@@ -1068,6 +1078,7 @@ type UserPreviousValuesObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'job', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'age', args?: [] | false, alias?: string  } 
 
@@ -1076,6 +1087,7 @@ type UserPreviousValuesFields =
   | 'email'
   | 'name'
   | 'job'
+  | 'nickname'
   | 'username'
   | 'age'
 
@@ -1109,6 +1121,14 @@ export interface UserPreviousValuesFieldDetails {
     resolve: undefined
   }
   job: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nickname: {
     type: 'String'
     args: {}
     description: string
@@ -1390,6 +1410,20 @@ export interface UserWhereInput {
   job_not_starts_with?: string | null
   job_ends_with?: string | null
   job_not_ends_with?: string | null
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
   username?: string | null
   username_not?: string | null
   username_in?: string[]
@@ -1483,6 +1517,20 @@ export type UserWhereInputInputObject =
   | { name: 'job_not_starts_with', alias?: string  } 
   | { name: 'job_ends_with', alias?: string  } 
   | { name: 'job_not_ends_with', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'username_not', alias?: string  } 
   | { name: 'username_in', alias?: string  } 
@@ -1530,6 +1578,7 @@ export interface UserCreateInput {
   email?: string | null
   name?: string
   job?: string | null
+  nickname?: string | null
   username?: string | null
   age?: string | null
   posts?: PostCreateManyWithoutAuthorInput | null
@@ -1540,6 +1589,7 @@ export type UserCreateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'job', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   | { name: 'posts', alias?: string  } 
@@ -1568,6 +1618,7 @@ export interface UserUpdateInput {
   email?: string | null
   name?: string | null
   job?: string | null
+  nickname?: string | null
   username?: string | null
   age?: string | null
   posts?: PostUpdateManyWithoutAuthorInput | null
@@ -1577,6 +1628,7 @@ export type UserUpdateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'job', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   | { name: 'posts', alias?: string  } 
@@ -1726,6 +1778,7 @@ export interface UserUpdateManyMutationInput {
   email?: string | null
   name?: string | null
   job?: string | null
+  nickname?: string | null
   username?: string | null
   age?: string | null
 }
@@ -1734,6 +1787,7 @@ export type UserUpdateManyMutationInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'job', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
@@ -1764,6 +1818,7 @@ export interface UserCreateWithoutPostsInput {
   email?: string | null
   name?: string
   job?: string | null
+  nickname?: string | null
   username?: string | null
   age?: string | null
 }
@@ -1773,6 +1828,7 @@ export type UserCreateWithoutPostsInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'job', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
@@ -1808,6 +1864,7 @@ export interface UserUpdateWithoutPostsDataInput {
   email?: string | null
   name?: string | null
   job?: string | null
+  nickname?: string | null
   username?: string | null
   age?: string | null
 }
@@ -1816,6 +1873,7 @@ export type UserUpdateWithoutPostsDataInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'job', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
@@ -1901,6 +1959,8 @@ export type UserOrderByInputValues =
   | 'name_DESC'
   | 'job_ASC'
   | 'job_DESC'
+  | 'nickname_ASC'
+  | 'nickname_DESC'
   | 'username_ASC'
   | 'username_DESC'
   | 'age_ASC'

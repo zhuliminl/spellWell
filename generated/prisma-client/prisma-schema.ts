@@ -263,6 +263,7 @@ type User {
   email: String
   name: String!
   job: String
+  nickname: String
   username: String!
   age: String
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
@@ -279,6 +280,7 @@ input UserCreateInput {
   email: String
   name: String!
   job: String
+  nickname: String
   username: String
   age: String
   posts: PostCreateManyWithoutAuthorInput
@@ -294,6 +296,7 @@ input UserCreateWithoutPostsInput {
   email: String
   name: String!
   job: String
+  nickname: String
   username: String
   age: String
 }
@@ -312,6 +315,8 @@ enum UserOrderByInput {
   name_DESC
   job_ASC
   job_DESC
+  nickname_ASC
+  nickname_DESC
   username_ASC
   username_DESC
   age_ASC
@@ -323,6 +328,7 @@ type UserPreviousValues {
   email: String
   name: String!
   job: String
+  nickname: String
   username: String!
   age: String
 }
@@ -349,6 +355,7 @@ input UserUpdateInput {
   email: String
   name: String
   job: String
+  nickname: String
   username: String
   age: String
   posts: PostUpdateManyWithoutAuthorInput
@@ -358,6 +365,7 @@ input UserUpdateManyMutationInput {
   email: String
   name: String
   job: String
+  nickname: String
   username: String
   age: String
 }
@@ -375,6 +383,7 @@ input UserUpdateWithoutPostsDataInput {
   email: String
   name: String
   job: String
+  nickname: String
   username: String
   age: String
 }
@@ -441,6 +450,20 @@ input UserWhereInput {
   job_not_starts_with: String
   job_ends_with: String
   job_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
   username: String
   username_not: String
   username_in: [String!]
