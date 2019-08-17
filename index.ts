@@ -60,7 +60,7 @@ const Mutation = prismaObjectType({
   },
 })
 
-const UserQuery = prismaObjectType({
+const foo = prismaObjectType({
   name: "Query",
   definition(t) {
     t.prismaFields(['user'])
@@ -73,12 +73,26 @@ const UserQuery = prismaObjectType({
   }
 })
 
+const UserQuery = prismaObjectType({
+  name: "User",
+  definition(t) {
+    t.prismaFields(['id', 'name', 'age'])
+    // t.list.field('allUser', {
+    //   type: 'User',
+    //   resolve: (_, args, ctx) =>
+    //     ctx.prisma.users(),
+    //     // ctx.prisma.posts({ where: { published: true } }),
+    // })
+  }
+})
+
 
 console.log('FIN allTypes', allTypes)
 const schema = makePrismaSchema({
   types: allTypes,
   // types: [
-  //   // Query, 
+  //   Query, 
+  //   // foo,
   //   Mutation, 
   //   UserQuery,
   //   ],

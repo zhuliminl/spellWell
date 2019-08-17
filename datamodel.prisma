@@ -2,7 +2,8 @@ type User {
   id: ID! @id
   email: String @unique
   name: String!
-  username: String!
+  job: String
+  username: String! @default(value: "saul") 
   age: String
   posts: [Post!]!
 }

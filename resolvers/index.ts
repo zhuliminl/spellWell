@@ -1,11 +1,11 @@
-import { User } from './User';
-// import { Query } from './Query';
-// import { Mutation } from './Mutation';
+// import { User } from './user';
+import { Query } from './query';
+import { Mutation } from './mutation';
 // import { AuthPayload } from './AuthPayload';
 
 export const resolvers = {
-  User,
-  // Query,
-  // Mutation,
+  // User,
+  Query,
+  Mutation,
   // AuthPayload
 };
