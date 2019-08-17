@@ -11,15 +11,6 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  PostCreateManyWithoutAuthorInput: { // input type
-    connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
-  }
-  PostCreateWithoutAuthorInput: { // input type
-    id?: string | null; // ID
-    published?: boolean | null; // Boolean
-    title: string; // String!
-  }
   PostWhereInput: { // input type
     AND?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
     author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
@@ -58,13 +49,6 @@ export interface NexusGenInputs {
   }
   PostWhereUniqueInput: { // input type
     id?: string | null; // ID
-  }
-  UserCreateInput: { // input type
-    age?: string | null; // String
-    email?: string | null; // String
-    id?: string | null; // ID
-    name: string; // String!
-    posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
   }
   UserWhereInput: { // input type
     age?: string | null; // String
@@ -130,25 +114,55 @@ export interface NexusGenInputs {
     posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
   }
+  UserWhereUniqueInput: { // input type
+    email?: string | null; // String
+    id?: string | null; // ID
+  }
 }
 
 export interface NexusGenEnums {
   PostOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  UserOrderByInput: "age_ASC" | "age_DESC" | "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
-  Mutation: {};
+  AggregatePost: { // root type
+    count: number; // Int!
+  }
+  AggregateUser: { // root type
+    count: number; // Int!
+  }
+  PageInfo: { // root type
+    endCursor?: string | null; // String
+    hasNextPage: boolean; // Boolean!
+    hasPreviousPage: boolean; // Boolean!
+    startCursor?: string | null; // String
+  }
   Post: { // root type
     id: string; // ID!
     published: boolean; // Boolean!
     title: string; // String!
   }
+  PostConnection: { // root type
+    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  PostEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Post']; // Post!
+  }
   Query: {};
   User: { // root type
     age?: string | null; // String
-    email?: string | null; // String
     id: string; // ID!
-    name: string; // String!
+  }
+  UserConnection: { // root type
+    edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  UserEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['User']; // User!
   }
   String: string;
   Int: number;
@@ -158,21 +172,26 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
-  PostCreateManyWithoutAuthorInput: NexusGenInputs['PostCreateManyWithoutAuthorInput'];
-  PostCreateWithoutAuthorInput: NexusGenInputs['PostCreateWithoutAuthorInput'];
   PostWhereInput: NexusGenInputs['PostWhereInput'];
   PostWhereUniqueInput: NexusGenInputs['PostWhereUniqueInput'];
-  UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   PostOrderByInput: NexusGenEnums['PostOrderByInput'];
+  UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
-  Mutation: { // field return type
-    createDraft: NexusGenRootTypes['Post']; // Post!
-    createUser: NexusGenRootTypes['User']; // User!
-    deletePost: NexusGenRootTypes['Post'] | null; // Post
-    publish: NexusGenRootTypes['Post'] | null; // Post
+  AggregatePost: { // field return type
+    count: number; // Int!
+  }
+  AggregateUser: { // field return type
+    count: number; // Int!
+  }
+  PageInfo: { // field return type
+    endCursor: string | null; // String
+    hasNextPage: boolean; // Boolean!
+    hasPreviousPage: boolean; // Boolean!
+    startCursor: string | null; // String
   }
   Post: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
@@ -180,46 +199,43 @@ export interface NexusGenFieldTypes {
     published: boolean; // Boolean!
     title: string; // String!
   }
+  PostConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregatePost']; // AggregatePost!
+    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  PostEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Post']; // Post!
+  }
   Query: { // field return type
-    feed: NexusGenRootTypes['Post'][]; // [Post!]!
     post: NexusGenRootTypes['Post'] | null; // Post
-    postsByUser: NexusGenRootTypes['Post'][]; // [Post!]!
-    unfeed: NexusGenRootTypes['Post'][]; // [Post!]!
+    posts: NexusGenRootTypes['Post'][]; // [Post!]!
+    postsConnection: NexusGenRootTypes['PostConnection']; // PostConnection!
+    user: NexusGenRootTypes['User'] | null; // User
+    users: NexusGenRootTypes['User'][]; // [User!]!
+    usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
   }
   User: { // field return type
     age: string | null; // String
-    email: string | null; // String
     id: string; // ID!
-    name: string; // String!
-    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
+  }
+  UserConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateUser']; // AggregateUser!
+    edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  UserEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['User']; // User!
   }
 }
 
 export interface NexusGenArgTypes {
-  Mutation: {
-    createDraft: { // args
-      authorId?: string | null; // ID
-      title?: string | null; // String
-    }
-    createUser: { // args
-      data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
-    }
-    deletePost: { // args
-      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-    }
-    publish: { // args
-      id?: string | null; // ID
-    }
-  }
   Query: {
     post: { // args
       where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
     }
-    postsByUser: { // args
-      email?: string | null; // String
-    }
-  }
-  User: {
     posts: { // args
       after?: string | null; // String
       before?: string | null; // String
@@ -229,6 +245,36 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
     }
+    postsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    }
+    user: { // args
+      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
+    }
+    users: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    usersConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
   }
 }
 
@@ -237,11 +283,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "Post" | "Query" | "User";
+export type NexusGenObjectNames = "AggregatePost" | "AggregateUser" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserWhereInput";
+export type NexusGenInputNames = "PostWhereInput" | "PostWhereUniqueInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "PostOrderByInput";
+export type NexusGenEnumNames = "PostOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

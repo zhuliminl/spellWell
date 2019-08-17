@@ -6,7 +6,7 @@ import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
 import { GraphQLServer } from 'graphql-yoga'
 import datamodelInfo from './generated/nexus-prisma'
 import { prisma } from './generated/prisma-client'
-// import * as allTypes from './resolvers'
+import * as allTypes from './resolvers'
 
 const Query = prismaObjectType({
   name: 'Query',
@@ -60,10 +60,28 @@ const Mutation = prismaObjectType({
   },
 })
 
+const UserQuery = prismaObjectType({
+  name: "Query",
+  definition(t) {
+    t.prismaFields(['user'])
+    t.list.field('allUser', {
+      type: 'User',
+      resolve: (_, args, ctx) =>
+        ctx.prisma.users(),
+        // ctx.prisma.posts({ where: { published: true } }),
+    })
+  }
+})
 
+
+console.log('FIN allTypes', allTypes)
 const schema = makePrismaSchema({
-  // types: allTypes,
-  types: [Query, Mutation],
+  types: allTypes,
+  // types: [
+  //   // Query, 
+  //   Mutation, 
+  //   UserQuery,
+  //   ],
   prisma: {
     datamodelInfo,
     client: prisma,
