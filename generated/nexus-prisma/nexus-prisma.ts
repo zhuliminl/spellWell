@@ -236,6 +236,8 @@ type UserObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'job', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'age', args?: [] | false, alias?: string  } 
   | { name: 'posts', args?: UserPostsArgs[] | false, alias?: string  } 
 
@@ -243,6 +245,8 @@ type UserFields =
   | 'id'
   | 'email'
   | 'name'
+  | 'job'
+  | 'username'
   | 'age'
   | 'posts'
 
@@ -275,6 +279,22 @@ export interface UserFieldDetails {
     resolve: undefined
   }
   name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  job: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -1047,12 +1067,16 @@ type UserPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'job', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'age', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
   | 'email'
   | 'name'
+  | 'job'
+  | 'username'
   | 'age'
 
 
@@ -1077,6 +1101,22 @@ export interface UserPreviousValuesFieldDetails {
     resolve: undefined
   }
   name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  job: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  username: {
     type: 'String'
     args: {}
     description: string
@@ -1336,6 +1376,34 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
+  job?: string | null
+  job_not?: string | null
+  job_in?: string[]
+  job_not_in?: string[]
+  job_lt?: string | null
+  job_lte?: string | null
+  job_gt?: string | null
+  job_gte?: string | null
+  job_contains?: string | null
+  job_not_contains?: string | null
+  job_starts_with?: string | null
+  job_not_starts_with?: string | null
+  job_ends_with?: string | null
+  job_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
   age?: string | null
   age_not?: string | null
   age_in?: string[]
@@ -1401,6 +1469,34 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'job_not', alias?: string  } 
+  | { name: 'job_in', alias?: string  } 
+  | { name: 'job_not_in', alias?: string  } 
+  | { name: 'job_lt', alias?: string  } 
+  | { name: 'job_lte', alias?: string  } 
+  | { name: 'job_gt', alias?: string  } 
+  | { name: 'job_gte', alias?: string  } 
+  | { name: 'job_contains', alias?: string  } 
+  | { name: 'job_not_contains', alias?: string  } 
+  | { name: 'job_starts_with', alias?: string  } 
+  | { name: 'job_not_starts_with', alias?: string  } 
+  | { name: 'job_ends_with', alias?: string  } 
+  | { name: 'job_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
   | { name: 'age', alias?: string  } 
   | { name: 'age_not', alias?: string  } 
   | { name: 'age_in', alias?: string  } 
@@ -1433,6 +1529,8 @@ export interface UserCreateInput {
   id?: string | null
   email?: string | null
   name?: string
+  job?: string | null
+  username?: string | null
   age?: string | null
   posts?: PostCreateManyWithoutAuthorInput | null
 }
@@ -1441,6 +1539,8 @@ export type UserCreateInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
@@ -1467,6 +1567,8 @@ export type PostCreateWithoutAuthorInputInputObject =
 export interface UserUpdateInput {
   email?: string | null
   name?: string | null
+  job?: string | null
+  username?: string | null
   age?: string | null
   posts?: PostUpdateManyWithoutAuthorInput | null
 }
@@ -1474,6 +1576,8 @@ export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   | { name: 'posts', alias?: string  } 
   
@@ -1621,12 +1725,16 @@ export type PostUpdateManyDataInputInputObject =
 export interface UserUpdateManyMutationInput {
   email?: string | null
   name?: string | null
+  job?: string | null
+  username?: string | null
   age?: string | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
 export interface PostCreateInput {
@@ -1655,6 +1763,8 @@ export interface UserCreateWithoutPostsInput {
   id?: string | null
   email?: string | null
   name?: string
+  job?: string | null
+  username?: string | null
   age?: string | null
 }
 export type UserCreateWithoutPostsInputInputObject =
@@ -1662,6 +1772,8 @@ export type UserCreateWithoutPostsInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
 export interface PostUpdateInput {
@@ -1695,12 +1807,16 @@ export type UserUpdateOneWithoutPostsInputInputObject =
 export interface UserUpdateWithoutPostsDataInput {
   email?: string | null
   name?: string | null
+  job?: string | null
+  username?: string | null
   age?: string | null
 }
 export type UserUpdateWithoutPostsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutPostsDataInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'job', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'age', alias?: string  } 
   
 export interface UserUpsertWithoutPostsInput {
@@ -1783,6 +1899,10 @@ export type UserOrderByInputValues =
   | 'email_DESC'
   | 'name_ASC'
   | 'name_DESC'
+  | 'job_ASC'
+  | 'job_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
   | 'age_ASC'
   | 'age_DESC'
   | 'createdAt_ASC'
