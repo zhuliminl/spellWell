@@ -207,10 +207,8 @@ input UserCreateInput {
   age: String
   email: String
   id: ID
-  job: String
   name: String!
   posts: PostCreateManyWithoutAuthorInput
-  username: String
 }
 
 enum UserOrderByInput {
@@ -222,23 +220,17 @@ enum UserOrderByInput {
   email_DESC
   id_ASC
   id_DESC
-  job_ASC
-  job_DESC
   name_ASC
   name_DESC
   updatedAt_ASC
   updatedAt_DESC
-  username_ASC
-  username_DESC
 }
 
 input UserUpdateInput {
   age: String
   email: String
-  job: String
   name: String
   posts: PostUpdateManyWithoutAuthorInput
-  username: String
 }
 
 input UserWhereInput {
@@ -285,20 +277,6 @@ input UserWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  job: String
-  job_contains: String
-  job_ends_with: String
-  job_gt: String
-  job_gte: String
-  job_in: [String!]
-  job_lt: String
-  job_lte: String
-  job_not: String
-  job_not_contains: String
-  job_not_ends_with: String
-  job_not_in: [String!]
-  job_not_starts_with: String
-  job_starts_with: String
   name: String
   name_contains: String
   name_ends_with: String
@@ -318,20 +296,6 @@ input UserWhereInput {
   posts_every: PostWhereInput
   posts_none: PostWhereInput
   posts_some: PostWhereInput
-  username: String
-  username_contains: String
-  username_ends_with: String
-  username_gt: String
-  username_gte: String
-  username_in: [String!]
-  username_lt: String
-  username_lte: String
-  username_not: String
-  username_not_contains: String
-  username_not_ends_with: String
-  username_not_in: [String!]
-  username_not_starts_with: String
-  username_starts_with: String
 }
 
 input UserWhereUniqueInput {

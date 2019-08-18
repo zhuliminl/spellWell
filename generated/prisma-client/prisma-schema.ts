@@ -300,8 +300,6 @@ type User {
   id: ID!
   email: String
   name: String!
-  job: String
-  username: String!
   age: String
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
@@ -316,8 +314,6 @@ input UserCreateInput {
   id: ID
   email: String
   name: String!
-  job: String
-  username: String
   age: String
   posts: PostCreateManyWithoutAuthorInput
 }
@@ -331,8 +327,6 @@ input UserCreateWithoutPostsInput {
   id: ID
   email: String
   name: String!
-  job: String
-  username: String
   age: String
 }
 
@@ -348,10 +342,6 @@ enum UserOrderByInput {
   email_DESC
   name_ASC
   name_DESC
-  job_ASC
-  job_DESC
-  username_ASC
-  username_DESC
   age_ASC
   age_DESC
 }
@@ -360,8 +350,6 @@ type UserPreviousValues {
   id: ID!
   email: String
   name: String!
-  job: String
-  username: String!
   age: String
 }
 
@@ -386,8 +374,6 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   email: String
   name: String
-  job: String
-  username: String
   age: String
   posts: PostUpdateManyWithoutAuthorInput
 }
@@ -395,8 +381,6 @@ input UserUpdateInput {
 input UserUpdateManyMutationInput {
   email: String
   name: String
-  job: String
-  username: String
   age: String
 }
 
@@ -412,8 +396,6 @@ input UserUpdateOneWithoutPostsInput {
 input UserUpdateWithoutPostsDataInput {
   email: String
   name: String
-  job: String
-  username: String
   age: String
 }
 
@@ -465,34 +447,6 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  job: String
-  job_not: String
-  job_in: [String!]
-  job_not_in: [String!]
-  job_lt: String
-  job_lte: String
-  job_gt: String
-  job_gte: String
-  job_contains: String
-  job_not_contains: String
-  job_starts_with: String
-  job_not_starts_with: String
-  job_ends_with: String
-  job_not_ends_with: String
-  username: String
-  username_not: String
-  username_in: [String!]
-  username_not_in: [String!]
-  username_lt: String
-  username_lte: String
-  username_gt: String
-  username_gte: String
-  username_contains: String
-  username_not_contains: String
-  username_starts_with: String
-  username_not_starts_with: String
-  username_ends_with: String
-  username_not_ends_with: String
   age: String
   age_not: String
   age_in: [String!]
