@@ -24,6 +24,7 @@ type Material {
   id: ID!
   title: String!
   desc: String
+  content: String
   published: Boolean!
   author: User
 }
@@ -38,6 +39,7 @@ input MaterialCreateInput {
   id: ID
   title: String!
   desc: String
+  content: String
   published: Boolean
   author: UserCreateOneWithoutMaterialsInput
 }
@@ -51,6 +53,7 @@ input MaterialCreateWithoutAuthorInput {
   id: ID
   title: String!
   desc: String
+  content: String
   published: Boolean
 }
 
@@ -66,6 +69,8 @@ enum MaterialOrderByInput {
   title_DESC
   desc_ASC
   desc_DESC
+  content_ASC
+  content_DESC
   published_ASC
   published_DESC
 }
@@ -74,6 +79,7 @@ type MaterialPreviousValues {
   id: ID!
   title: String!
   desc: String
+  content: String
   published: Boolean!
 }
 
@@ -120,6 +126,20 @@ input MaterialScalarWhereInput {
   desc_not_starts_with: String
   desc_ends_with: String
   desc_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
   published: Boolean
   published_not: Boolean
   AND: [MaterialScalarWhereInput!]
@@ -148,6 +168,7 @@ input MaterialSubscriptionWhereInput {
 input MaterialUpdateInput {
   title: String
   desc: String
+  content: String
   published: Boolean
   author: UserUpdateOneWithoutMaterialsInput
 }
@@ -155,12 +176,14 @@ input MaterialUpdateInput {
 input MaterialUpdateManyDataInput {
   title: String
   desc: String
+  content: String
   published: Boolean
 }
 
 input MaterialUpdateManyMutationInput {
   title: String
   desc: String
+  content: String
   published: Boolean
 }
 
@@ -184,6 +207,7 @@ input MaterialUpdateManyWithWhereNestedInput {
 input MaterialUpdateWithoutAuthorDataInput {
   title: String
   desc: String
+  content: String
   published: Boolean
 }
 
@@ -241,6 +265,20 @@ input MaterialWhereInput {
   desc_not_starts_with: String
   desc_ends_with: String
   desc_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
   published: Boolean
   published_not: Boolean
   author: UserWhereInput
@@ -473,6 +511,8 @@ input SystemWhereUniqueInput {
 type User {
   id: ID!
   role: String
+  nickname: String
+  password: String
   email: String
   name: String!
   openid: String
@@ -489,6 +529,8 @@ type UserConnection {
 input UserCreateInput {
   id: ID
   role: String
+  nickname: String
+  password: String
   email: String
   name: String!
   openid: String
@@ -504,6 +546,8 @@ input UserCreateOneWithoutMaterialsInput {
 input UserCreateWithoutMaterialsInput {
   id: ID
   role: String
+  nickname: String
+  password: String
   email: String
   name: String!
   openid: String
@@ -520,6 +564,10 @@ enum UserOrderByInput {
   id_DESC
   role_ASC
   role_DESC
+  nickname_ASC
+  nickname_DESC
+  password_ASC
+  password_DESC
   email_ASC
   email_DESC
   name_ASC
@@ -533,6 +581,8 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   role: String
+  nickname: String
+  password: String
   email: String
   name: String!
   openid: String
@@ -559,6 +609,8 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   role: String
+  nickname: String
+  password: String
   email: String
   name: String
   openid: String
@@ -568,6 +620,8 @@ input UserUpdateInput {
 
 input UserUpdateManyMutationInput {
   role: String
+  nickname: String
+  password: String
   email: String
   name: String
   openid: String
@@ -585,6 +639,8 @@ input UserUpdateOneWithoutMaterialsInput {
 
 input UserUpdateWithoutMaterialsDataInput {
   role: String
+  nickname: String
+  password: String
   email: String
   name: String
   openid: String
@@ -625,6 +681,34 @@ input UserWhereInput {
   role_not_starts_with: String
   role_ends_with: String
   role_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]

@@ -317,6 +317,8 @@ type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
+  | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
@@ -326,6 +328,8 @@ type UserObject =
 type UserFields =
   | 'id'
   | 'role'
+  | 'nickname'
+  | 'password'
   | 'email'
   | 'name'
   | 'openid'
@@ -353,6 +357,22 @@ export interface UserFieldDetails {
     resolve: undefined
   }
   role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nickname: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  password: {
     type: 'String'
     args: {}
     description: string
@@ -415,6 +435,7 @@ type MaterialObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'desc', args?: [] | false, alias?: string  } 
+  | { name: 'content', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
   | { name: 'author', args?: [] | false, alias?: string  } 
 
@@ -422,6 +443,7 @@ type MaterialFields =
   | 'id'
   | 'title'
   | 'desc'
+  | 'content'
   | 'published'
   | 'author'
 
@@ -447,6 +469,14 @@ export interface MaterialFieldDetails {
     resolve: undefined
   }
   desc: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  content: {
     type: 'String'
     args: {}
     description: string
@@ -1471,6 +1501,8 @@ type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
+  | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
@@ -1479,6 +1511,8 @@ type UserPreviousValuesObject =
 type UserPreviousValuesFields =
   | 'id'
   | 'role'
+  | 'nickname'
+  | 'password'
   | 'email'
   | 'name'
   | 'openid'
@@ -1498,6 +1532,22 @@ export interface UserPreviousValuesFieldDetails {
     resolve: undefined
   }
   role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nickname: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  password: {
     type: 'String'
     args: {}
     description: string
@@ -1617,12 +1667,14 @@ type MaterialPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'desc', args?: [] | false, alias?: string  } 
+  | { name: 'content', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
 
 type MaterialPreviousValuesFields =
   | 'id'
   | 'title'
   | 'desc'
+  | 'content'
   | 'published'
 
 
@@ -1647,6 +1699,14 @@ export interface MaterialPreviousValuesFieldDetails {
     resolve: undefined
   }
   desc: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  content: {
     type: 'String'
     args: {}
     description: string
@@ -1855,6 +1915,20 @@ export interface MaterialWhereInput {
   desc_not_starts_with?: string | null
   desc_ends_with?: string | null
   desc_not_ends_with?: string | null
+  content?: string | null
+  content_not?: string | null
+  content_in?: string[]
+  content_not_in?: string[]
+  content_lt?: string | null
+  content_lte?: string | null
+  content_gt?: string | null
+  content_gte?: string | null
+  content_contains?: string | null
+  content_not_contains?: string | null
+  content_starts_with?: string | null
+  content_not_starts_with?: string | null
+  content_ends_with?: string | null
+  content_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
   author?: UserWhereInput | null
@@ -1906,6 +1980,20 @@ export type MaterialWhereInputInputObject =
   | { name: 'desc_not_starts_with', alias?: string  } 
   | { name: 'desc_ends_with', alias?: string  } 
   | { name: 'desc_not_ends_with', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'content_not', alias?: string  } 
+  | { name: 'content_in', alias?: string  } 
+  | { name: 'content_not_in', alias?: string  } 
+  | { name: 'content_lt', alias?: string  } 
+  | { name: 'content_lte', alias?: string  } 
+  | { name: 'content_gt', alias?: string  } 
+  | { name: 'content_gte', alias?: string  } 
+  | { name: 'content_contains', alias?: string  } 
+  | { name: 'content_not_contains', alias?: string  } 
+  | { name: 'content_starts_with', alias?: string  } 
+  | { name: 'content_not_starts_with', alias?: string  } 
+  | { name: 'content_ends_with', alias?: string  } 
+  | { name: 'content_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'author', alias?: string  } 
@@ -1942,6 +2030,34 @@ export interface UserWhereInput {
   role_not_starts_with?: string | null
   role_ends_with?: string | null
   role_not_ends_with?: string | null
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
   email?: string | null
   email_not?: string | null
   email_in?: string[]
@@ -2035,6 +2151,34 @@ export type UserWhereInputInputObject =
   | { name: 'role_not_starts_with', alias?: string  } 
   | { name: 'role_ends_with', alias?: string  } 
   | { name: 'role_not_ends_with', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'password_not', alias?: string  } 
+  | { name: 'password_in', alias?: string  } 
+  | { name: 'password_not_in', alias?: string  } 
+  | { name: 'password_lt', alias?: string  } 
+  | { name: 'password_lte', alias?: string  } 
+  | { name: 'password_gt', alias?: string  } 
+  | { name: 'password_gte', alias?: string  } 
+  | { name: 'password_contains', alias?: string  } 
+  | { name: 'password_not_contains', alias?: string  } 
+  | { name: 'password_starts_with', alias?: string  } 
+  | { name: 'password_not_starts_with', alias?: string  } 
+  | { name: 'password_ends_with', alias?: string  } 
+  | { name: 'password_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -2266,6 +2410,8 @@ export type SystemWhereInputInputObject =
 export interface UserCreateInput {
   id?: string | null
   role?: string | null
+  nickname?: string | null
+  password?: string | null
   email?: string | null
   name?: string
   openid?: string | null
@@ -2276,6 +2422,8 @@ export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'role', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
@@ -2295,6 +2443,7 @@ export interface MaterialCreateWithoutAuthorInput {
   id?: string | null
   title?: string
   desc?: string | null
+  content?: string | null
   published?: boolean | null
 }
 export type MaterialCreateWithoutAuthorInputInputObject =
@@ -2302,10 +2451,13 @@ export type MaterialCreateWithoutAuthorInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateInput {
   role?: string | null
+  nickname?: string | null
+  password?: string | null
   email?: string | null
   name?: string | null
   openid?: string | null
@@ -2315,6 +2467,8 @@ export interface UserUpdateInput {
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
@@ -2356,12 +2510,14 @@ export type MaterialUpdateWithWhereUniqueWithoutAuthorInputInputObject =
 export interface MaterialUpdateWithoutAuthorDataInput {
   title?: string | null
   desc?: string | null
+  content?: string | null
   published?: boolean | null
 }
 export type MaterialUpdateWithoutAuthorDataInputInputObject =
   | Extract<keyof MaterialUpdateWithoutAuthorDataInput, string>
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface MaterialUpsertWithWhereUniqueWithoutAuthorInput {
@@ -2418,6 +2574,20 @@ export interface MaterialScalarWhereInput {
   desc_not_starts_with?: string | null
   desc_ends_with?: string | null
   desc_not_ends_with?: string | null
+  content?: string | null
+  content_not?: string | null
+  content_in?: string[]
+  content_not_in?: string[]
+  content_lt?: string | null
+  content_lte?: string | null
+  content_gt?: string | null
+  content_gte?: string | null
+  content_contains?: string | null
+  content_not_contains?: string | null
+  content_starts_with?: string | null
+  content_not_starts_with?: string | null
+  content_ends_with?: string | null
+  content_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
   AND?: MaterialScalarWhereInput[]
@@ -2468,6 +2638,20 @@ export type MaterialScalarWhereInputInputObject =
   | { name: 'desc_not_starts_with', alias?: string  } 
   | { name: 'desc_ends_with', alias?: string  } 
   | { name: 'desc_not_ends_with', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'content_not', alias?: string  } 
+  | { name: 'content_in', alias?: string  } 
+  | { name: 'content_not_in', alias?: string  } 
+  | { name: 'content_lt', alias?: string  } 
+  | { name: 'content_lte', alias?: string  } 
+  | { name: 'content_gt', alias?: string  } 
+  | { name: 'content_gte', alias?: string  } 
+  | { name: 'content_contains', alias?: string  } 
+  | { name: 'content_not_contains', alias?: string  } 
+  | { name: 'content_starts_with', alias?: string  } 
+  | { name: 'content_not_starts_with', alias?: string  } 
+  | { name: 'content_ends_with', alias?: string  } 
+  | { name: 'content_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'AND', alias?: string  } 
@@ -2486,16 +2670,20 @@ export type MaterialUpdateManyWithWhereNestedInputInputObject =
 export interface MaterialUpdateManyDataInput {
   title?: string | null
   desc?: string | null
+  content?: string | null
   published?: boolean | null
 }
 export type MaterialUpdateManyDataInputInputObject =
   | Extract<keyof MaterialUpdateManyDataInput, string>
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
   role?: string | null
+  nickname?: string | null
+  password?: string | null
   email?: string | null
   name?: string | null
   openid?: string | null
@@ -2504,6 +2692,8 @@ export interface UserUpdateManyMutationInput {
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
@@ -2513,6 +2703,7 @@ export interface MaterialCreateInput {
   id?: string | null
   title?: string
   desc?: string | null
+  content?: string | null
   published?: boolean | null
   author?: UserCreateOneWithoutMaterialsInput | null
 }
@@ -2521,6 +2712,7 @@ export type MaterialCreateInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
@@ -2536,6 +2728,8 @@ export type UserCreateOneWithoutMaterialsInputInputObject =
 export interface UserCreateWithoutMaterialsInput {
   id?: string | null
   role?: string | null
+  nickname?: string | null
+  password?: string | null
   email?: string | null
   name?: string
   openid?: string | null
@@ -2545,6 +2739,8 @@ export type UserCreateWithoutMaterialsInputInputObject =
   | Extract<keyof UserCreateWithoutMaterialsInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'role', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
@@ -2553,6 +2749,7 @@ export type UserCreateWithoutMaterialsInputInputObject =
 export interface MaterialUpdateInput {
   title?: string | null
   desc?: string | null
+  content?: string | null
   published?: boolean | null
   author?: UserUpdateOneWithoutMaterialsInput | null
 }
@@ -2560,6 +2757,7 @@ export type MaterialUpdateInputInputObject =
   | Extract<keyof MaterialUpdateInput, string>
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
@@ -2582,6 +2780,8 @@ export type UserUpdateOneWithoutMaterialsInputInputObject =
   
 export interface UserUpdateWithoutMaterialsDataInput {
   role?: string | null
+  nickname?: string | null
+  password?: string | null
   email?: string | null
   name?: string | null
   openid?: string | null
@@ -2590,6 +2790,8 @@ export interface UserUpdateWithoutMaterialsDataInput {
 export type UserUpdateWithoutMaterialsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutMaterialsDataInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
@@ -2607,12 +2809,14 @@ export type UserUpsertWithoutMaterialsInputInputObject =
 export interface MaterialUpdateManyMutationInput {
   title?: string | null
   desc?: string | null
+  content?: string | null
   published?: boolean | null
 }
 export type MaterialUpdateManyMutationInputInputObject =
   | Extract<keyof MaterialUpdateManyMutationInput, string>
   | { name: 'title', alias?: string  } 
   | { name: 'desc', alias?: string  } 
+  | { name: 'content', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface SystemCreateInput {
@@ -2727,6 +2931,8 @@ export type MaterialOrderByInputValues =
   | 'title_DESC'
   | 'desc_ASC'
   | 'desc_DESC'
+  | 'content_ASC'
+  | 'content_DESC'
   | 'published_ASC'
   | 'published_DESC'
   | 'createdAt_ASC'
@@ -2739,6 +2945,10 @@ export type UserOrderByInputValues =
   | 'id_DESC'
   | 'role_ASC'
   | 'role_DESC'
+  | 'nickname_ASC'
+  | 'nickname_DESC'
+  | 'password_ASC'
+  | 'password_DESC'
   | 'email_ASC'
   | 'email_DESC'
   | 'name_ASC'

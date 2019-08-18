@@ -4,6 +4,7 @@
 
 type Material {
   author: User
+  content: String
   desc: String
   id: ID!
   published: Boolean!
@@ -16,6 +17,7 @@ input MaterialCreateManyWithoutAuthorInput {
 }
 
 input MaterialCreateWithoutAuthorInput {
+  content: String
   desc: String
   id: ID
   published: Boolean
@@ -23,6 +25,8 @@ input MaterialCreateWithoutAuthorInput {
 }
 
 enum MaterialOrderByInput {
+  content_ASC
+  content_DESC
   createdAt_ASC
   createdAt_DESC
   desc_ASC
@@ -39,6 +43,20 @@ enum MaterialOrderByInput {
 
 input MaterialScalarWhereInput {
   AND: [MaterialScalarWhereInput!]
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
   desc: String
   desc_contains: String
   desc_ends_with: String
@@ -88,6 +106,7 @@ input MaterialScalarWhereInput {
 }
 
 input MaterialUpdateManyDataInput {
+  content: String
   desc: String
   published: Boolean
   title: String
@@ -111,6 +130,7 @@ input MaterialUpdateManyWithWhereNestedInput {
 }
 
 input MaterialUpdateWithoutAuthorDataInput {
+  content: String
   desc: String
   published: Boolean
   title: String
@@ -130,6 +150,20 @@ input MaterialUpsertWithWhereUniqueWithoutAuthorInput {
 input MaterialWhereInput {
   AND: [MaterialWhereInput!]
   author: UserWhereInput
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
   desc: String
   desc_contains: String
   desc_ends_with: String
@@ -305,7 +339,9 @@ input UserCreateInput {
   id: ID
   materials: MaterialCreateManyWithoutAuthorInput
   name: String!
+  nickname: String
   openid: String
+  password: String
   role: String
   status: String
 }
@@ -319,8 +355,12 @@ enum UserOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  nickname_ASC
+  nickname_DESC
   openid_ASC
   openid_DESC
+  password_ASC
+  password_DESC
   role_ASC
   role_DESC
   status_ASC
@@ -333,7 +373,9 @@ input UserUpdateInput {
   email: String
   materials: MaterialUpdateManyWithoutAuthorInput
   name: String
+  nickname: String
   openid: String
+  password: String
   role: String
   status: String
 }
@@ -385,6 +427,20 @@ input UserWhereInput {
   name_not_in: [String!]
   name_not_starts_with: String
   name_starts_with: String
+  nickname: String
+  nickname_contains: String
+  nickname_ends_with: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_not: String
+  nickname_not_contains: String
+  nickname_not_ends_with: String
+  nickname_not_in: [String!]
+  nickname_not_starts_with: String
+  nickname_starts_with: String
   NOT: [UserWhereInput!]
   openid: String
   openid_contains: String
@@ -401,6 +457,20 @@ input UserWhereInput {
   openid_not_starts_with: String
   openid_starts_with: String
   OR: [UserWhereInput!]
+  password: String
+  password_contains: String
+  password_ends_with: String
+  password_gt: String
+  password_gte: String
+  password_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_not: String
+  password_not_contains: String
+  password_not_ends_with: String
+  password_not_in: [String!]
+  password_not_starts_with: String
+  password_starts_with: String
   role: String
   role_contains: String
   role_ends_with: String

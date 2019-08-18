@@ -186,6 +186,8 @@ export type MaterialOrderByInput =
   | "title_DESC"
   | "desc_ASC"
   | "desc_DESC"
+  | "content_ASC"
+  | "content_DESC"
   | "published_ASC"
   | "published_DESC";
 
@@ -206,6 +208,10 @@ export type UserOrderByInput =
   | "id_DESC"
   | "role_ASC"
   | "role_DESC"
+  | "nickname_ASC"
+  | "nickname_DESC"
+  | "password_ASC"
+  | "password_DESC"
   | "email_ASC"
   | "email_DESC"
   | "name_ASC"
@@ -233,6 +239,7 @@ export type MaterialWhereUniqueInput = AtLeastOne<{
 export interface MaterialUpdateManyMutationInput {
   title?: Maybe<String>;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -279,6 +286,20 @@ export interface MaterialWhereInput {
   desc_not_starts_with?: Maybe<String>;
   desc_ends_with?: Maybe<String>;
   desc_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
   published?: Maybe<Boolean>;
   published_not?: Maybe<Boolean>;
   author?: Maybe<UserWhereInput>;
@@ -289,6 +310,8 @@ export interface MaterialWhereInput {
 
 export interface UserUpdateInput {
   role?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
   email?: Maybe<String>;
   name?: Maybe<String>;
   openid?: Maybe<String>;
@@ -307,6 +330,7 @@ export interface MaterialCreateWithoutAuthorInput {
   id?: Maybe<ID_Input>;
   title: String;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -337,12 +361,15 @@ export interface MaterialCreateInput {
   id?: Maybe<ID_Input>;
   title: String;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
   author?: Maybe<UserCreateOneWithoutMaterialsInput>;
 }
 
 export interface UserUpdateManyMutationInput {
   role?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
   email?: Maybe<String>;
   name?: Maybe<String>;
   openid?: Maybe<String>;
@@ -433,6 +460,8 @@ export interface SystemWhereInput {
 export interface UserCreateWithoutMaterialsInput {
   id?: Maybe<ID_Input>;
   role?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
   email?: Maybe<String>;
   name: String;
   openid?: Maybe<String>;
@@ -482,6 +511,20 @@ export interface MaterialScalarWhereInput {
   desc_not_starts_with?: Maybe<String>;
   desc_ends_with?: Maybe<String>;
   desc_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
   published?: Maybe<Boolean>;
   published_not?: Maybe<Boolean>;
   AND?: Maybe<MaterialScalarWhereInput[] | MaterialScalarWhereInput>;
@@ -492,6 +535,7 @@ export interface MaterialScalarWhereInput {
 export interface MaterialUpdateInput {
   title?: Maybe<String>;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
   author?: Maybe<UserUpdateOneWithoutMaterialsInput>;
 }
@@ -499,6 +543,7 @@ export interface MaterialUpdateInput {
 export interface MaterialUpdateWithoutAuthorDataInput {
   title?: Maybe<String>;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -516,6 +561,8 @@ export interface MaterialUpdateWithWhereUniqueWithoutAuthorInput {
 
 export interface UserUpdateWithoutMaterialsDataInput {
   role?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
   email?: Maybe<String>;
   name?: Maybe<String>;
   openid?: Maybe<String>;
@@ -536,6 +583,7 @@ export interface UserSubscriptionWhereInput {
 export interface MaterialUpdateManyDataInput {
   title?: Maybe<String>;
   desc?: Maybe<String>;
+  content?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -549,6 +597,8 @@ export interface SystemUpdateManyMutationInput {
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   role?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
   email?: Maybe<String>;
   name: String;
   openid?: Maybe<String>;
@@ -585,6 +635,34 @@ export interface UserWhereInput {
   role_not_starts_with?: Maybe<String>;
   role_ends_with?: Maybe<String>;
   role_not_ends_with?: Maybe<String>;
+  nickname?: Maybe<String>;
+  nickname_not?: Maybe<String>;
+  nickname_in?: Maybe<String[] | String>;
+  nickname_not_in?: Maybe<String[] | String>;
+  nickname_lt?: Maybe<String>;
+  nickname_lte?: Maybe<String>;
+  nickname_gt?: Maybe<String>;
+  nickname_gte?: Maybe<String>;
+  nickname_contains?: Maybe<String>;
+  nickname_not_contains?: Maybe<String>;
+  nickname_starts_with?: Maybe<String>;
+  nickname_not_starts_with?: Maybe<String>;
+  nickname_ends_with?: Maybe<String>;
+  nickname_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
   email?: Maybe<String>;
   email_not?: Maybe<String>;
   email_in?: Maybe<String[] | String>;
@@ -732,6 +810,8 @@ export interface BatchPayloadSubscription
 export interface UserPreviousValues {
   id: ID_Output;
   role?: String;
+  nickname?: String;
+  password?: String;
   email?: String;
   name: String;
   openid?: String;
@@ -743,6 +823,8 @@ export interface UserPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
   email: () => Promise<String>;
   name: () => Promise<String>;
   openid: () => Promise<String>;
@@ -754,6 +836,8 @@ export interface UserPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   role: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
@@ -799,6 +883,8 @@ export interface SystemNullablePromise
 export interface User {
   id: ID_Output;
   role?: String;
+  nickname?: String;
+  password?: String;
   email?: String;
   name: String;
   openid?: String;
@@ -808,6 +894,8 @@ export interface User {
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
   email: () => Promise<String>;
   name: () => Promise<String>;
   openid: () => Promise<String>;
@@ -828,6 +916,8 @@ export interface UserSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   role: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
@@ -848,6 +938,8 @@ export interface UserNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
   email: () => Promise<String>;
   name: () => Promise<String>;
   openid: () => Promise<String>;
@@ -1031,6 +1123,7 @@ export interface MaterialPreviousValues {
   id: ID_Output;
   title: String;
   desc?: String;
+  content?: String;
   published: Boolean;
 }
 
@@ -1040,6 +1133,7 @@ export interface MaterialPreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   desc: () => Promise<String>;
+  content: () => Promise<String>;
   published: () => Promise<Boolean>;
 }
 
@@ -1049,6 +1143,7 @@ export interface MaterialPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   desc: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
 }
 
@@ -1081,6 +1176,7 @@ export interface Material {
   id: ID_Output;
   title: String;
   desc?: String;
+  content?: String;
   published: Boolean;
 }
 
@@ -1088,6 +1184,7 @@ export interface MaterialPromise extends Promise<Material>, Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   desc: () => Promise<String>;
+  content: () => Promise<String>;
   published: () => Promise<Boolean>;
   author: <T = UserPromise>() => T;
 }
@@ -1098,6 +1195,7 @@ export interface MaterialSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   desc: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
   author: <T = UserSubscription>() => T;
 }
@@ -1108,6 +1206,7 @@ export interface MaterialNullablePromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   desc: () => Promise<String>;
+  content: () => Promise<String>;
   published: () => Promise<Boolean>;
   author: <T = UserPromise>() => T;
 }

@@ -16,6 +16,7 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['MaterialCreateWithoutAuthorInput'][] | null; // [MaterialCreateWithoutAuthorInput!]
   }
   MaterialCreateWithoutAuthorInput: { // input type
+    content?: string | null; // String
     desc?: string | null; // String
     id?: string | null; // ID
     published?: boolean | null; // Boolean
@@ -23,6 +24,20 @@ export interface NexusGenInputs {
   }
   MaterialScalarWhereInput: { // input type
     AND?: NexusGenInputs['MaterialScalarWhereInput'][] | null; // [MaterialScalarWhereInput!]
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
     desc?: string | null; // String
     desc_contains?: string | null; // String
     desc_ends_with?: string | null; // String
@@ -71,6 +86,7 @@ export interface NexusGenInputs {
     title_starts_with?: string | null; // String
   }
   MaterialUpdateManyDataInput: { // input type
+    content?: string | null; // String
     desc?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
@@ -95,6 +111,7 @@ export interface NexusGenInputs {
     where: NexusGenInputs['MaterialWhereUniqueInput']; // MaterialWhereUniqueInput!
   }
   MaterialUpdateWithoutAuthorDataInput: { // input type
+    content?: string | null; // String
     desc?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
@@ -107,6 +124,20 @@ export interface NexusGenInputs {
   MaterialWhereInput: { // input type
     AND?: NexusGenInputs['MaterialWhereInput'][] | null; // [MaterialWhereInput!]
     author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
     desc?: string | null; // String
     desc_contains?: string | null; // String
     desc_ends_with?: string | null; // String
@@ -237,7 +268,9 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     materials?: NexusGenInputs['MaterialCreateManyWithoutAuthorInput'] | null; // MaterialCreateManyWithoutAuthorInput
     name: string; // String!
+    nickname?: string | null; // String
     openid?: string | null; // String
+    password?: string | null; // String
     role?: string | null; // String
     status?: string | null; // String
   }
@@ -245,7 +278,9 @@ export interface NexusGenInputs {
     email?: string | null; // String
     materials?: NexusGenInputs['MaterialUpdateManyWithoutAuthorInput'] | null; // MaterialUpdateManyWithoutAuthorInput
     name?: string | null; // String
+    nickname?: string | null; // String
     openid?: string | null; // String
+    password?: string | null; // String
     role?: string | null; // String
     status?: string | null; // String
   }
@@ -296,6 +331,20 @@ export interface NexusGenInputs {
     name_not_in?: string[] | null; // [String!]
     name_not_starts_with?: string | null; // String
     name_starts_with?: string | null; // String
+    nickname?: string | null; // String
+    nickname_contains?: string | null; // String
+    nickname_ends_with?: string | null; // String
+    nickname_gt?: string | null; // String
+    nickname_gte?: string | null; // String
+    nickname_in?: string[] | null; // [String!]
+    nickname_lt?: string | null; // String
+    nickname_lte?: string | null; // String
+    nickname_not?: string | null; // String
+    nickname_not_contains?: string | null; // String
+    nickname_not_ends_with?: string | null; // String
+    nickname_not_in?: string[] | null; // [String!]
+    nickname_not_starts_with?: string | null; // String
+    nickname_starts_with?: string | null; // String
     NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     openid?: string | null; // String
     openid_contains?: string | null; // String
@@ -312,6 +361,20 @@ export interface NexusGenInputs {
     openid_not_starts_with?: string | null; // String
     openid_starts_with?: string | null; // String
     OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    password?: string | null; // String
+    password_contains?: string | null; // String
+    password_ends_with?: string | null; // String
+    password_gt?: string | null; // String
+    password_gte?: string | null; // String
+    password_in?: string[] | null; // [String!]
+    password_lt?: string | null; // String
+    password_lte?: string | null; // String
+    password_not?: string | null; // String
+    password_not_contains?: string | null; // String
+    password_not_ends_with?: string | null; // String
+    password_not_in?: string[] | null; // [String!]
+    password_not_starts_with?: string | null; // String
+    password_starts_with?: string | null; // String
     role?: string | null; // String
     role_contains?: string | null; // String
     role_ends_with?: string | null; // String
@@ -349,13 +412,14 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  MaterialOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "desc_ASC" | "desc_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  MaterialOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "desc_ASC" | "desc_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SystemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "slogan_ASC" | "slogan_DESC" | "tel_ASC" | "tel_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_code_ASC" | "version_code_DESC"
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "openid_ASC" | "openid_DESC" | "role_ASC" | "role_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "nickname_ASC" | "nickname_DESC" | "openid_ASC" | "openid_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
   Material: { // root type
+    content?: string | null; // String
     desc?: string | null; // String
     id: string; // ID!
     published: boolean; // Boolean!
@@ -404,6 +468,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 export interface NexusGenFieldTypes {
   Material: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
+    content: string | null; // String
     desc: string | null; // String
     id: string; // ID!
     published: boolean; // Boolean!
