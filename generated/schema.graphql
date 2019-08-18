@@ -82,12 +82,14 @@ input PostWhereUniqueInput {
 type Query {
   feed: [Post!]!
   posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]!
+  users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
 }
 
 type User {
-  age: String
+  fullname: String!
   id: ID!
   name: String!
+  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
 }
 
 input UserCreateInput {
@@ -98,6 +100,25 @@ input UserCreateInput {
   name: String!
   posts: PostCreateManyWithoutAuthorInput
   username: String
+}
+
+enum UserOrderByInput {
+  age_ASC
+  age_DESC
+  createdAt_ASC
+  createdAt_DESC
+  email_ASC
+  email_DESC
+  id_ASC
+  id_DESC
+  job_ASC
+  job_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  username_ASC
+  username_DESC
 }
 
 input UserWhereInput {
