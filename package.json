@@ -6,6 +6,7 @@
   "scripts": {
     "prisma:reset": "sudo prisma reset --force",
     "prisma:deploy": "sudo prisma deploy --force",
+    "seed": "ts-node ./script/seed.ts",
     "start": "ts-node index.ts",
     "dev": "ts-node-dev --no-notify --respawn  ./",
     "build": "tsc",
