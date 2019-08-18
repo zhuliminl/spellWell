@@ -189,7 +189,107 @@ type Mutation {
 
 type Query {
   materials(after: String, before: String, first: Int, last: Int, orderBy: MaterialOrderByInput, skip: Int, where: MaterialWhereInput): [Material!]!
+  systems(after: String, before: String, first: Int, last: Int, orderBy: SystemOrderByInput, skip: Int, where: SystemWhereInput): [System!]!
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
+}
+
+type System {
+  id: ID!
+  name: String!
+  slogan: String
+}
+
+enum SystemOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  slogan_ASC
+  slogan_DESC
+  tel_ASC
+  tel_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  version_code_ASC
+  version_code_DESC
+}
+
+input SystemWhereInput {
+  AND: [SystemWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [SystemWhereInput!]
+  OR: [SystemWhereInput!]
+  slogan: String
+  slogan_contains: String
+  slogan_ends_with: String
+  slogan_gt: String
+  slogan_gte: String
+  slogan_in: [String!]
+  slogan_lt: String
+  slogan_lte: String
+  slogan_not: String
+  slogan_not_contains: String
+  slogan_not_ends_with: String
+  slogan_not_in: [String!]
+  slogan_not_starts_with: String
+  slogan_starts_with: String
+  tel: String
+  tel_contains: String
+  tel_ends_with: String
+  tel_gt: String
+  tel_gte: String
+  tel_in: [String!]
+  tel_lt: String
+  tel_lte: String
+  tel_not: String
+  tel_not_contains: String
+  tel_not_ends_with: String
+  tel_not_in: [String!]
+  tel_not_starts_with: String
+  tel_starts_with: String
+  version_code: String
+  version_code_contains: String
+  version_code_ends_with: String
+  version_code_gt: String
+  version_code_gte: String
+  version_code_in: [String!]
+  version_code_lt: String
+  version_code_lte: String
+  version_code_not: String
+  version_code_not_contains: String
+  version_code_not_ends_with: String
+  version_code_not_in: [String!]
+  version_code_not_starts_with: String
+  version_code_starts_with: String
 }
 
 type User {

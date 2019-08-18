@@ -157,6 +157,81 @@ export interface NexusGenInputs {
   MaterialWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
+  SystemWhereInput: { // input type
+    AND?: NexusGenInputs['SystemWhereInput'][] | null; // [SystemWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['SystemWhereInput'][] | null; // [SystemWhereInput!]
+    OR?: NexusGenInputs['SystemWhereInput'][] | null; // [SystemWhereInput!]
+    slogan?: string | null; // String
+    slogan_contains?: string | null; // String
+    slogan_ends_with?: string | null; // String
+    slogan_gt?: string | null; // String
+    slogan_gte?: string | null; // String
+    slogan_in?: string[] | null; // [String!]
+    slogan_lt?: string | null; // String
+    slogan_lte?: string | null; // String
+    slogan_not?: string | null; // String
+    slogan_not_contains?: string | null; // String
+    slogan_not_ends_with?: string | null; // String
+    slogan_not_in?: string[] | null; // [String!]
+    slogan_not_starts_with?: string | null; // String
+    slogan_starts_with?: string | null; // String
+    tel?: string | null; // String
+    tel_contains?: string | null; // String
+    tel_ends_with?: string | null; // String
+    tel_gt?: string | null; // String
+    tel_gte?: string | null; // String
+    tel_in?: string[] | null; // [String!]
+    tel_lt?: string | null; // String
+    tel_lte?: string | null; // String
+    tel_not?: string | null; // String
+    tel_not_contains?: string | null; // String
+    tel_not_ends_with?: string | null; // String
+    tel_not_in?: string[] | null; // [String!]
+    tel_not_starts_with?: string | null; // String
+    tel_starts_with?: string | null; // String
+    version_code?: string | null; // String
+    version_code_contains?: string | null; // String
+    version_code_ends_with?: string | null; // String
+    version_code_gt?: string | null; // String
+    version_code_gte?: string | null; // String
+    version_code_in?: string[] | null; // [String!]
+    version_code_lt?: string | null; // String
+    version_code_lte?: string | null; // String
+    version_code_not?: string | null; // String
+    version_code_not_contains?: string | null; // String
+    version_code_not_ends_with?: string | null; // String
+    version_code_not_in?: string[] | null; // [String!]
+    version_code_not_starts_with?: string | null; // String
+    version_code_starts_with?: string | null; // String
+  }
   UserCreateInput: { // input type
     email?: string | null; // String
     id?: string | null; // ID
@@ -275,6 +350,7 @@ export interface NexusGenInputs {
 
 export interface NexusGenEnums {
   MaterialOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "desc_ASC" | "desc_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  SystemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "slogan_ASC" | "slogan_DESC" | "tel_ASC" | "tel_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_code_ASC" | "version_code_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "openid_ASC" | "openid_DESC" | "role_ASC" | "role_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
@@ -287,6 +363,11 @@ export interface NexusGenRootTypes {
   }
   Mutation: {};
   Query: {};
+  System: { // root type
+    id: string; // ID!
+    name: string; // String!
+    slogan?: string | null; // String
+  }
   User: { // root type
     id: string; // ID!
     name: string; // String!
@@ -310,11 +391,13 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   MaterialUpsertWithWhereUniqueWithoutAuthorInput: NexusGenInputs['MaterialUpsertWithWhereUniqueWithoutAuthorInput'];
   MaterialWhereInput: NexusGenInputs['MaterialWhereInput'];
   MaterialWhereUniqueInput: NexusGenInputs['MaterialWhereUniqueInput'];
+  SystemWhereInput: NexusGenInputs['SystemWhereInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   MaterialOrderByInput: NexusGenEnums['MaterialOrderByInput'];
+  SystemOrderByInput: NexusGenEnums['SystemOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
@@ -332,7 +415,13 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     materials: NexusGenRootTypes['Material'][]; // [Material!]!
+    systems: NexusGenRootTypes['System'][]; // [System!]!
     users: NexusGenRootTypes['User'][]; // [User!]!
+  }
+  System: { // field return type
+    id: string; // ID!
+    name: string; // String!
+    slogan: string | null; // String
   }
   User: { // field return type
     fullname: string; // String!
@@ -363,6 +452,15 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['MaterialWhereInput'] | null; // MaterialWhereInput
     }
+    systems: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['SystemOrderByInput'] | null; // SystemOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['SystemWhereInput'] | null; // SystemWhereInput
+    }
     users: { // args
       after?: string | null; // String
       before?: string | null; // String
@@ -391,11 +489,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Material" | "Mutation" | "Query" | "User";
+export type NexusGenObjectNames = "Material" | "Mutation" | "Query" | "System" | "User";
 
-export type NexusGenInputNames = "MaterialCreateManyWithoutAuthorInput" | "MaterialCreateWithoutAuthorInput" | "MaterialScalarWhereInput" | "MaterialUpdateManyDataInput" | "MaterialUpdateManyWithWhereNestedInput" | "MaterialUpdateManyWithoutAuthorInput" | "MaterialUpdateWithWhereUniqueWithoutAuthorInput" | "MaterialUpdateWithoutAuthorDataInput" | "MaterialUpsertWithWhereUniqueWithoutAuthorInput" | "MaterialWhereInput" | "MaterialWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "MaterialCreateManyWithoutAuthorInput" | "MaterialCreateWithoutAuthorInput" | "MaterialScalarWhereInput" | "MaterialUpdateManyDataInput" | "MaterialUpdateManyWithWhereNestedInput" | "MaterialUpdateManyWithoutAuthorInput" | "MaterialUpdateWithWhereUniqueWithoutAuthorInput" | "MaterialUpdateWithoutAuthorDataInput" | "MaterialUpsertWithWhereUniqueWithoutAuthorInput" | "MaterialWhereInput" | "MaterialWhereUniqueInput" | "SystemWhereInput" | "UserCreateInput" | "UserUpdateInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "MaterialOrderByInput" | "UserOrderByInput";
+export type NexusGenEnumNames = "MaterialOrderByInput" | "SystemOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
