@@ -16,75 +16,94 @@ export interface NexusPrismaTypes {
     fields: {
       Query: QueryObject
       User: UserObject
-      Post: PostObject
+      Material: MaterialObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
-      PostConnection: PostConnectionObject
-      PostEdge: PostEdgeObject
-      AggregatePost: AggregatePostObject
+      MaterialConnection: MaterialConnectionObject
+      MaterialEdge: MaterialEdgeObject
+      AggregateMaterial: AggregateMaterialObject
+      System: SystemObject
+      SystemConnection: SystemConnectionObject
+      SystemEdge: SystemEdgeObject
+      AggregateSystem: AggregateSystemObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
-      PostSubscriptionPayload: PostSubscriptionPayloadObject
-      PostPreviousValues: PostPreviousValuesObject
+      MaterialSubscriptionPayload: MaterialSubscriptionPayloadObject
+      MaterialPreviousValues: MaterialPreviousValuesObject
+      SystemSubscriptionPayload: SystemSubscriptionPayloadObject
+      SystemPreviousValues: SystemPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
       User: UserFieldDetails
-      Post: PostFieldDetails
+      Material: MaterialFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
-      PostConnection: PostConnectionFieldDetails
-      PostEdge: PostEdgeFieldDetails
-      AggregatePost: AggregatePostFieldDetails
+      MaterialConnection: MaterialConnectionFieldDetails
+      MaterialEdge: MaterialEdgeFieldDetails
+      AggregateMaterial: AggregateMaterialFieldDetails
+      System: SystemFieldDetails
+      SystemConnection: SystemConnectionFieldDetails
+      SystemEdge: SystemEdgeFieldDetails
+      AggregateSystem: AggregateSystemFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
-      PostSubscriptionPayload: PostSubscriptionPayloadFieldDetails
-      PostPreviousValues: PostPreviousValuesFieldDetails
+      MaterialSubscriptionPayload: MaterialSubscriptionPayloadFieldDetails
+      MaterialPreviousValues: MaterialPreviousValuesFieldDetails
+      SystemSubscriptionPayload: SystemSubscriptionPayloadFieldDetails
+      SystemPreviousValues: SystemPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
-      PostWhereInput: PostWhereInputInputObject
+      MaterialWhereInput: MaterialWhereInputInputObject
       UserWhereInput: UserWhereInputInputObject
-      PostWhereUniqueInput: PostWhereUniqueInputInputObject
+      MaterialWhereUniqueInput: MaterialWhereUniqueInputInputObject
+      SystemWhereUniqueInput: SystemWhereUniqueInputInputObject
+      SystemWhereInput: SystemWhereInputInputObject
       UserCreateInput: UserCreateInputInputObject
-      PostCreateManyWithoutAuthorInput: PostCreateManyWithoutAuthorInputInputObject
-      PostCreateWithoutAuthorInput: PostCreateWithoutAuthorInputInputObject
+      MaterialCreateManyWithoutAuthorInput: MaterialCreateManyWithoutAuthorInputInputObject
+      MaterialCreateWithoutAuthorInput: MaterialCreateWithoutAuthorInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
-      PostUpdateManyWithoutAuthorInput: PostUpdateManyWithoutAuthorInputInputObject
-      PostUpdateWithWhereUniqueWithoutAuthorInput: PostUpdateWithWhereUniqueWithoutAuthorInputInputObject
-      PostUpdateWithoutAuthorDataInput: PostUpdateWithoutAuthorDataInputInputObject
-      PostUpsertWithWhereUniqueWithoutAuthorInput: PostUpsertWithWhereUniqueWithoutAuthorInputInputObject
-      PostScalarWhereInput: PostScalarWhereInputInputObject
-      PostUpdateManyWithWhereNestedInput: PostUpdateManyWithWhereNestedInputInputObject
-      PostUpdateManyDataInput: PostUpdateManyDataInputInputObject
+      MaterialUpdateManyWithoutAuthorInput: MaterialUpdateManyWithoutAuthorInputInputObject
+      MaterialUpdateWithWhereUniqueWithoutAuthorInput: MaterialUpdateWithWhereUniqueWithoutAuthorInputInputObject
+      MaterialUpdateWithoutAuthorDataInput: MaterialUpdateWithoutAuthorDataInputInputObject
+      MaterialUpsertWithWhereUniqueWithoutAuthorInput: MaterialUpsertWithWhereUniqueWithoutAuthorInputInputObject
+      MaterialScalarWhereInput: MaterialScalarWhereInputInputObject
+      MaterialUpdateManyWithWhereNestedInput: MaterialUpdateManyWithWhereNestedInputInputObject
+      MaterialUpdateManyDataInput: MaterialUpdateManyDataInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      PostCreateInput: PostCreateInputInputObject
-      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject
-      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject
-      PostUpdateInput: PostUpdateInputInputObject
-      UserUpdateOneWithoutPostsInput: UserUpdateOneWithoutPostsInputInputObject
-      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject
-      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject
-      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
+      MaterialCreateInput: MaterialCreateInputInputObject
+      UserCreateOneWithoutMaterialsInput: UserCreateOneWithoutMaterialsInputInputObject
+      UserCreateWithoutMaterialsInput: UserCreateWithoutMaterialsInputInputObject
+      MaterialUpdateInput: MaterialUpdateInputInputObject
+      UserUpdateOneWithoutMaterialsInput: UserUpdateOneWithoutMaterialsInputInputObject
+      UserUpdateWithoutMaterialsDataInput: UserUpdateWithoutMaterialsDataInputInputObject
+      UserUpsertWithoutMaterialsInput: UserUpsertWithoutMaterialsInputInputObject
+      MaterialUpdateManyMutationInput: MaterialUpdateManyMutationInputInputObject
+      SystemCreateInput: SystemCreateInputInputObject
+      SystemUpdateInput: SystemUpdateInputInputObject
+      SystemUpdateManyMutationInput: SystemUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
-      PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
+      MaterialSubscriptionWhereInput: MaterialSubscriptionWhereInputInputObject
+      SystemSubscriptionWhereInput: SystemSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
-    PostOrderByInput: PostOrderByInputValues,
+    MaterialOrderByInput: MaterialOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
+    SystemOrderByInput: SystemOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -96,17 +115,23 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
-  | { name: 'post', args?: QueryPostArgs[] | false, alias?: string  } 
-  | { name: 'posts', args?: QueryPostsArgs[] | false, alias?: string  } 
-  | { name: 'postsConnection', args?: QueryPostsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'material', args?: QueryMaterialArgs[] | false, alias?: string  } 
+  | { name: 'materials', args?: QueryMaterialsArgs[] | false, alias?: string  } 
+  | { name: 'materialsConnection', args?: QueryMaterialsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'system', args?: QuerySystemArgs[] | false, alias?: string  } 
+  | { name: 'systems', args?: QuerySystemsArgs[] | false, alias?: string  } 
+  | { name: 'systemsConnection', args?: QuerySystemsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
-  | 'post'
-  | 'posts'
-  | 'postsConnection'
+  | 'material'
+  | 'materials'
+  | 'materialsConnection'
+  | 'system'
+  | 'systems'
+  | 'systemsConnection'
 
 
 type QueryUserArgs =
@@ -127,9 +152,9 @@ type QueryUsersConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryPostArgs =
+type QueryMaterialArgs =
   | 'where'
-type QueryPostsArgs =
+type QueryMaterialsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -137,7 +162,25 @@ type QueryPostsArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryPostsConnectionArgs =
+type QueryMaterialsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QuerySystemArgs =
+  | 'where'
+type QuerySystemsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QuerySystemsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -187,44 +230,83 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
   }
-  post: {
-    type: 'Post'
-    args: Record<QueryPostArgs, core.NexusArgDef<string>>
+  material: {
+    type: 'Material'
+    args: Record<QueryMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: PostWhereUniqueInput }  ,
+      args: { where: MaterialWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post | null> | prisma.Post | null
+    ) => Promise<prisma.Material | null> | prisma.Material | null
   }
-  posts: {
-    type: 'Post'
-    args: Record<QueryPostsArgs, core.NexusArgDef<string>>
+  materials: {
+    type: 'Material'
+    args: Record<QueryMaterialsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: MaterialWhereInput | null, orderBy?: prisma.MaterialOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post[]> | prisma.Post[]
+    ) => Promise<prisma.Material[]> | prisma.Material[]
   }
-  postsConnection: {
-    type: 'PostConnection'
-    args: Record<QueryPostsConnectionArgs, core.NexusArgDef<string>>
+  materialsConnection: {
+    type: 'MaterialConnection'
+    args: Record<QueryMaterialsConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: MaterialWhereInput | null, orderBy?: prisma.MaterialOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.PostConnection> | prisma.PostConnection
+    ) => Promise<prisma.MaterialConnection> | prisma.MaterialConnection
+  }
+  system: {
+    type: 'System'
+    args: Record<QuerySystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: SystemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System | null> | prisma.System | null
+  }
+  systems: {
+    type: 'System'
+    args: Record<QuerySystemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: SystemWhereInput | null, orderBy?: prisma.SystemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System[]> | prisma.System[]
+  }
+  systemsConnection: {
+    type: 'SystemConnection'
+    args: Record<QuerySystemsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: SystemWhereInput | null, orderBy?: prisma.SystemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SystemConnection> | prisma.SystemConnection
   }
 }
   
@@ -234,20 +316,24 @@ export interface QueryFieldDetails {
 type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'age', args?: [] | false, alias?: string  } 
-  | { name: 'posts', args?: UserPostsArgs[] | false, alias?: string  } 
+  | { name: 'openid', args?: [] | false, alias?: string  } 
+  | { name: 'materials', args?: UserMaterialsArgs[] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
+  | 'role'
   | 'email'
   | 'name'
-  | 'age'
-  | 'posts'
+  | 'openid'
+  | 'materials'
+  | 'status'
 
 
-type UserPostsArgs =
+type UserMaterialsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -266,6 +352,14 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
+  role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
   email: {
     type: 'String'
     args: {}
@@ -282,7 +376,7 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  age: {
+  openid: {
     type: 'String'
     args: {}
     description: string
@@ -290,36 +384,44 @@ export interface UserFieldDetails {
     nullable: true
     resolve: undefined
   }
-  posts: {
-    type: 'Post'
-    args: Record<UserPostsArgs, core.NexusArgDef<string>>
+  materials: {
+    type: 'Material'
+    args: Record<UserMaterialsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"User">,
-      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: MaterialWhereInput | null, orderBy?: prisma.MaterialOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post[]> | prisma.Post[]
+    ) => Promise<prisma.Material[]> | prisma.Material[]
+  }
+  status: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
 }
   
 
-// Types for Post
+// Types for Material
 
-type PostObject =
-  | PostFields
+type MaterialObject =
+  | MaterialFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
-  | { name: 'slag', args?: [] | false, alias?: string  } 
+  | { name: 'desc', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
   | { name: 'author', args?: [] | false, alias?: string  } 
 
-type PostFields =
+type MaterialFields =
   | 'id'
   | 'title'
-  | 'slag'
+  | 'desc'
   | 'published'
   | 'author'
 
@@ -327,7 +429,7 @@ type PostFields =
 
   
 
-export interface PostFieldDetails {
+export interface MaterialFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -344,7 +446,7 @@ export interface PostFieldDetails {
     nullable: false
     resolve: undefined
   }
-  slag: {
+  desc: {
     type: 'String'
     args: {}
     description: string
@@ -367,7 +469,7 @@ export interface PostFieldDetails {
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"Post">,
+      root: core.RootValue<"Material">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
@@ -556,15 +658,15 @@ export interface AggregateUserFieldDetails {
 }
   
 
-// Types for PostConnection
+// Types for MaterialConnection
 
-type PostConnectionObject =
-  | PostConnectionFields
+type MaterialConnectionObject =
+  | MaterialConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type PostConnectionFields =
+type MaterialConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -573,7 +675,7 @@ type PostConnectionFields =
 
   
 
-export interface PostConnectionFieldDetails {
+export interface MaterialConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -581,49 +683,49 @@ export interface PostConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"PostConnection">,
+      root: core.RootValue<"MaterialConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'PostEdge'
+    type: 'MaterialEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"PostConnection">,
+      root: core.RootValue<"MaterialConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.PostEdge[]> | prisma.PostEdge[]
+    ) => Promise<prisma.MaterialEdge[]> | prisma.MaterialEdge[]
   }
   aggregate: {
-    type: 'AggregatePost'
+    type: 'AggregateMaterial'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"PostConnection">,
+      root: core.RootValue<"MaterialConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregatePost> | prisma.AggregatePost
+    ) => Promise<prisma.AggregateMaterial> | prisma.AggregateMaterial
   }
 }
   
 
-// Types for PostEdge
+// Types for MaterialEdge
 
-type PostEdgeObject =
-  | PostEdgeFields
+type MaterialEdgeObject =
+  | MaterialEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type PostEdgeFields =
+type MaterialEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -631,19 +733,19 @@ type PostEdgeFields =
 
   
 
-export interface PostEdgeFieldDetails {
+export interface MaterialEdgeFieldDetails {
   node: {
-    type: 'Post'
+    type: 'Material'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"PostEdge">,
+      root: core.RootValue<"MaterialEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post> | prisma.Post
+    ) => Promise<prisma.Material> | prisma.Material
   }
   cursor: {
     type: 'String'
@@ -656,20 +758,210 @@ export interface PostEdgeFieldDetails {
 }
   
 
-// Types for AggregatePost
+// Types for AggregateMaterial
 
-type AggregatePostObject =
-  | AggregatePostFields
+type AggregateMaterialObject =
+  | AggregateMaterialFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregatePostFields =
+type AggregateMaterialFields =
   | 'count'
 
 
 
   
 
-export interface AggregatePostFieldDetails {
+export interface AggregateMaterialFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for System
+
+type SystemObject =
+  | SystemFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'slogan', args?: [] | false, alias?: string  } 
+  | { name: 'tel', args?: [] | false, alias?: string  } 
+  | { name: 'version_code', args?: [] | false, alias?: string  } 
+
+type SystemFields =
+  | 'id'
+  | 'name'
+  | 'slogan'
+  | 'tel'
+  | 'version_code'
+
+
+
+  
+
+export interface SystemFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  slogan: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  tel: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  version_code: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for SystemConnection
+
+type SystemConnectionObject =
+  | SystemConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type SystemConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface SystemConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SystemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'SystemEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SystemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SystemEdge[]> | prisma.SystemEdge[]
+  }
+  aggregate: {
+    type: 'AggregateSystem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SystemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateSystem> | prisma.AggregateSystem
+  }
+}
+  
+
+// Types for SystemEdge
+
+type SystemEdgeObject =
+  | SystemEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type SystemEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface SystemEdgeFieldDetails {
+  node: {
+    type: 'System'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SystemEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System> | prisma.System
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateSystem
+
+type AggregateSystemObject =
+  | AggregateSystemFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateSystemFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateSystemFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -691,12 +983,18 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
-  | { name: 'createPost', args?: MutationCreatePostArgs[] | false, alias?: string  } 
-  | { name: 'updatePost', args?: MutationUpdatePostArgs[] | false, alias?: string  } 
-  | { name: 'updateManyPosts', args?: MutationUpdateManyPostsArgs[] | false, alias?: string  } 
-  | { name: 'upsertPost', args?: MutationUpsertPostArgs[] | false, alias?: string  } 
-  | { name: 'deletePost', args?: MutationDeletePostArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyPosts', args?: MutationDeleteManyPostsArgs[] | false, alias?: string  } 
+  | { name: 'createMaterial', args?: MutationCreateMaterialArgs[] | false, alias?: string  } 
+  | { name: 'updateMaterial', args?: MutationUpdateMaterialArgs[] | false, alias?: string  } 
+  | { name: 'updateManyMaterials', args?: MutationUpdateManyMaterialsArgs[] | false, alias?: string  } 
+  | { name: 'upsertMaterial', args?: MutationUpsertMaterialArgs[] | false, alias?: string  } 
+  | { name: 'deleteMaterial', args?: MutationDeleteMaterialArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyMaterials', args?: MutationDeleteManyMaterialsArgs[] | false, alias?: string  } 
+  | { name: 'createSystem', args?: MutationCreateSystemArgs[] | false, alias?: string  } 
+  | { name: 'updateSystem', args?: MutationUpdateSystemArgs[] | false, alias?: string  } 
+  | { name: 'updateManySystems', args?: MutationUpdateManySystemsArgs[] | false, alias?: string  } 
+  | { name: 'upsertSystem', args?: MutationUpsertSystemArgs[] | false, alias?: string  } 
+  | { name: 'deleteSystem', args?: MutationDeleteSystemArgs[] | false, alias?: string  } 
+  | { name: 'deleteManySystems', args?: MutationDeleteManySystemsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -705,12 +1003,18 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
-  | 'createPost'
-  | 'updatePost'
-  | 'updateManyPosts'
-  | 'upsertPost'
-  | 'deletePost'
-  | 'deleteManyPosts'
+  | 'createMaterial'
+  | 'updateMaterial'
+  | 'updateManyMaterials'
+  | 'upsertMaterial'
+  | 'deleteMaterial'
+  | 'deleteManyMaterials'
+  | 'createSystem'
+  | 'updateSystem'
+  | 'updateManySystems'
+  | 'upsertSystem'
+  | 'deleteSystem'
+  | 'deleteManySystems'
 
 
 type MutationCreateUserArgs =
@@ -729,21 +1033,37 @@ type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
   | 'where'
-type MutationCreatePostArgs =
+type MutationCreateMaterialArgs =
   | 'data'
-type MutationUpdatePostArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyPostsArgs =
+type MutationUpdateMaterialArgs =
   | 'data'
   | 'where'
-type MutationUpsertPostArgs =
+type MutationUpdateManyMaterialsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertMaterialArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeletePostArgs =
+type MutationDeleteMaterialArgs =
   | 'where'
-type MutationDeleteManyPostsArgs =
+type MutationDeleteManyMaterialsArgs =
+  | 'where'
+type MutationCreateSystemArgs =
+  | 'data'
+type MutationUpdateSystemArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManySystemsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertSystemArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteSystemArgs =
+  | 'where'
+type MutationDeleteManySystemsArgs =
   | 'where'
   
 
@@ -826,80 +1146,158 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createPost: {
-    type: 'Post'
-    args: Record<MutationCreatePostArgs, core.NexusArgDef<string>>
+  createMaterial: {
+    type: 'Material'
+    args: Record<MutationCreateMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: PostCreateInput }  ,
+      args: { data: MaterialCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post> | prisma.Post
+    ) => Promise<prisma.Material> | prisma.Material
   }
-  updatePost: {
-    type: 'Post'
-    args: Record<MutationUpdatePostArgs, core.NexusArgDef<string>>
+  updateMaterial: {
+    type: 'Material'
+    args: Record<MutationUpdateMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: PostUpdateInput, where: PostWhereUniqueInput }  ,
+      args: { data: MaterialUpdateInput, where: MaterialWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post | null> | prisma.Post | null
+    ) => Promise<prisma.Material | null> | prisma.Material | null
   }
-  updateManyPosts: {
+  updateManyMaterials: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyPostsArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyMaterialsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: PostUpdateManyMutationInput, where?: PostWhereInput | null }  ,
+      args: { data: MaterialUpdateManyMutationInput, where?: MaterialWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertPost: {
-    type: 'Post'
-    args: Record<MutationUpsertPostArgs, core.NexusArgDef<string>>
+  upsertMaterial: {
+    type: 'Material'
+    args: Record<MutationUpsertMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: PostWhereUniqueInput, create: PostCreateInput, update: PostUpdateInput }  ,
+      args: { where: MaterialWhereUniqueInput, create: MaterialCreateInput, update: MaterialUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post> | prisma.Post
+    ) => Promise<prisma.Material> | prisma.Material
   }
-  deletePost: {
-    type: 'Post'
-    args: Record<MutationDeletePostArgs, core.NexusArgDef<string>>
+  deleteMaterial: {
+    type: 'Material'
+    args: Record<MutationDeleteMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: PostWhereUniqueInput }  ,
+      args: { where: MaterialWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post | null> | prisma.Post | null
+    ) => Promise<prisma.Material | null> | prisma.Material | null
   }
-  deleteManyPosts: {
+  deleteManyMaterials: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyPostsArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyMaterialsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: PostWhereInput | null }  ,
+      args: { where?: MaterialWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createSystem: {
+    type: 'System'
+    args: Record<MutationCreateSystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SystemCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System> | prisma.System
+  }
+  updateSystem: {
+    type: 'System'
+    args: Record<MutationUpdateSystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SystemUpdateInput, where: SystemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System | null> | prisma.System | null
+  }
+  updateManySystems: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManySystemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SystemUpdateManyMutationInput, where?: SystemWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertSystem: {
+    type: 'System'
+    args: Record<MutationUpsertSystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: SystemWhereUniqueInput, create: SystemCreateInput, update: SystemUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System> | prisma.System
+  }
+  deleteSystem: {
+    type: 'System'
+    args: Record<MutationDeleteSystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: SystemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System | null> | prisma.System | null
+  }
+  deleteManySystems: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManySystemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: SystemWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -937,16 +1335,20 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
-  | { name: 'post', args?: SubscriptionPostArgs[] | false, alias?: string  } 
+  | { name: 'material', args?: SubscriptionMaterialArgs[] | false, alias?: string  } 
+  | { name: 'system', args?: SubscriptionSystemArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
-  | 'post'
+  | 'material'
+  | 'system'
 
 
 type SubscriptionUserArgs =
   | 'where'
-type SubscriptionPostArgs =
+type SubscriptionMaterialArgs =
+  | 'where'
+type SubscriptionSystemArgs =
   | 'where'
   
 
@@ -964,18 +1366,31 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
   }
-  post: {
-    type: 'PostSubscriptionPayload'
-    args: Record<SubscriptionPostArgs, core.NexusArgDef<string>>
+  material: {
+    type: 'MaterialSubscriptionPayload'
+    args: Record<SubscriptionMaterialArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: PostSubscriptionWhereInput | null }  ,
+      args: { where?: MaterialSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.PostSubscriptionPayload | null> | prisma.PostSubscriptionPayload | null
+    ) => Promise<prisma.MaterialSubscriptionPayload | null> | prisma.MaterialSubscriptionPayload | null
+  }
+  system: {
+    type: 'SystemSubscriptionPayload'
+    args: Record<SubscriptionSystemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: SystemSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SystemSubscriptionPayload | null> | prisma.SystemSubscriptionPayload | null
   }
 }
   
@@ -1055,15 +1470,19 @@ export interface UserSubscriptionPayloadFieldDetails {
 type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'age', args?: [] | false, alias?: string  } 
+  | { name: 'openid', args?: [] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
+  | 'role'
   | 'email'
   | 'name'
-  | 'age'
+  | 'openid'
+  | 'status'
 
 
 
@@ -1076,6 +1495,14 @@ export interface UserPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   email: {
@@ -1094,7 +1521,15 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  age: {
+  openid: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  status: {
     type: 'String'
     args: {}
     description: string
@@ -1105,16 +1540,16 @@ export interface UserPreviousValuesFieldDetails {
 }
   
 
-// Types for PostSubscriptionPayload
+// Types for MaterialSubscriptionPayload
 
-type PostSubscriptionPayloadObject =
-  | PostSubscriptionPayloadFields
+type MaterialSubscriptionPayloadObject =
+  | MaterialSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type PostSubscriptionPayloadFields =
+type MaterialSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -1124,7 +1559,7 @@ type PostSubscriptionPayloadFields =
 
   
 
-export interface PostSubscriptionPayloadFieldDetails {
+export interface MaterialSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -1132,24 +1567,24 @@ export interface PostSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"PostSubscriptionPayload">,
+      root: core.RootValue<"MaterialSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'Post'
+    type: 'Material'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"PostSubscriptionPayload">,
+      root: core.RootValue<"MaterialSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post | null> | prisma.Post | null
+    ) => Promise<prisma.Material | null> | prisma.Material | null
   }
   updatedFields: {
     type: 'String'
@@ -1160,41 +1595,41 @@ export interface PostSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'PostPreviousValues'
+    type: 'MaterialPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"PostSubscriptionPayload">,
+      root: core.RootValue<"MaterialSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.PostPreviousValues | null> | prisma.PostPreviousValues | null
+    ) => Promise<prisma.MaterialPreviousValues | null> | prisma.MaterialPreviousValues | null
   }
 }
   
 
-// Types for PostPreviousValues
+// Types for MaterialPreviousValues
 
-type PostPreviousValuesObject =
-  | PostPreviousValuesFields
+type MaterialPreviousValuesObject =
+  | MaterialPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
-  | { name: 'slag', args?: [] | false, alias?: string  } 
+  | { name: 'desc', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
 
-type PostPreviousValuesFields =
+type MaterialPreviousValuesFields =
   | 'id'
   | 'title'
-  | 'slag'
+  | 'desc'
   | 'published'
 
 
 
   
 
-export interface PostPreviousValuesFieldDetails {
+export interface MaterialPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -1211,7 +1646,7 @@ export interface PostPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  slag: {
+  desc: {
     type: 'String'
     args: {}
     description: string
@@ -1230,17 +1665,154 @@ export interface PostPreviousValuesFieldDetails {
 }
   
 
+// Types for SystemSubscriptionPayload
+
+type SystemSubscriptionPayloadObject =
+  | SystemSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type SystemSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface SystemSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SystemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'System'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"SystemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.System | null> | prisma.System | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'SystemPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"SystemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SystemPreviousValues | null> | prisma.SystemPreviousValues | null
+  }
+}
+  
+
+// Types for SystemPreviousValues
+
+type SystemPreviousValuesObject =
+  | SystemPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'slogan', args?: [] | false, alias?: string  } 
+  | { name: 'tel', args?: [] | false, alias?: string  } 
+  | { name: 'version_code', args?: [] | false, alias?: string  } 
+
+type SystemPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'slogan'
+  | 'tel'
+  | 'version_code'
+
+
+
+  
+
+export interface SystemPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  slogan: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  tel: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  version_code: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
 
 export interface UserWhereUniqueInput {
   id?: string | null
   email?: string | null
+  openid?: string | null
 }
 export type UserWhereUniqueInputInputObject =
   | Extract<keyof UserWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
   
-export interface PostWhereInput {
+export interface MaterialWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -1269,29 +1841,29 @@ export interface PostWhereInput {
   title_not_starts_with?: string | null
   title_ends_with?: string | null
   title_not_ends_with?: string | null
-  slag?: string | null
-  slag_not?: string | null
-  slag_in?: string[]
-  slag_not_in?: string[]
-  slag_lt?: string | null
-  slag_lte?: string | null
-  slag_gt?: string | null
-  slag_gte?: string | null
-  slag_contains?: string | null
-  slag_not_contains?: string | null
-  slag_starts_with?: string | null
-  slag_not_starts_with?: string | null
-  slag_ends_with?: string | null
-  slag_not_ends_with?: string | null
+  desc?: string | null
+  desc_not?: string | null
+  desc_in?: string[]
+  desc_not_in?: string[]
+  desc_lt?: string | null
+  desc_lte?: string | null
+  desc_gt?: string | null
+  desc_gte?: string | null
+  desc_contains?: string | null
+  desc_not_contains?: string | null
+  desc_starts_with?: string | null
+  desc_not_starts_with?: string | null
+  desc_ends_with?: string | null
+  desc_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
   author?: UserWhereInput | null
-  AND?: PostWhereInput[]
-  OR?: PostWhereInput[]
-  NOT?: PostWhereInput[]
+  AND?: MaterialWhereInput[]
+  OR?: MaterialWhereInput[]
+  NOT?: MaterialWhereInput[]
 }
-export type PostWhereInputInputObject =
-  | Extract<keyof PostWhereInput, string>
+export type MaterialWhereInputInputObject =
+  | Extract<keyof MaterialWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -1320,20 +1892,20 @@ export type PostWhereInputInputObject =
   | { name: 'title_not_starts_with', alias?: string  } 
   | { name: 'title_ends_with', alias?: string  } 
   | { name: 'title_not_ends_with', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
-  | { name: 'slag_not', alias?: string  } 
-  | { name: 'slag_in', alias?: string  } 
-  | { name: 'slag_not_in', alias?: string  } 
-  | { name: 'slag_lt', alias?: string  } 
-  | { name: 'slag_lte', alias?: string  } 
-  | { name: 'slag_gt', alias?: string  } 
-  | { name: 'slag_gte', alias?: string  } 
-  | { name: 'slag_contains', alias?: string  } 
-  | { name: 'slag_not_contains', alias?: string  } 
-  | { name: 'slag_starts_with', alias?: string  } 
-  | { name: 'slag_not_starts_with', alias?: string  } 
-  | { name: 'slag_ends_with', alias?: string  } 
-  | { name: 'slag_not_ends_with', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
+  | { name: 'desc_not', alias?: string  } 
+  | { name: 'desc_in', alias?: string  } 
+  | { name: 'desc_not_in', alias?: string  } 
+  | { name: 'desc_lt', alias?: string  } 
+  | { name: 'desc_lte', alias?: string  } 
+  | { name: 'desc_gt', alias?: string  } 
+  | { name: 'desc_gte', alias?: string  } 
+  | { name: 'desc_contains', alias?: string  } 
+  | { name: 'desc_not_contains', alias?: string  } 
+  | { name: 'desc_starts_with', alias?: string  } 
+  | { name: 'desc_not_starts_with', alias?: string  } 
+  | { name: 'desc_ends_with', alias?: string  } 
+  | { name: 'desc_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'author', alias?: string  } 
@@ -1356,6 +1928,20 @@ export interface UserWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  role?: string | null
+  role_not?: string | null
+  role_in?: string[]
+  role_not_in?: string[]
+  role_lt?: string | null
+  role_lte?: string | null
+  role_gt?: string | null
+  role_gte?: string | null
+  role_contains?: string | null
+  role_not_contains?: string | null
+  role_starts_with?: string | null
+  role_not_starts_with?: string | null
+  role_ends_with?: string | null
+  role_not_ends_with?: string | null
   email?: string | null
   email_not?: string | null
   email_in?: string[]
@@ -1384,23 +1970,37 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  age?: string | null
-  age_not?: string | null
-  age_in?: string[]
-  age_not_in?: string[]
-  age_lt?: string | null
-  age_lte?: string | null
-  age_gt?: string | null
-  age_gte?: string | null
-  age_contains?: string | null
-  age_not_contains?: string | null
-  age_starts_with?: string | null
-  age_not_starts_with?: string | null
-  age_ends_with?: string | null
-  age_not_ends_with?: string | null
-  posts_every?: PostWhereInput | null
-  posts_some?: PostWhereInput | null
-  posts_none?: PostWhereInput | null
+  openid?: string | null
+  openid_not?: string | null
+  openid_in?: string[]
+  openid_not_in?: string[]
+  openid_lt?: string | null
+  openid_lte?: string | null
+  openid_gt?: string | null
+  openid_gte?: string | null
+  openid_contains?: string | null
+  openid_not_contains?: string | null
+  openid_starts_with?: string | null
+  openid_not_starts_with?: string | null
+  openid_ends_with?: string | null
+  openid_not_ends_with?: string | null
+  materials_every?: MaterialWhereInput | null
+  materials_some?: MaterialWhereInput | null
+  materials_none?: MaterialWhereInput | null
+  status?: string | null
+  status_not?: string | null
+  status_in?: string[]
+  status_not_in?: string[]
+  status_lt?: string | null
+  status_lte?: string | null
+  status_gt?: string | null
+  status_gte?: string | null
+  status_contains?: string | null
+  status_not_contains?: string | null
+  status_starts_with?: string | null
+  status_not_starts_with?: string | null
+  status_ends_with?: string | null
+  status_not_ends_with?: string | null
   AND?: UserWhereInput[]
   OR?: UserWhereInput[]
   NOT?: UserWhereInput[]
@@ -1421,6 +2021,20 @@ export type UserWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
+  | { name: 'role_lt', alias?: string  } 
+  | { name: 'role_lte', alias?: string  } 
+  | { name: 'role_gt', alias?: string  } 
+  | { name: 'role_gte', alias?: string  } 
+  | { name: 'role_contains', alias?: string  } 
+  | { name: 'role_not_contains', alias?: string  } 
+  | { name: 'role_starts_with', alias?: string  } 
+  | { name: 'role_not_starts_with', alias?: string  } 
+  | { name: 'role_ends_with', alias?: string  } 
+  | { name: 'role_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -1449,97 +2063,277 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'age', alias?: string  } 
-  | { name: 'age_not', alias?: string  } 
-  | { name: 'age_in', alias?: string  } 
-  | { name: 'age_not_in', alias?: string  } 
-  | { name: 'age_lt', alias?: string  } 
-  | { name: 'age_lte', alias?: string  } 
-  | { name: 'age_gt', alias?: string  } 
-  | { name: 'age_gte', alias?: string  } 
-  | { name: 'age_contains', alias?: string  } 
-  | { name: 'age_not_contains', alias?: string  } 
-  | { name: 'age_starts_with', alias?: string  } 
-  | { name: 'age_not_starts_with', alias?: string  } 
-  | { name: 'age_ends_with', alias?: string  } 
-  | { name: 'age_not_ends_with', alias?: string  } 
-  | { name: 'posts_every', alias?: string  } 
-  | { name: 'posts_some', alias?: string  } 
-  | { name: 'posts_none', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'openid_not', alias?: string  } 
+  | { name: 'openid_in', alias?: string  } 
+  | { name: 'openid_not_in', alias?: string  } 
+  | { name: 'openid_lt', alias?: string  } 
+  | { name: 'openid_lte', alias?: string  } 
+  | { name: 'openid_gt', alias?: string  } 
+  | { name: 'openid_gte', alias?: string  } 
+  | { name: 'openid_contains', alias?: string  } 
+  | { name: 'openid_not_contains', alias?: string  } 
+  | { name: 'openid_starts_with', alias?: string  } 
+  | { name: 'openid_not_starts_with', alias?: string  } 
+  | { name: 'openid_ends_with', alias?: string  } 
+  | { name: 'openid_not_ends_with', alias?: string  } 
+  | { name: 'materials_every', alias?: string  } 
+  | { name: 'materials_some', alias?: string  } 
+  | { name: 'materials_none', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'status_not', alias?: string  } 
+  | { name: 'status_in', alias?: string  } 
+  | { name: 'status_not_in', alias?: string  } 
+  | { name: 'status_lt', alias?: string  } 
+  | { name: 'status_lte', alias?: string  } 
+  | { name: 'status_gt', alias?: string  } 
+  | { name: 'status_gte', alias?: string  } 
+  | { name: 'status_contains', alias?: string  } 
+  | { name: 'status_not_contains', alias?: string  } 
+  | { name: 'status_starts_with', alias?: string  } 
+  | { name: 'status_not_starts_with', alias?: string  } 
+  | { name: 'status_ends_with', alias?: string  } 
+  | { name: 'status_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostWhereUniqueInput {
+export interface MaterialWhereUniqueInput {
   id?: string | null
 }
-export type PostWhereUniqueInputInputObject =
-  | Extract<keyof PostWhereUniqueInput, string>
+export type MaterialWhereUniqueInputInputObject =
+  | Extract<keyof MaterialWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  
+export interface SystemWhereUniqueInput {
+  id?: string | null
+}
+export type SystemWhereUniqueInputInputObject =
+  | Extract<keyof SystemWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface SystemWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  slogan?: string | null
+  slogan_not?: string | null
+  slogan_in?: string[]
+  slogan_not_in?: string[]
+  slogan_lt?: string | null
+  slogan_lte?: string | null
+  slogan_gt?: string | null
+  slogan_gte?: string | null
+  slogan_contains?: string | null
+  slogan_not_contains?: string | null
+  slogan_starts_with?: string | null
+  slogan_not_starts_with?: string | null
+  slogan_ends_with?: string | null
+  slogan_not_ends_with?: string | null
+  tel?: string | null
+  tel_not?: string | null
+  tel_in?: string[]
+  tel_not_in?: string[]
+  tel_lt?: string | null
+  tel_lte?: string | null
+  tel_gt?: string | null
+  tel_gte?: string | null
+  tel_contains?: string | null
+  tel_not_contains?: string | null
+  tel_starts_with?: string | null
+  tel_not_starts_with?: string | null
+  tel_ends_with?: string | null
+  tel_not_ends_with?: string | null
+  version_code?: string | null
+  version_code_not?: string | null
+  version_code_in?: string[]
+  version_code_not_in?: string[]
+  version_code_lt?: string | null
+  version_code_lte?: string | null
+  version_code_gt?: string | null
+  version_code_gte?: string | null
+  version_code_contains?: string | null
+  version_code_not_contains?: string | null
+  version_code_starts_with?: string | null
+  version_code_not_starts_with?: string | null
+  version_code_ends_with?: string | null
+  version_code_not_ends_with?: string | null
+  AND?: SystemWhereInput[]
+  OR?: SystemWhereInput[]
+  NOT?: SystemWhereInput[]
+}
+export type SystemWhereInputInputObject =
+  | Extract<keyof SystemWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'slogan', alias?: string  } 
+  | { name: 'slogan_not', alias?: string  } 
+  | { name: 'slogan_in', alias?: string  } 
+  | { name: 'slogan_not_in', alias?: string  } 
+  | { name: 'slogan_lt', alias?: string  } 
+  | { name: 'slogan_lte', alias?: string  } 
+  | { name: 'slogan_gt', alias?: string  } 
+  | { name: 'slogan_gte', alias?: string  } 
+  | { name: 'slogan_contains', alias?: string  } 
+  | { name: 'slogan_not_contains', alias?: string  } 
+  | { name: 'slogan_starts_with', alias?: string  } 
+  | { name: 'slogan_not_starts_with', alias?: string  } 
+  | { name: 'slogan_ends_with', alias?: string  } 
+  | { name: 'slogan_not_ends_with', alias?: string  } 
+  | { name: 'tel', alias?: string  } 
+  | { name: 'tel_not', alias?: string  } 
+  | { name: 'tel_in', alias?: string  } 
+  | { name: 'tel_not_in', alias?: string  } 
+  | { name: 'tel_lt', alias?: string  } 
+  | { name: 'tel_lte', alias?: string  } 
+  | { name: 'tel_gt', alias?: string  } 
+  | { name: 'tel_gte', alias?: string  } 
+  | { name: 'tel_contains', alias?: string  } 
+  | { name: 'tel_not_contains', alias?: string  } 
+  | { name: 'tel_starts_with', alias?: string  } 
+  | { name: 'tel_not_starts_with', alias?: string  } 
+  | { name: 'tel_ends_with', alias?: string  } 
+  | { name: 'tel_not_ends_with', alias?: string  } 
+  | { name: 'version_code', alias?: string  } 
+  | { name: 'version_code_not', alias?: string  } 
+  | { name: 'version_code_in', alias?: string  } 
+  | { name: 'version_code_not_in', alias?: string  } 
+  | { name: 'version_code_lt', alias?: string  } 
+  | { name: 'version_code_lte', alias?: string  } 
+  | { name: 'version_code_gt', alias?: string  } 
+  | { name: 'version_code_gte', alias?: string  } 
+  | { name: 'version_code_contains', alias?: string  } 
+  | { name: 'version_code_not_contains', alias?: string  } 
+  | { name: 'version_code_starts_with', alias?: string  } 
+  | { name: 'version_code_not_starts_with', alias?: string  } 
+  | { name: 'version_code_ends_with', alias?: string  } 
+  | { name: 'version_code_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
 export interface UserCreateInput {
   id?: string | null
+  role?: string | null
   email?: string | null
   name?: string
-  age?: string | null
-  posts?: PostCreateManyWithoutAuthorInput | null
+  openid?: string | null
+  materials?: MaterialCreateManyWithoutAuthorInput | null
+  status?: string | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'age', alias?: string  } 
-  | { name: 'posts', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'materials', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   
-export interface PostCreateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[]
-  connect?: PostWhereUniqueInput[]
+export interface MaterialCreateManyWithoutAuthorInput {
+  create?: MaterialCreateWithoutAuthorInput[]
+  connect?: MaterialWhereUniqueInput[]
 }
-export type PostCreateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateManyWithoutAuthorInput, string>
+export type MaterialCreateManyWithoutAuthorInputInputObject =
+  | Extract<keyof MaterialCreateManyWithoutAuthorInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface PostCreateWithoutAuthorInput {
+export interface MaterialCreateWithoutAuthorInput {
   id?: string | null
   title?: string
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
 }
-export type PostCreateWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateWithoutAuthorInput, string>
+export type MaterialCreateWithoutAuthorInputInputObject =
+  | Extract<keyof MaterialCreateWithoutAuthorInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateInput {
+  role?: string | null
   email?: string | null
   name?: string | null
-  age?: string | null
-  posts?: PostUpdateManyWithoutAuthorInput | null
+  openid?: string | null
+  materials?: MaterialUpdateManyWithoutAuthorInput | null
+  status?: string | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
+  | { name: 'role', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'age', alias?: string  } 
-  | { name: 'posts', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'materials', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[]
-  delete?: PostWhereUniqueInput[]
-  connect?: PostWhereUniqueInput[]
-  set?: PostWhereUniqueInput[]
-  disconnect?: PostWhereUniqueInput[]
-  update?: PostUpdateWithWhereUniqueWithoutAuthorInput[]
-  upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[]
-  deleteMany?: PostScalarWhereInput[]
-  updateMany?: PostUpdateManyWithWhereNestedInput[]
+export interface MaterialUpdateManyWithoutAuthorInput {
+  create?: MaterialCreateWithoutAuthorInput[]
+  delete?: MaterialWhereUniqueInput[]
+  connect?: MaterialWhereUniqueInput[]
+  set?: MaterialWhereUniqueInput[]
+  disconnect?: MaterialWhereUniqueInput[]
+  update?: MaterialUpdateWithWhereUniqueWithoutAuthorInput[]
+  upsert?: MaterialUpsertWithWhereUniqueWithoutAuthorInput[]
+  deleteMany?: MaterialScalarWhereInput[]
+  updateMany?: MaterialUpdateManyWithWhereNestedInput[]
 }
-export type PostUpdateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateManyWithoutAuthorInput, string>
+export type MaterialUpdateManyWithoutAuthorInputInputObject =
+  | Extract<keyof MaterialUpdateManyWithoutAuthorInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -1550,38 +2344,38 @@ export type PostUpdateManyWithoutAuthorInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput
-  data?: PostUpdateWithoutAuthorDataInput
+export interface MaterialUpdateWithWhereUniqueWithoutAuthorInput {
+  where?: MaterialWhereUniqueInput
+  data?: MaterialUpdateWithoutAuthorDataInput
 }
-export type PostUpdateWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateWithWhereUniqueWithoutAuthorInput, string>
+export type MaterialUpdateWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof MaterialUpdateWithWhereUniqueWithoutAuthorInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface PostUpdateWithoutAuthorDataInput {
+export interface MaterialUpdateWithoutAuthorDataInput {
   title?: string | null
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
 }
-export type PostUpdateWithoutAuthorDataInputInputObject =
-  | Extract<keyof PostUpdateWithoutAuthorDataInput, string>
+export type MaterialUpdateWithoutAuthorDataInputInputObject =
+  | Extract<keyof MaterialUpdateWithoutAuthorDataInput, string>
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput
-  update?: PostUpdateWithoutAuthorDataInput
-  create?: PostCreateWithoutAuthorInput
+export interface MaterialUpsertWithWhereUniqueWithoutAuthorInput {
+  where?: MaterialWhereUniqueInput
+  update?: MaterialUpdateWithoutAuthorDataInput
+  create?: MaterialCreateWithoutAuthorInput
 }
-export type PostUpsertWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpsertWithWhereUniqueWithoutAuthorInput, string>
+export type MaterialUpsertWithWhereUniqueWithoutAuthorInputInputObject =
+  | Extract<keyof MaterialUpsertWithWhereUniqueWithoutAuthorInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface PostScalarWhereInput {
+export interface MaterialScalarWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -1610,28 +2404,28 @@ export interface PostScalarWhereInput {
   title_not_starts_with?: string | null
   title_ends_with?: string | null
   title_not_ends_with?: string | null
-  slag?: string | null
-  slag_not?: string | null
-  slag_in?: string[]
-  slag_not_in?: string[]
-  slag_lt?: string | null
-  slag_lte?: string | null
-  slag_gt?: string | null
-  slag_gte?: string | null
-  slag_contains?: string | null
-  slag_not_contains?: string | null
-  slag_starts_with?: string | null
-  slag_not_starts_with?: string | null
-  slag_ends_with?: string | null
-  slag_not_ends_with?: string | null
+  desc?: string | null
+  desc_not?: string | null
+  desc_in?: string[]
+  desc_not_in?: string[]
+  desc_lt?: string | null
+  desc_lte?: string | null
+  desc_gt?: string | null
+  desc_gte?: string | null
+  desc_contains?: string | null
+  desc_not_contains?: string | null
+  desc_starts_with?: string | null
+  desc_not_starts_with?: string | null
+  desc_ends_with?: string | null
+  desc_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
-  AND?: PostScalarWhereInput[]
-  OR?: PostScalarWhereInput[]
-  NOT?: PostScalarWhereInput[]
+  AND?: MaterialScalarWhereInput[]
+  OR?: MaterialScalarWhereInput[]
+  NOT?: MaterialScalarWhereInput[]
 }
-export type PostScalarWhereInputInputObject =
-  | Extract<keyof PostScalarWhereInput, string>
+export type MaterialScalarWhereInputInputObject =
+  | Extract<keyof MaterialScalarWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -1660,117 +2454,125 @@ export type PostScalarWhereInputInputObject =
   | { name: 'title_not_starts_with', alias?: string  } 
   | { name: 'title_ends_with', alias?: string  } 
   | { name: 'title_not_ends_with', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
-  | { name: 'slag_not', alias?: string  } 
-  | { name: 'slag_in', alias?: string  } 
-  | { name: 'slag_not_in', alias?: string  } 
-  | { name: 'slag_lt', alias?: string  } 
-  | { name: 'slag_lte', alias?: string  } 
-  | { name: 'slag_gt', alias?: string  } 
-  | { name: 'slag_gte', alias?: string  } 
-  | { name: 'slag_contains', alias?: string  } 
-  | { name: 'slag_not_contains', alias?: string  } 
-  | { name: 'slag_starts_with', alias?: string  } 
-  | { name: 'slag_not_starts_with', alias?: string  } 
-  | { name: 'slag_ends_with', alias?: string  } 
-  | { name: 'slag_not_ends_with', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
+  | { name: 'desc_not', alias?: string  } 
+  | { name: 'desc_in', alias?: string  } 
+  | { name: 'desc_not_in', alias?: string  } 
+  | { name: 'desc_lt', alias?: string  } 
+  | { name: 'desc_lte', alias?: string  } 
+  | { name: 'desc_gt', alias?: string  } 
+  | { name: 'desc_gte', alias?: string  } 
+  | { name: 'desc_contains', alias?: string  } 
+  | { name: 'desc_not_contains', alias?: string  } 
+  | { name: 'desc_starts_with', alias?: string  } 
+  | { name: 'desc_not_starts_with', alias?: string  } 
+  | { name: 'desc_ends_with', alias?: string  } 
+  | { name: 'desc_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostUpdateManyWithWhereNestedInput {
-  where?: PostScalarWhereInput
-  data?: PostUpdateManyDataInput
+export interface MaterialUpdateManyWithWhereNestedInput {
+  where?: MaterialScalarWhereInput
+  data?: MaterialUpdateManyDataInput
 }
-export type PostUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof PostUpdateManyWithWhereNestedInput, string>
+export type MaterialUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof MaterialUpdateManyWithWhereNestedInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface PostUpdateManyDataInput {
+export interface MaterialUpdateManyDataInput {
   title?: string | null
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
 }
-export type PostUpdateManyDataInputInputObject =
-  | Extract<keyof PostUpdateManyDataInput, string>
+export type MaterialUpdateManyDataInputInputObject =
+  | Extract<keyof MaterialUpdateManyDataInput, string>
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
+  role?: string | null
   email?: string | null
   name?: string | null
-  age?: string | null
+  openid?: string | null
+  status?: string | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'role', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'age', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   
-export interface PostCreateInput {
+export interface MaterialCreateInput {
   id?: string | null
   title?: string
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
-  author?: UserCreateOneWithoutPostsInput | null
+  author?: UserCreateOneWithoutMaterialsInput | null
 }
-export type PostCreateInputInputObject =
-  | Extract<keyof PostCreateInput, string>
+export type MaterialCreateInputInputObject =
+  | Extract<keyof MaterialCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
-export interface UserCreateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
+export interface UserCreateOneWithoutMaterialsInput {
+  create?: UserCreateWithoutMaterialsInput | null
   connect?: UserWhereUniqueInput | null
 }
-export type UserCreateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPostsInput, string>
+export type UserCreateOneWithoutMaterialsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutMaterialsInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface UserCreateWithoutPostsInput {
+export interface UserCreateWithoutMaterialsInput {
   id?: string | null
+  role?: string | null
   email?: string | null
   name?: string
-  age?: string | null
+  openid?: string | null
+  status?: string | null
 }
-export type UserCreateWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateWithoutPostsInput, string>
+export type UserCreateWithoutMaterialsInputInputObject =
+  | Extract<keyof UserCreateWithoutMaterialsInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'age', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   
-export interface PostUpdateInput {
+export interface MaterialUpdateInput {
   title?: string | null
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
-  author?: UserUpdateOneWithoutPostsInput | null
+  author?: UserUpdateOneWithoutMaterialsInput | null
 }
-export type PostUpdateInputInputObject =
-  | Extract<keyof PostUpdateInput, string>
+export type MaterialUpdateInputInputObject =
+  | Extract<keyof MaterialUpdateInput, string>
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
-export interface UserUpdateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
-  update?: UserUpdateWithoutPostsDataInput | null
-  upsert?: UserUpsertWithoutPostsInput | null
+export interface UserUpdateOneWithoutMaterialsInput {
+  create?: UserCreateWithoutMaterialsInput | null
+  update?: UserUpdateWithoutMaterialsDataInput | null
+  upsert?: UserUpsertWithoutMaterialsInput | null
   delete?: boolean | null
   disconnect?: boolean | null
   connect?: UserWhereUniqueInput | null
 }
-export type UserUpdateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserUpdateOneWithoutPostsInput, string>
+export type UserUpdateOneWithoutMaterialsInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutMaterialsInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -1778,36 +2580,81 @@ export type UserUpdateOneWithoutPostsInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface UserUpdateWithoutPostsDataInput {
+export interface UserUpdateWithoutMaterialsDataInput {
+  role?: string | null
   email?: string | null
   name?: string | null
-  age?: string | null
+  openid?: string | null
+  status?: string | null
 }
-export type UserUpdateWithoutPostsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
+export type UserUpdateWithoutMaterialsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutMaterialsDataInput, string>
+  | { name: 'role', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'age', alias?: string  } 
+  | { name: 'openid', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   
-export interface UserUpsertWithoutPostsInput {
-  update?: UserUpdateWithoutPostsDataInput
-  create?: UserCreateWithoutPostsInput
+export interface UserUpsertWithoutMaterialsInput {
+  update?: UserUpdateWithoutMaterialsDataInput
+  create?: UserCreateWithoutMaterialsInput
 }
-export type UserUpsertWithoutPostsInputInputObject =
-  | Extract<keyof UserUpsertWithoutPostsInput, string>
+export type UserUpsertWithoutMaterialsInputInputObject =
+  | Extract<keyof UserUpsertWithoutMaterialsInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface PostUpdateManyMutationInput {
+export interface MaterialUpdateManyMutationInput {
   title?: string | null
-  slag?: string | null
+  desc?: string | null
   published?: boolean | null
 }
-export type PostUpdateManyMutationInputInputObject =
-  | Extract<keyof PostUpdateManyMutationInput, string>
+export type MaterialUpdateManyMutationInputInputObject =
+  | Extract<keyof MaterialUpdateManyMutationInput, string>
   | { name: 'title', alias?: string  } 
-  | { name: 'slag', alias?: string  } 
+  | { name: 'desc', alias?: string  } 
   | { name: 'published', alias?: string  } 
+  
+export interface SystemCreateInput {
+  id?: string | null
+  name?: string
+  slogan?: string | null
+  tel?: string | null
+  version_code?: string | null
+}
+export type SystemCreateInputInputObject =
+  | Extract<keyof SystemCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'slogan', alias?: string  } 
+  | { name: 'tel', alias?: string  } 
+  | { name: 'version_code', alias?: string  } 
+  
+export interface SystemUpdateInput {
+  name?: string | null
+  slogan?: string | null
+  tel?: string | null
+  version_code?: string | null
+}
+export type SystemUpdateInputInputObject =
+  | Extract<keyof SystemUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'slogan', alias?: string  } 
+  | { name: 'tel', alias?: string  } 
+  | { name: 'version_code', alias?: string  } 
+  
+export interface SystemUpdateManyMutationInput {
+  name?: string | null
+  slogan?: string | null
+  tel?: string | null
+  version_code?: string | null
+}
+export type SystemUpdateManyMutationInputInputObject =
+  | Extract<keyof SystemUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'slogan', alias?: string  } 
+  | { name: 'tel', alias?: string  } 
+  | { name: 'version_code', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -1830,18 +2677,39 @@ export type UserSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostSubscriptionWhereInput {
+export interface MaterialSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: PostWhereInput | null
-  AND?: PostSubscriptionWhereInput[]
-  OR?: PostSubscriptionWhereInput[]
-  NOT?: PostSubscriptionWhereInput[]
+  node?: MaterialWhereInput | null
+  AND?: MaterialSubscriptionWhereInput[]
+  OR?: MaterialSubscriptionWhereInput[]
+  NOT?: MaterialSubscriptionWhereInput[]
 }
-export type PostSubscriptionWhereInputInputObject =
-  | Extract<keyof PostSubscriptionWhereInput, string>
+export type MaterialSubscriptionWhereInputInputObject =
+  | Extract<keyof MaterialSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface SystemSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: SystemWhereInput | null
+  AND?: SystemSubscriptionWhereInput[]
+  OR?: SystemSubscriptionWhereInput[]
+  NOT?: SystemSubscriptionWhereInput[]
+}
+export type SystemSubscriptionWhereInputInputObject =
+  | Extract<keyof SystemSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -1852,13 +2720,13 @@ export type PostSubscriptionWhereInputInputObject =
   | { name: 'NOT', alias?: string  } 
   
 
-export type PostOrderByInputValues =
+export type MaterialOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
   | 'title_ASC'
   | 'title_DESC'
-  | 'slag_ASC'
-  | 'slag_DESC'
+  | 'desc_ASC'
+  | 'desc_DESC'
   | 'published_ASC'
   | 'published_DESC'
   | 'createdAt_ASC'
@@ -1869,12 +2737,32 @@ export type PostOrderByInputValues =
 export type UserOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'role_ASC'
+  | 'role_DESC'
   | 'email_ASC'
   | 'email_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'age_ASC'
-  | 'age_DESC'
+  | 'openid_ASC'
+  | 'openid_DESC'
+  | 'status_ASC'
+  | 'status_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type SystemOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'slogan_ASC'
+  | 'slogan_DESC'
+  | 'tel_ASC'
+  | 'tel_DESC'
+  | 'version_code_ASC'
+  | 'version_code_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

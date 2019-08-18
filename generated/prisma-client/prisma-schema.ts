@@ -2,7 +2,11 @@
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-export const typeDefs = /* GraphQL */ `type AggregatePost {
+export const typeDefs = /* GraphQL */ `type AggregateMaterial {
+  count: Int!
+}
+
+type AggregateSystem {
   count: Int!
 }
 
@@ -16,13 +20,252 @@ type BatchPayload {
 
 scalar Long
 
+type Material {
+  id: ID!
+  title: String!
+  desc: String
+  published: Boolean!
+  author: User
+}
+
+type MaterialConnection {
+  pageInfo: PageInfo!
+  edges: [MaterialEdge]!
+  aggregate: AggregateMaterial!
+}
+
+input MaterialCreateInput {
+  id: ID
+  title: String!
+  desc: String
+  published: Boolean
+  author: UserCreateOneWithoutMaterialsInput
+}
+
+input MaterialCreateManyWithoutAuthorInput {
+  create: [MaterialCreateWithoutAuthorInput!]
+  connect: [MaterialWhereUniqueInput!]
+}
+
+input MaterialCreateWithoutAuthorInput {
+  id: ID
+  title: String!
+  desc: String
+  published: Boolean
+}
+
+type MaterialEdge {
+  node: Material!
+  cursor: String!
+}
+
+enum MaterialOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  desc_ASC
+  desc_DESC
+  published_ASC
+  published_DESC
+}
+
+type MaterialPreviousValues {
+  id: ID!
+  title: String!
+  desc: String
+  published: Boolean!
+}
+
+input MaterialScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  desc: String
+  desc_not: String
+  desc_in: [String!]
+  desc_not_in: [String!]
+  desc_lt: String
+  desc_lte: String
+  desc_gt: String
+  desc_gte: String
+  desc_contains: String
+  desc_not_contains: String
+  desc_starts_with: String
+  desc_not_starts_with: String
+  desc_ends_with: String
+  desc_not_ends_with: String
+  published: Boolean
+  published_not: Boolean
+  AND: [MaterialScalarWhereInput!]
+  OR: [MaterialScalarWhereInput!]
+  NOT: [MaterialScalarWhereInput!]
+}
+
+type MaterialSubscriptionPayload {
+  mutation: MutationType!
+  node: Material
+  updatedFields: [String!]
+  previousValues: MaterialPreviousValues
+}
+
+input MaterialSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MaterialWhereInput
+  AND: [MaterialSubscriptionWhereInput!]
+  OR: [MaterialSubscriptionWhereInput!]
+  NOT: [MaterialSubscriptionWhereInput!]
+}
+
+input MaterialUpdateInput {
+  title: String
+  desc: String
+  published: Boolean
+  author: UserUpdateOneWithoutMaterialsInput
+}
+
+input MaterialUpdateManyDataInput {
+  title: String
+  desc: String
+  published: Boolean
+}
+
+input MaterialUpdateManyMutationInput {
+  title: String
+  desc: String
+  published: Boolean
+}
+
+input MaterialUpdateManyWithoutAuthorInput {
+  create: [MaterialCreateWithoutAuthorInput!]
+  delete: [MaterialWhereUniqueInput!]
+  connect: [MaterialWhereUniqueInput!]
+  set: [MaterialWhereUniqueInput!]
+  disconnect: [MaterialWhereUniqueInput!]
+  update: [MaterialUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [MaterialUpsertWithWhereUniqueWithoutAuthorInput!]
+  deleteMany: [MaterialScalarWhereInput!]
+  updateMany: [MaterialUpdateManyWithWhereNestedInput!]
+}
+
+input MaterialUpdateManyWithWhereNestedInput {
+  where: MaterialScalarWhereInput!
+  data: MaterialUpdateManyDataInput!
+}
+
+input MaterialUpdateWithoutAuthorDataInput {
+  title: String
+  desc: String
+  published: Boolean
+}
+
+input MaterialUpdateWithWhereUniqueWithoutAuthorInput {
+  where: MaterialWhereUniqueInput!
+  data: MaterialUpdateWithoutAuthorDataInput!
+}
+
+input MaterialUpsertWithWhereUniqueWithoutAuthorInput {
+  where: MaterialWhereUniqueInput!
+  update: MaterialUpdateWithoutAuthorDataInput!
+  create: MaterialCreateWithoutAuthorInput!
+}
+
+input MaterialWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  desc: String
+  desc_not: String
+  desc_in: [String!]
+  desc_not_in: [String!]
+  desc_lt: String
+  desc_lte: String
+  desc_gt: String
+  desc_gte: String
+  desc_contains: String
+  desc_not_contains: String
+  desc_starts_with: String
+  desc_not_starts_with: String
+  desc_ends_with: String
+  desc_not_ends_with: String
+  published: Boolean
+  published_not: Boolean
+  author: UserWhereInput
+  AND: [MaterialWhereInput!]
+  OR: [MaterialWhereInput!]
+  NOT: [MaterialWhereInput!]
+}
+
+input MaterialWhereUniqueInput {
+  id: ID
+}
+
 type Mutation {
-  createPost(data: PostCreateInput!): Post!
-  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
-  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
-  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
-  deletePost(where: PostWhereUniqueInput!): Post
-  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createMaterial(data: MaterialCreateInput!): Material!
+  updateMaterial(data: MaterialUpdateInput!, where: MaterialWhereUniqueInput!): Material
+  updateManyMaterials(data: MaterialUpdateManyMutationInput!, where: MaterialWhereInput): BatchPayload!
+  upsertMaterial(where: MaterialWhereUniqueInput!, create: MaterialCreateInput!, update: MaterialUpdateInput!): Material!
+  deleteMaterial(where: MaterialWhereUniqueInput!): Material
+  deleteManyMaterials(where: MaterialWhereInput): BatchPayload!
+  createSystem(data: SystemCreateInput!): System!
+  updateSystem(data: SystemUpdateInput!, where: SystemWhereUniqueInput!): System
+  updateManySystems(data: SystemUpdateManyMutationInput!, where: SystemWhereInput): BatchPayload!
+  upsertSystem(where: SystemWhereUniqueInput!, create: SystemCreateInput!, update: SystemUpdateInput!): System!
+  deleteSystem(where: SystemWhereUniqueInput!): System
+  deleteManySystems(where: SystemWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -48,243 +291,13 @@ type PageInfo {
   endCursor: String
 }
 
-type Post {
-  id: ID!
-  title: String!
-  slag: String
-  published: Boolean!
-  author: User
-}
-
-type PostConnection {
-  pageInfo: PageInfo!
-  edges: [PostEdge]!
-  aggregate: AggregatePost!
-}
-
-input PostCreateInput {
-  id: ID
-  title: String!
-  slag: String
-  published: Boolean
-  author: UserCreateOneWithoutPostsInput
-}
-
-input PostCreateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  connect: [PostWhereUniqueInput!]
-}
-
-input PostCreateWithoutAuthorInput {
-  id: ID
-  title: String!
-  slag: String
-  published: Boolean
-}
-
-type PostEdge {
-  node: Post!
-  cursor: String!
-}
-
-enum PostOrderByInput {
-  id_ASC
-  id_DESC
-  title_ASC
-  title_DESC
-  slag_ASC
-  slag_DESC
-  published_ASC
-  published_DESC
-}
-
-type PostPreviousValues {
-  id: ID!
-  title: String!
-  slag: String
-  published: Boolean!
-}
-
-input PostScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  slag: String
-  slag_not: String
-  slag_in: [String!]
-  slag_not_in: [String!]
-  slag_lt: String
-  slag_lte: String
-  slag_gt: String
-  slag_gte: String
-  slag_contains: String
-  slag_not_contains: String
-  slag_starts_with: String
-  slag_not_starts_with: String
-  slag_ends_with: String
-  slag_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  AND: [PostScalarWhereInput!]
-  OR: [PostScalarWhereInput!]
-  NOT: [PostScalarWhereInput!]
-}
-
-type PostSubscriptionPayload {
-  mutation: MutationType!
-  node: Post
-  updatedFields: [String!]
-  previousValues: PostPreviousValues
-}
-
-input PostSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: PostWhereInput
-  AND: [PostSubscriptionWhereInput!]
-  OR: [PostSubscriptionWhereInput!]
-  NOT: [PostSubscriptionWhereInput!]
-}
-
-input PostUpdateInput {
-  title: String
-  slag: String
-  published: Boolean
-  author: UserUpdateOneWithoutPostsInput
-}
-
-input PostUpdateManyDataInput {
-  title: String
-  slag: String
-  published: Boolean
-}
-
-input PostUpdateManyMutationInput {
-  title: String
-  slag: String
-  published: Boolean
-}
-
-input PostUpdateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  connect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  deleteMany: [PostScalarWhereInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-}
-
-input PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput!
-  data: PostUpdateManyDataInput!
-}
-
-input PostUpdateWithoutAuthorDataInput {
-  title: String
-  slag: String
-  published: Boolean
-}
-
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  data: PostUpdateWithoutAuthorDataInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  create: PostCreateWithoutAuthorInput!
-}
-
-input PostWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  slag: String
-  slag_not: String
-  slag_in: [String!]
-  slag_not_in: [String!]
-  slag_lt: String
-  slag_lte: String
-  slag_gt: String
-  slag_gte: String
-  slag_contains: String
-  slag_not_contains: String
-  slag_starts_with: String
-  slag_not_starts_with: String
-  slag_ends_with: String
-  slag_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  author: UserWhereInput
-  AND: [PostWhereInput!]
-  OR: [PostWhereInput!]
-  NOT: [PostWhereInput!]
-}
-
-input PostWhereUniqueInput {
-  id: ID
-}
-
 type Query {
-  post(where: PostWhereUniqueInput!): Post
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
-  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  material(where: MaterialWhereUniqueInput!): Material
+  materials(where: MaterialWhereInput, orderBy: MaterialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Material]!
+  materialsConnection(where: MaterialWhereInput, orderBy: MaterialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MaterialConnection!
+  system(where: SystemWhereUniqueInput!): System
+  systems(where: SystemWhereInput, orderBy: SystemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [System]!
+  systemsConnection(where: SystemWhereInput, orderBy: SystemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SystemConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -292,16 +305,179 @@ type Query {
 }
 
 type Subscription {
-  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  material(where: MaterialSubscriptionWhereInput): MaterialSubscriptionPayload
+  system(where: SystemSubscriptionWhereInput): SystemSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type System {
+  id: ID!
+  name: String!
+  slogan: String
+  tel: String
+  version_code: String
+}
+
+type SystemConnection {
+  pageInfo: PageInfo!
+  edges: [SystemEdge]!
+  aggregate: AggregateSystem!
+}
+
+input SystemCreateInput {
+  id: ID
+  name: String!
+  slogan: String
+  tel: String
+  version_code: String
+}
+
+type SystemEdge {
+  node: System!
+  cursor: String!
+}
+
+enum SystemOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  slogan_ASC
+  slogan_DESC
+  tel_ASC
+  tel_DESC
+  version_code_ASC
+  version_code_DESC
+}
+
+type SystemPreviousValues {
+  id: ID!
+  name: String!
+  slogan: String
+  tel: String
+  version_code: String
+}
+
+type SystemSubscriptionPayload {
+  mutation: MutationType!
+  node: System
+  updatedFields: [String!]
+  previousValues: SystemPreviousValues
+}
+
+input SystemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SystemWhereInput
+  AND: [SystemSubscriptionWhereInput!]
+  OR: [SystemSubscriptionWhereInput!]
+  NOT: [SystemSubscriptionWhereInput!]
+}
+
+input SystemUpdateInput {
+  name: String
+  slogan: String
+  tel: String
+  version_code: String
+}
+
+input SystemUpdateManyMutationInput {
+  name: String
+  slogan: String
+  tel: String
+  version_code: String
+}
+
+input SystemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  slogan: String
+  slogan_not: String
+  slogan_in: [String!]
+  slogan_not_in: [String!]
+  slogan_lt: String
+  slogan_lte: String
+  slogan_gt: String
+  slogan_gte: String
+  slogan_contains: String
+  slogan_not_contains: String
+  slogan_starts_with: String
+  slogan_not_starts_with: String
+  slogan_ends_with: String
+  slogan_not_ends_with: String
+  tel: String
+  tel_not: String
+  tel_in: [String!]
+  tel_not_in: [String!]
+  tel_lt: String
+  tel_lte: String
+  tel_gt: String
+  tel_gte: String
+  tel_contains: String
+  tel_not_contains: String
+  tel_starts_with: String
+  tel_not_starts_with: String
+  tel_ends_with: String
+  tel_not_ends_with: String
+  version_code: String
+  version_code_not: String
+  version_code_in: [String!]
+  version_code_not_in: [String!]
+  version_code_lt: String
+  version_code_lte: String
+  version_code_gt: String
+  version_code_gte: String
+  version_code_contains: String
+  version_code_not_contains: String
+  version_code_starts_with: String
+  version_code_not_starts_with: String
+  version_code_ends_with: String
+  version_code_not_ends_with: String
+  AND: [SystemWhereInput!]
+  OR: [SystemWhereInput!]
+  NOT: [SystemWhereInput!]
+}
+
+input SystemWhereUniqueInput {
+  id: ID
 }
 
 type User {
   id: ID!
+  role: String
   email: String
   name: String!
-  age: String
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  openid: String
+  materials(where: MaterialWhereInput, orderBy: MaterialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Material!]
+  status: String
 }
 
 type UserConnection {
@@ -312,22 +488,26 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
+  role: String
   email: String
   name: String!
-  age: String
-  posts: PostCreateManyWithoutAuthorInput
+  openid: String
+  materials: MaterialCreateManyWithoutAuthorInput
+  status: String
 }
 
-input UserCreateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
+input UserCreateOneWithoutMaterialsInput {
+  create: UserCreateWithoutMaterialsInput
   connect: UserWhereUniqueInput
 }
 
-input UserCreateWithoutPostsInput {
+input UserCreateWithoutMaterialsInput {
   id: ID
+  role: String
   email: String
   name: String!
-  age: String
+  openid: String
+  status: String
 }
 
 type UserEdge {
@@ -338,19 +518,25 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
+  role_ASC
+  role_DESC
   email_ASC
   email_DESC
   name_ASC
   name_DESC
-  age_ASC
-  age_DESC
+  openid_ASC
+  openid_DESC
+  status_ASC
+  status_DESC
 }
 
 type UserPreviousValues {
   id: ID!
+  role: String
   email: String
   name: String!
-  age: String
+  openid: String
+  status: String
 }
 
 type UserSubscriptionPayload {
@@ -372,36 +558,42 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
+  role: String
   email: String
   name: String
-  age: String
-  posts: PostUpdateManyWithoutAuthorInput
+  openid: String
+  materials: MaterialUpdateManyWithoutAuthorInput
+  status: String
 }
 
 input UserUpdateManyMutationInput {
+  role: String
   email: String
   name: String
-  age: String
+  openid: String
+  status: String
 }
 
-input UserUpdateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  update: UserUpdateWithoutPostsDataInput
-  upsert: UserUpsertWithoutPostsInput
+input UserUpdateOneWithoutMaterialsInput {
+  create: UserCreateWithoutMaterialsInput
+  update: UserUpdateWithoutMaterialsDataInput
+  upsert: UserUpsertWithoutMaterialsInput
   delete: Boolean
   disconnect: Boolean
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateWithoutPostsDataInput {
+input UserUpdateWithoutMaterialsDataInput {
+  role: String
   email: String
   name: String
-  age: String
+  openid: String
+  status: String
 }
 
-input UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput!
-  create: UserCreateWithoutPostsInput!
+input UserUpsertWithoutMaterialsInput {
+  update: UserUpdateWithoutMaterialsDataInput!
+  create: UserCreateWithoutMaterialsInput!
 }
 
 input UserWhereInput {
@@ -419,6 +611,20 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]
@@ -447,23 +653,37 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  age: String
-  age_not: String
-  age_in: [String!]
-  age_not_in: [String!]
-  age_lt: String
-  age_lte: String
-  age_gt: String
-  age_gte: String
-  age_contains: String
-  age_not_contains: String
-  age_starts_with: String
-  age_not_starts_with: String
-  age_ends_with: String
-  age_not_ends_with: String
-  posts_every: PostWhereInput
-  posts_some: PostWhereInput
-  posts_none: PostWhereInput
+  openid: String
+  openid_not: String
+  openid_in: [String!]
+  openid_not_in: [String!]
+  openid_lt: String
+  openid_lte: String
+  openid_gt: String
+  openid_gte: String
+  openid_contains: String
+  openid_not_contains: String
+  openid_starts_with: String
+  openid_not_starts_with: String
+  openid_ends_with: String
+  openid_not_ends_with: String
+  materials_every: MaterialWhereInput
+  materials_some: MaterialWhereInput
+  materials_none: MaterialWhereInput
+  status: String
+  status_not: String
+  status_in: [String!]
+  status_not_in: [String!]
+  status_lt: String
+  status_lte: String
+  status_gt: String
+  status_gte: String
+  status_contains: String
+  status_not_contains: String
+  status_starts_with: String
+  status_not_starts_with: String
+  status_ends_with: String
+  status_not_ends_with: String
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -472,5 +692,6 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
   email: String
+  openid: String
 }
 `

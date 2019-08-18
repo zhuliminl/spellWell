@@ -6,6 +6,7 @@ export const Mutation = prismaObjectType({
   definition(t) {
     // t.prismaFields(['*',])
     t.prismaFields(['createUser', 'updateUser'])
+    /*
     t.field('createDraft', {
       type: 'Post',
       args: {
@@ -41,5 +42,6 @@ export const Mutation = prismaObjectType({
         // })
       }
     })
+    */
   }
 });

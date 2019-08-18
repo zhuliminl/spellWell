@@ -1,7 +1,7 @@
-type Post {
+type Material {
   id: ID! @id
   title: String!
-  slag: String
+  desc: String
   published: Boolean! @default(value: false)
   author: User @relation(link: INLINE)
 }

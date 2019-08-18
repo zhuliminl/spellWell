@@ -1,0 +1,7 @@
+type System {
+  id: ID! @id
+  name: String!
+  slogan: String
+  tel: String
+  version_code: String
+}

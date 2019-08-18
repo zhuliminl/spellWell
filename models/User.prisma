@@ -1,7 +1,9 @@
 type User {
   id: ID! @id
+  role: String
   email: String @unique
   name: String!
-  age: String
-  posts: [Post!]!
+  openid: String @unique
+  materials: [Material!]!
+  status: String
 }

@@ -1,7 +1,8 @@
 endpoint: http://localhost:4466
 datamodel: 
   - models/User.prisma
-  - models/Post.prisma
+  - models/Material.prisma
+  - models/System.prisma
 # datamodel: datamodel.prisma
 generate:
   - generator: typescript-client

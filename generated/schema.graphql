@@ -2,50 +2,57 @@
 ### Do not make changes to this file directly
 
 
-type Mutation {
-  createDraft(authorId: ID, title: String): Post!
-  createUser(data: UserCreateInput!): User!
-  publish(id: ID): Post
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-}
-
-type Post {
+type Material {
   author: User
+  desc: String
   id: ID!
   published: Boolean!
-  slag: String
   title: String!
 }
 
-input PostCreateManyWithoutAuthorInput {
-  connect: [PostWhereUniqueInput!]
-  create: [PostCreateWithoutAuthorInput!]
+input MaterialCreateManyWithoutAuthorInput {
+  connect: [MaterialWhereUniqueInput!]
+  create: [MaterialCreateWithoutAuthorInput!]
 }
 
-input PostCreateWithoutAuthorInput {
+input MaterialCreateWithoutAuthorInput {
+  desc: String
   id: ID
   published: Boolean
-  slag: String
   title: String!
 }
 
-enum PostOrderByInput {
+enum MaterialOrderByInput {
   createdAt_ASC
   createdAt_DESC
+  desc_ASC
+  desc_DESC
   id_ASC
   id_DESC
   published_ASC
   published_DESC
-  slag_ASC
-  slag_DESC
   title_ASC
   title_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
-input PostScalarWhereInput {
-  AND: [PostScalarWhereInput!]
+input MaterialScalarWhereInput {
+  AND: [MaterialScalarWhereInput!]
+  desc: String
+  desc_contains: String
+  desc_ends_with: String
+  desc_gt: String
+  desc_gte: String
+  desc_in: [String!]
+  desc_lt: String
+  desc_lte: String
+  desc_not: String
+  desc_not_contains: String
+  desc_not_ends_with: String
+  desc_not_in: [String!]
+  desc_not_starts_with: String
+  desc_starts_with: String
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -60,24 +67,10 @@ input PostScalarWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  NOT: [PostScalarWhereInput!]
-  OR: [PostScalarWhereInput!]
+  NOT: [MaterialScalarWhereInput!]
+  OR: [MaterialScalarWhereInput!]
   published: Boolean
   published_not: Boolean
-  slag: String
-  slag_contains: String
-  slag_ends_with: String
-  slag_gt: String
-  slag_gte: String
-  slag_in: [String!]
-  slag_lt: String
-  slag_lte: String
-  slag_not: String
-  slag_not_contains: String
-  slag_not_ends_with: String
-  slag_not_in: [String!]
-  slag_not_starts_with: String
-  slag_starts_with: String
   title: String
   title_contains: String
   title_ends_with: String
@@ -94,49 +87,63 @@ input PostScalarWhereInput {
   title_starts_with: String
 }
 
-input PostUpdateManyDataInput {
+input MaterialUpdateManyDataInput {
+  desc: String
   published: Boolean
-  slag: String
   title: String
 }
 
-input PostUpdateManyWithoutAuthorInput {
-  connect: [PostWhereUniqueInput!]
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  deleteMany: [PostScalarWhereInput!]
-  disconnect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+input MaterialUpdateManyWithoutAuthorInput {
+  connect: [MaterialWhereUniqueInput!]
+  create: [MaterialCreateWithoutAuthorInput!]
+  delete: [MaterialWhereUniqueInput!]
+  deleteMany: [MaterialScalarWhereInput!]
+  disconnect: [MaterialWhereUniqueInput!]
+  set: [MaterialWhereUniqueInput!]
+  update: [MaterialUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [MaterialUpdateManyWithWhereNestedInput!]
+  upsert: [MaterialUpsertWithWhereUniqueWithoutAuthorInput!]
 }
 
-input PostUpdateManyWithWhereNestedInput {
-  data: PostUpdateManyDataInput!
-  where: PostScalarWhereInput!
+input MaterialUpdateManyWithWhereNestedInput {
+  data: MaterialUpdateManyDataInput!
+  where: MaterialScalarWhereInput!
 }
 
-input PostUpdateWithoutAuthorDataInput {
+input MaterialUpdateWithoutAuthorDataInput {
+  desc: String
   published: Boolean
-  slag: String
   title: String
 }
 
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
-  data: PostUpdateWithoutAuthorDataInput!
-  where: PostWhereUniqueInput!
+input MaterialUpdateWithWhereUniqueWithoutAuthorInput {
+  data: MaterialUpdateWithoutAuthorDataInput!
+  where: MaterialWhereUniqueInput!
 }
 
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  create: PostCreateWithoutAuthorInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  where: PostWhereUniqueInput!
+input MaterialUpsertWithWhereUniqueWithoutAuthorInput {
+  create: MaterialCreateWithoutAuthorInput!
+  update: MaterialUpdateWithoutAuthorDataInput!
+  where: MaterialWhereUniqueInput!
 }
 
-input PostWhereInput {
-  AND: [PostWhereInput!]
+input MaterialWhereInput {
+  AND: [MaterialWhereInput!]
   author: UserWhereInput
+  desc: String
+  desc_contains: String
+  desc_ends_with: String
+  desc_gt: String
+  desc_gte: String
+  desc_in: [String!]
+  desc_lt: String
+  desc_lte: String
+  desc_not: String
+  desc_not_contains: String
+  desc_not_ends_with: String
+  desc_not_in: [String!]
+  desc_not_starts_with: String
+  desc_starts_with: String
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -151,24 +158,10 @@ input PostWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  NOT: [PostWhereInput!]
-  OR: [PostWhereInput!]
+  NOT: [MaterialWhereInput!]
+  OR: [MaterialWhereInput!]
   published: Boolean
   published_not: Boolean
-  slag: String
-  slag_contains: String
-  slag_ends_with: String
-  slag_gt: String
-  slag_gte: String
-  slag_in: [String!]
-  slag_lt: String
-  slag_lte: String
-  slag_not: String
-  slag_not_contains: String
-  slag_not_ends_with: String
-  slag_not_in: [String!]
-  slag_not_starts_with: String
-  slag_starts_with: String
   title: String
   title_contains: String
   title_ends_with: String
@@ -185,35 +178,39 @@ input PostWhereInput {
   title_starts_with: String
 }
 
-input PostWhereUniqueInput {
+input MaterialWhereUniqueInput {
   id: ID
+}
+
+type Mutation {
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
 }
 
 type Query {
-  feed: [Post!]!
-  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]!
+  materials(after: String, before: String, first: Int, last: Int, orderBy: MaterialOrderByInput, skip: Int, where: MaterialWhereInput): [Material!]!
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
 }
 
 type User {
   fullname: String!
   id: ID!
+  materials(after: String, before: String, first: Int, last: Int, orderBy: MaterialOrderByInput, skip: Int, where: MaterialWhereInput): [Material!]
   name: String!
-  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
   saul: String!
 }
 
 input UserCreateInput {
-  age: String
   email: String
   id: ID
+  materials: MaterialCreateManyWithoutAuthorInput
   name: String!
-  posts: PostCreateManyWithoutAuthorInput
+  openid: String
+  role: String
+  status: String
 }
 
 enum UserOrderByInput {
-  age_ASC
-  age_DESC
   createdAt_ASC
   createdAt_DESC
   email_ASC
@@ -222,32 +219,26 @@ enum UserOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  openid_ASC
+  openid_DESC
+  role_ASC
+  role_DESC
+  status_ASC
+  status_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 input UserUpdateInput {
-  age: String
   email: String
+  materials: MaterialUpdateManyWithoutAuthorInput
   name: String
-  posts: PostUpdateManyWithoutAuthorInput
+  openid: String
+  role: String
+  status: String
 }
 
 input UserWhereInput {
-  age: String
-  age_contains: String
-  age_ends_with: String
-  age_gt: String
-  age_gte: String
-  age_in: [String!]
-  age_lt: String
-  age_lte: String
-  age_not: String
-  age_not_contains: String
-  age_not_ends_with: String
-  age_not_in: [String!]
-  age_not_starts_with: String
-  age_starts_with: String
   AND: [UserWhereInput!]
   email: String
   email_contains: String
@@ -277,6 +268,9 @@ input UserWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
+  materials_every: MaterialWhereInput
+  materials_none: MaterialWhereInput
+  materials_some: MaterialWhereInput
   name: String
   name_contains: String
   name_ends_with: String
@@ -292,13 +286,53 @@ input UserWhereInput {
   name_not_starts_with: String
   name_starts_with: String
   NOT: [UserWhereInput!]
+  openid: String
+  openid_contains: String
+  openid_ends_with: String
+  openid_gt: String
+  openid_gte: String
+  openid_in: [String!]
+  openid_lt: String
+  openid_lte: String
+  openid_not: String
+  openid_not_contains: String
+  openid_not_ends_with: String
+  openid_not_in: [String!]
+  openid_not_starts_with: String
+  openid_starts_with: String
   OR: [UserWhereInput!]
-  posts_every: PostWhereInput
-  posts_none: PostWhereInput
-  posts_some: PostWhereInput
+  role: String
+  role_contains: String
+  role_ends_with: String
+  role_gt: String
+  role_gte: String
+  role_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_not: String
+  role_not_contains: String
+  role_not_ends_with: String
+  role_not_in: [String!]
+  role_not_starts_with: String
+  role_starts_with: String
+  status: String
+  status_contains: String
+  status_ends_with: String
+  status_gt: String
+  status_gte: String
+  status_in: [String!]
+  status_lt: String
+  status_lte: String
+  status_not: String
+  status_not_contains: String
+  status_not_ends_with: String
+  status_not_in: [String!]
+  status_not_starts_with: String
+  status_starts_with: String
 }
 
 input UserWhereUniqueInput {
   email: String
   id: ID
+  openid: String
 }
