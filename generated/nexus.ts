@@ -20,6 +20,73 @@ export interface NexusGenInputs {
     published?: boolean | null; // Boolean
     title: string; // String!
   }
+  PostScalarWhereInput: { // input type
+    AND?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
+    OR?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
+    published?: boolean | null; // Boolean
+    published_not?: boolean | null; // Boolean
+    title?: string | null; // String
+    title_contains?: string | null; // String
+    title_ends_with?: string | null; // String
+    title_gt?: string | null; // String
+    title_gte?: string | null; // String
+    title_in?: string[] | null; // [String!]
+    title_lt?: string | null; // String
+    title_lte?: string | null; // String
+    title_not?: string | null; // String
+    title_not_contains?: string | null; // String
+    title_not_ends_with?: string | null; // String
+    title_not_in?: string[] | null; // [String!]
+    title_not_starts_with?: string | null; // String
+    title_starts_with?: string | null; // String
+  }
+  PostUpdateManyDataInput: { // input type
+    published?: boolean | null; // Boolean
+    title?: string | null; // String
+  }
+  PostUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['PostUpdateManyDataInput']; // PostUpdateManyDataInput!
+    where: NexusGenInputs['PostScalarWhereInput']; // PostScalarWhereInput!
+  }
+  PostUpdateManyWithoutAuthorInput: { // input type
+    connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
+    create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
+    delete?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
+    disconnect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
+    set?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
+    update?: NexusGenInputs['PostUpdateWithWhereUniqueWithoutAuthorInput'][] | null; // [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+    updateMany?: NexusGenInputs['PostUpdateManyWithWhereNestedInput'][] | null; // [PostUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['PostUpsertWithWhereUniqueWithoutAuthorInput'][] | null; // [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  }
+  PostUpdateWithWhereUniqueWithoutAuthorInput: { // input type
+    data: NexusGenInputs['PostUpdateWithoutAuthorDataInput']; // PostUpdateWithoutAuthorDataInput!
+    where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
+  }
+  PostUpdateWithoutAuthorDataInput: { // input type
+    published?: boolean | null; // Boolean
+    title?: string | null; // String
+  }
+  PostUpsertWithWhereUniqueWithoutAuthorInput: { // input type
+    create: NexusGenInputs['PostCreateWithoutAuthorInput']; // PostCreateWithoutAuthorInput!
+    update: NexusGenInputs['PostUpdateWithoutAuthorDataInput']; // PostUpdateWithoutAuthorDataInput!
+    where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
+  }
   PostWhereInput: { // input type
     AND?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
     author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
@@ -66,6 +133,14 @@ export interface NexusGenInputs {
     job?: string | null; // String
     name: string; // String!
     posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
+    username?: string | null; // String
+  }
+  UserUpdateInput: { // input type
+    age?: string | null; // String
+    email?: string | null; // String
+    job?: string | null; // String
+    name?: string | null; // String
+    posts?: NexusGenInputs['PostUpdateManyWithoutAuthorInput'] | null; // PostUpdateManyWithoutAuthorInput
     username?: string | null; // String
   }
   UserWhereInput: { // input type
@@ -160,6 +235,10 @@ export interface NexusGenInputs {
     username_not_starts_with?: string | null; // String
     username_starts_with?: string | null; // String
   }
+  UserWhereUniqueInput: { // input type
+    email?: string | null; // String
+    id?: string | null; // ID
+  }
 }
 
 export interface NexusGenEnums {
@@ -189,10 +268,19 @@ export interface NexusGenRootTypes {
 export interface NexusGenAllTypes extends NexusGenRootTypes {
   PostCreateManyWithoutAuthorInput: NexusGenInputs['PostCreateManyWithoutAuthorInput'];
   PostCreateWithoutAuthorInput: NexusGenInputs['PostCreateWithoutAuthorInput'];
+  PostScalarWhereInput: NexusGenInputs['PostScalarWhereInput'];
+  PostUpdateManyDataInput: NexusGenInputs['PostUpdateManyDataInput'];
+  PostUpdateManyWithWhereNestedInput: NexusGenInputs['PostUpdateManyWithWhereNestedInput'];
+  PostUpdateManyWithoutAuthorInput: NexusGenInputs['PostUpdateManyWithoutAuthorInput'];
+  PostUpdateWithWhereUniqueWithoutAuthorInput: NexusGenInputs['PostUpdateWithWhereUniqueWithoutAuthorInput'];
+  PostUpdateWithoutAuthorDataInput: NexusGenInputs['PostUpdateWithoutAuthorDataInput'];
+  PostUpsertWithWhereUniqueWithoutAuthorInput: NexusGenInputs['PostUpsertWithWhereUniqueWithoutAuthorInput'];
   PostWhereInput: NexusGenInputs['PostWhereInput'];
   PostWhereUniqueInput: NexusGenInputs['PostWhereUniqueInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
+  UserUpdateInput: NexusGenInputs['UserUpdateInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   PostOrderByInput: NexusGenEnums['PostOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
@@ -201,6 +289,8 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post']; // Post!
     createUser: NexusGenRootTypes['User']; // User!
+    publish: NexusGenRootTypes['Post'] | null; // Post
+    updateUser: NexusGenRootTypes['User'] | null; // User
   }
   Post: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
@@ -218,6 +308,7 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     name: string; // String!
     posts: NexusGenRootTypes['Post'][] | null; // [Post!]
+    saul: string; // String!
   }
 }
 
@@ -229,6 +320,13 @@ export interface NexusGenArgTypes {
     }
     createUser: { // args
       data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
+    }
+    publish: { // args
+      id?: string | null; // ID
+    }
+    updateUser: { // args
+      data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
+      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
   }
   Query: {
@@ -271,7 +369,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "Mutation" | "Post" | "Query" | "User";
 
-export type NexusGenInputNames = "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserWhereInput";
+export type NexusGenInputNames = "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateManyDataInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = "PostOrderByInput" | "UserOrderByInput";
 
