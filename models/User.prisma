@@ -1,6 +1,8 @@
 type User {
   id: ID! @id
   role: String
+  nickname: String
+  password: String
   email: String @unique
   name: String!
   openid: String @unique

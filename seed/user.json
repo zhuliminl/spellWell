@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "saul",
+      "nickname": "小石头",
+      "role": "developer",
+      "email": "zhuliminl@gmail.com",
+      "password": "123456",
+      "status": "dev"
+    },
+    {
+      "name": "jemo",
+      "nickname": "江涛",
+      "role": "developer",
+      "email": "jemo@gmail.com",
+      "password": "123456",
+      "status": "dev"
+    },
+    {
+      "name": "tang",
+      "nickname": "汤唯",
+      "role": "developer",
+      "email": "tang@gmail.com",
+      "password": "123456",
+      "status": "dev"
+    }
+  ]
+}
