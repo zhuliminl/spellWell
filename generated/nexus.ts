@@ -18,6 +18,7 @@ export interface NexusGenInputs {
   PostCreateWithoutAuthorInput: { // input type
     id?: string | null; // ID
     published?: boolean | null; // Boolean
+    slag?: string | null; // String
     title: string; // String!
   }
   PostScalarWhereInput: { // input type
@@ -40,6 +41,20 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
     published?: boolean | null; // Boolean
     published_not?: boolean | null; // Boolean
+    slag?: string | null; // String
+    slag_contains?: string | null; // String
+    slag_ends_with?: string | null; // String
+    slag_gt?: string | null; // String
+    slag_gte?: string | null; // String
+    slag_in?: string[] | null; // [String!]
+    slag_lt?: string | null; // String
+    slag_lte?: string | null; // String
+    slag_not?: string | null; // String
+    slag_not_contains?: string | null; // String
+    slag_not_ends_with?: string | null; // String
+    slag_not_in?: string[] | null; // [String!]
+    slag_not_starts_with?: string | null; // String
+    slag_starts_with?: string | null; // String
     title?: string | null; // String
     title_contains?: string | null; // String
     title_ends_with?: string | null; // String
@@ -57,6 +72,7 @@ export interface NexusGenInputs {
   }
   PostUpdateManyDataInput: { // input type
     published?: boolean | null; // Boolean
+    slag?: string | null; // String
     title?: string | null; // String
   }
   PostUpdateManyWithWhereNestedInput: { // input type
@@ -80,6 +96,7 @@ export interface NexusGenInputs {
   }
   PostUpdateWithoutAuthorDataInput: { // input type
     published?: boolean | null; // Boolean
+    slag?: string | null; // String
     title?: string | null; // String
   }
   PostUpsertWithWhereUniqueWithoutAuthorInput: { // input type
@@ -108,6 +125,20 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
     published?: boolean | null; // Boolean
     published_not?: boolean | null; // Boolean
+    slag?: string | null; // String
+    slag_contains?: string | null; // String
+    slag_ends_with?: string | null; // String
+    slag_gt?: string | null; // String
+    slag_gte?: string | null; // String
+    slag_in?: string[] | null; // [String!]
+    slag_lt?: string | null; // String
+    slag_lte?: string | null; // String
+    slag_not?: string | null; // String
+    slag_not_contains?: string | null; // String
+    slag_not_ends_with?: string | null; // String
+    slag_not_in?: string[] | null; // [String!]
+    slag_not_starts_with?: string | null; // String
+    slag_starts_with?: string | null; // String
     title?: string | null; // String
     title_contains?: string | null; // String
     title_ends_with?: string | null; // String
@@ -242,7 +273,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  PostOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  PostOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "slag_ASC" | "slag_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "age_ASC" | "age_DESC" | "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "job_ASC" | "job_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
 }
 
@@ -251,6 +282,7 @@ export interface NexusGenRootTypes {
   Post: { // root type
     id: string; // ID!
     published: boolean; // Boolean!
+    slag?: string | null; // String
     title: string; // String!
   }
   Query: {};
@@ -296,6 +328,7 @@ export interface NexusGenFieldTypes {
     author: NexusGenRootTypes['User'] | null; // User
     id: string; // ID!
     published: boolean; // Boolean!
+    slag: string | null; // String
     title: string; // String!
   }
   Query: { // field return type

@@ -13,6 +13,7 @@ type Post {
   author: User
   id: ID!
   published: Boolean!
+  slag: String
   title: String!
 }
 
@@ -24,6 +25,7 @@ input PostCreateManyWithoutAuthorInput {
 input PostCreateWithoutAuthorInput {
   id: ID
   published: Boolean
+  slag: String
   title: String!
 }
 
@@ -34,6 +36,8 @@ enum PostOrderByInput {
   id_DESC
   published_ASC
   published_DESC
+  slag_ASC
+  slag_DESC
   title_ASC
   title_DESC
   updatedAt_ASC
@@ -60,6 +64,20 @@ input PostScalarWhereInput {
   OR: [PostScalarWhereInput!]
   published: Boolean
   published_not: Boolean
+  slag: String
+  slag_contains: String
+  slag_ends_with: String
+  slag_gt: String
+  slag_gte: String
+  slag_in: [String!]
+  slag_lt: String
+  slag_lte: String
+  slag_not: String
+  slag_not_contains: String
+  slag_not_ends_with: String
+  slag_not_in: [String!]
+  slag_not_starts_with: String
+  slag_starts_with: String
   title: String
   title_contains: String
   title_ends_with: String
@@ -78,6 +96,7 @@ input PostScalarWhereInput {
 
 input PostUpdateManyDataInput {
   published: Boolean
+  slag: String
   title: String
 }
 
@@ -100,6 +119,7 @@ input PostUpdateManyWithWhereNestedInput {
 
 input PostUpdateWithoutAuthorDataInput {
   published: Boolean
+  slag: String
   title: String
 }
 
@@ -135,6 +155,20 @@ input PostWhereInput {
   OR: [PostWhereInput!]
   published: Boolean
   published_not: Boolean
+  slag: String
+  slag_contains: String
+  slag_ends_with: String
+  slag_gt: String
+  slag_gte: String
+  slag_in: [String!]
+  slag_lt: String
+  slag_lte: String
+  slag_not: String
+  slag_not_contains: String
+  slag_not_ends_with: String
+  slag_not_in: [String!]
+  slag_not_starts_with: String
+  slag_starts_with: String
   title: String
   title_contains: String
   title_ends_with: String

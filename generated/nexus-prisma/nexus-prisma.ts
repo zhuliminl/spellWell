@@ -332,12 +332,14 @@ type PostObject =
   | PostFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'slag', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
   | { name: 'author', args?: [] | false, alias?: string  } 
 
 type PostFields =
   | 'id'
   | 'title'
+  | 'slag'
   | 'published'
   | 'author'
 
@@ -360,6 +362,14 @@ export interface PostFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  slag: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   published: {
@@ -1211,11 +1221,13 @@ type PostPreviousValuesObject =
   | PostPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'slag', args?: [] | false, alias?: string  } 
   | { name: 'published', args?: [] | false, alias?: string  } 
 
 type PostPreviousValuesFields =
   | 'id'
   | 'title'
+  | 'slag'
   | 'published'
 
 
@@ -1237,6 +1249,14 @@ export interface PostPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  slag: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   published: {
@@ -1289,6 +1309,20 @@ export interface PostWhereInput {
   title_not_starts_with?: string | null
   title_ends_with?: string | null
   title_not_ends_with?: string | null
+  slag?: string | null
+  slag_not?: string | null
+  slag_in?: string[]
+  slag_not_in?: string[]
+  slag_lt?: string | null
+  slag_lte?: string | null
+  slag_gt?: string | null
+  slag_gte?: string | null
+  slag_contains?: string | null
+  slag_not_contains?: string | null
+  slag_starts_with?: string | null
+  slag_not_starts_with?: string | null
+  slag_ends_with?: string | null
+  slag_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
   author?: UserWhereInput | null
@@ -1326,6 +1360,20 @@ export type PostWhereInputInputObject =
   | { name: 'title_not_starts_with', alias?: string  } 
   | { name: 'title_ends_with', alias?: string  } 
   | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
+  | { name: 'slag_not', alias?: string  } 
+  | { name: 'slag_in', alias?: string  } 
+  | { name: 'slag_not_in', alias?: string  } 
+  | { name: 'slag_lt', alias?: string  } 
+  | { name: 'slag_lte', alias?: string  } 
+  | { name: 'slag_gt', alias?: string  } 
+  | { name: 'slag_gte', alias?: string  } 
+  | { name: 'slag_contains', alias?: string  } 
+  | { name: 'slag_not_contains', alias?: string  } 
+  | { name: 'slag_starts_with', alias?: string  } 
+  | { name: 'slag_not_starts_with', alias?: string  } 
+  | { name: 'slag_ends_with', alias?: string  } 
+  | { name: 'slag_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'author', alias?: string  } 
@@ -1556,12 +1604,14 @@ export type PostCreateManyWithoutAuthorInputInputObject =
 export interface PostCreateWithoutAuthorInput {
   id?: string | null
   title?: string
+  slag?: string | null
   published?: boolean | null
 }
 export type PostCreateWithoutAuthorInputInputObject =
   | Extract<keyof PostCreateWithoutAuthorInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateInput {
@@ -1615,11 +1665,13 @@ export type PostUpdateWithWhereUniqueWithoutAuthorInputInputObject =
   
 export interface PostUpdateWithoutAuthorDataInput {
   title?: string | null
+  slag?: string | null
   published?: boolean | null
 }
 export type PostUpdateWithoutAuthorDataInputInputObject =
   | Extract<keyof PostUpdateWithoutAuthorDataInput, string>
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
@@ -1662,6 +1714,20 @@ export interface PostScalarWhereInput {
   title_not_starts_with?: string | null
   title_ends_with?: string | null
   title_not_ends_with?: string | null
+  slag?: string | null
+  slag_not?: string | null
+  slag_in?: string[]
+  slag_not_in?: string[]
+  slag_lt?: string | null
+  slag_lte?: string | null
+  slag_gt?: string | null
+  slag_gte?: string | null
+  slag_contains?: string | null
+  slag_not_contains?: string | null
+  slag_starts_with?: string | null
+  slag_not_starts_with?: string | null
+  slag_ends_with?: string | null
+  slag_not_ends_with?: string | null
   published?: boolean | null
   published_not?: boolean | null
   AND?: PostScalarWhereInput[]
@@ -1698,6 +1764,20 @@ export type PostScalarWhereInputInputObject =
   | { name: 'title_not_starts_with', alias?: string  } 
   | { name: 'title_ends_with', alias?: string  } 
   | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
+  | { name: 'slag_not', alias?: string  } 
+  | { name: 'slag_in', alias?: string  } 
+  | { name: 'slag_not_in', alias?: string  } 
+  | { name: 'slag_lt', alias?: string  } 
+  | { name: 'slag_lte', alias?: string  } 
+  | { name: 'slag_gt', alias?: string  } 
+  | { name: 'slag_gte', alias?: string  } 
+  | { name: 'slag_contains', alias?: string  } 
+  | { name: 'slag_not_contains', alias?: string  } 
+  | { name: 'slag_starts_with', alias?: string  } 
+  | { name: 'slag_not_starts_with', alias?: string  } 
+  | { name: 'slag_ends_with', alias?: string  } 
+  | { name: 'slag_not_ends_with', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
   | { name: 'AND', alias?: string  } 
@@ -1715,11 +1795,13 @@ export type PostUpdateManyWithWhereNestedInputInputObject =
   
 export interface PostUpdateManyDataInput {
   title?: string | null
+  slag?: string | null
   published?: boolean | null
 }
 export type PostUpdateManyDataInputInputObject =
   | Extract<keyof PostUpdateManyDataInput, string>
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
@@ -1740,6 +1822,7 @@ export type UserUpdateManyMutationInputInputObject =
 export interface PostCreateInput {
   id?: string | null
   title?: string
+  slag?: string | null
   published?: boolean | null
   author?: UserCreateOneWithoutPostsInput | null
 }
@@ -1747,6 +1830,7 @@ export type PostCreateInputInputObject =
   | Extract<keyof PostCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
@@ -1778,12 +1862,14 @@ export type UserCreateWithoutPostsInputInputObject =
   
 export interface PostUpdateInput {
   title?: string | null
+  slag?: string | null
   published?: boolean | null
   author?: UserUpdateOneWithoutPostsInput | null
 }
 export type PostUpdateInputInputObject =
   | Extract<keyof PostUpdateInput, string>
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'author', alias?: string  } 
   
@@ -1830,11 +1916,13 @@ export type UserUpsertWithoutPostsInputInputObject =
   
 export interface PostUpdateManyMutationInput {
   title?: string | null
+  slag?: string | null
   published?: boolean | null
 }
 export type PostUpdateManyMutationInputInputObject =
   | Extract<keyof PostUpdateManyMutationInput, string>
   | { name: 'title', alias?: string  } 
+  | { name: 'slag', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
@@ -1885,6 +1973,8 @@ export type PostOrderByInputValues =
   | 'id_DESC'
   | 'title_ASC'
   | 'title_DESC'
+  | 'slag_ASC'
+  | 'slag_DESC'
   | 'published_ASC'
   | 'published_DESC'
   | 'createdAt_ASC'

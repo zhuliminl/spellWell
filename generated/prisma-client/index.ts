@@ -145,6 +145,8 @@ export type PostOrderByInput =
   | "id_DESC"
   | "title_ASC"
   | "title_DESC"
+  | "slag_ASC"
+  | "slag_DESC"
   | "published_ASC"
   | "published_DESC";
 
@@ -209,6 +211,7 @@ export interface UserCreateInput {
 
 export interface PostUpdateManyMutationInput {
   title?: Maybe<String>;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -226,6 +229,7 @@ export interface UserSubscriptionWhereInput {
 export interface PostCreateInput {
   id?: Maybe<ID_Input>;
   title: String;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
   author?: Maybe<UserCreateOneWithoutPostsInput>;
 }
@@ -264,12 +268,14 @@ export type UserWhereUniqueInput = AtLeastOne<{
 
 export interface PostUpdateInput {
   title?: Maybe<String>;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
   author?: Maybe<UserUpdateOneWithoutPostsInput>;
 }
 
 export interface PostUpdateWithoutAuthorDataInput {
   title?: Maybe<String>;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -385,6 +391,7 @@ export interface UserUpdateWithoutPostsDataInput {
 
 export interface PostUpdateManyDataInput {
   title?: Maybe<String>;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -396,6 +403,7 @@ export interface PostCreateManyWithoutAuthorInput {
 export interface PostCreateWithoutAuthorInput {
   id?: Maybe<ID_Input>;
   title: String;
+  slag?: Maybe<String>;
   published?: Maybe<Boolean>;
 }
 
@@ -428,6 +436,20 @@ export interface PostWhereInput {
   title_not_starts_with?: Maybe<String>;
   title_ends_with?: Maybe<String>;
   title_not_ends_with?: Maybe<String>;
+  slag?: Maybe<String>;
+  slag_not?: Maybe<String>;
+  slag_in?: Maybe<String[] | String>;
+  slag_not_in?: Maybe<String[] | String>;
+  slag_lt?: Maybe<String>;
+  slag_lte?: Maybe<String>;
+  slag_gt?: Maybe<String>;
+  slag_gte?: Maybe<String>;
+  slag_contains?: Maybe<String>;
+  slag_not_contains?: Maybe<String>;
+  slag_starts_with?: Maybe<String>;
+  slag_not_starts_with?: Maybe<String>;
+  slag_ends_with?: Maybe<String>;
+  slag_not_ends_with?: Maybe<String>;
   published?: Maybe<Boolean>;
   published_not?: Maybe<Boolean>;
   author?: Maybe<UserWhereInput>;
@@ -470,6 +492,20 @@ export interface PostScalarWhereInput {
   title_not_starts_with?: Maybe<String>;
   title_ends_with?: Maybe<String>;
   title_not_ends_with?: Maybe<String>;
+  slag?: Maybe<String>;
+  slag_not?: Maybe<String>;
+  slag_in?: Maybe<String[] | String>;
+  slag_not_in?: Maybe<String[] | String>;
+  slag_lt?: Maybe<String>;
+  slag_lte?: Maybe<String>;
+  slag_gt?: Maybe<String>;
+  slag_gte?: Maybe<String>;
+  slag_contains?: Maybe<String>;
+  slag_not_contains?: Maybe<String>;
+  slag_starts_with?: Maybe<String>;
+  slag_not_starts_with?: Maybe<String>;
+  slag_ends_with?: Maybe<String>;
+  slag_not_ends_with?: Maybe<String>;
   published?: Maybe<Boolean>;
   published_not?: Maybe<Boolean>;
   AND?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
@@ -690,12 +726,14 @@ export interface PostConnectionSubscription
 export interface Post {
   id: ID_Output;
   title: String;
+  slag?: String;
   published: Boolean;
 }
 
 export interface PostPromise extends Promise<Post>, Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
+  slag: () => Promise<String>;
   published: () => Promise<Boolean>;
   author: <T = UserPromise>() => T;
 }
@@ -705,6 +743,7 @@ export interface PostSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
+  slag: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
   author: <T = UserSubscription>() => T;
 }
@@ -714,6 +753,7 @@ export interface PostNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
+  slag: () => Promise<String>;
   published: () => Promise<Boolean>;
   author: <T = UserPromise>() => T;
 }
@@ -721,6 +761,7 @@ export interface PostNullablePromise
 export interface PostPreviousValues {
   id: ID_Output;
   title: String;
+  slag?: String;
   published: Boolean;
 }
 
@@ -729,6 +770,7 @@ export interface PostPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
+  slag: () => Promise<String>;
   published: () => Promise<Boolean>;
 }
 
@@ -737,6 +779,7 @@ export interface PostPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
+  slag: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
 }
 
