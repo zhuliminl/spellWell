@@ -1,10 +1,10 @@
 type User {
   id: ID! @id
   role: String
+  name: String!
   nickname: String
   password: String
   email: String @unique
-  name: String!
   openid: String @unique
   materials: [Material!]!
   status: String

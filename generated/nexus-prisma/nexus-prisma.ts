@@ -317,10 +317,10 @@ type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
   | { name: 'materials', args?: UserMaterialsArgs[] | false, alias?: string  } 
   | { name: 'status', args?: [] | false, alias?: string  } 
@@ -328,10 +328,10 @@ type UserObject =
 type UserFields =
   | 'id'
   | 'role'
+  | 'name'
   | 'nickname'
   | 'password'
   | 'email'
-  | 'name'
   | 'openid'
   | 'materials'
   | 'status'
@@ -364,6 +364,14 @@ export interface UserFieldDetails {
     nullable: true
     resolve: undefined
   }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   nickname: {
     type: 'String'
     args: {}
@@ -386,14 +394,6 @@ export interface UserFieldDetails {
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
   openid: {
@@ -1501,20 +1501,20 @@ type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
   | { name: 'status', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
   | 'role'
+  | 'name'
   | 'nickname'
   | 'password'
   | 'email'
-  | 'name'
   | 'openid'
   | 'status'
 
@@ -1539,6 +1539,14 @@ export interface UserPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   nickname: {
     type: 'String'
     args: {}
@@ -1561,14 +1569,6 @@ export interface UserPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
   openid: {
@@ -2030,6 +2030,20 @@ export interface UserWhereInput {
   role_not_starts_with?: string | null
   role_ends_with?: string | null
   role_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
   nickname?: string | null
   nickname_not?: string | null
   nickname_in?: string[]
@@ -2072,20 +2086,6 @@ export interface UserWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
   openid?: string | null
   openid_not?: string | null
   openid_in?: string[]
@@ -2151,6 +2151,20 @@ export type UserWhereInputInputObject =
   | { name: 'role_not_starts_with', alias?: string  } 
   | { name: 'role_ends_with', alias?: string  } 
   | { name: 'role_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'nickname_not', alias?: string  } 
   | { name: 'nickname_in', alias?: string  } 
@@ -2193,20 +2207,6 @@ export type UserWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'openid_not', alias?: string  } 
   | { name: 'openid_in', alias?: string  } 
@@ -2410,10 +2410,10 @@ export type SystemWhereInputInputObject =
 export interface UserCreateInput {
   id?: string | null
   role?: string | null
+  name?: string
   nickname?: string | null
   password?: string | null
   email?: string | null
-  name?: string
   openid?: string | null
   materials?: MaterialCreateManyWithoutAuthorInput | null
   status?: string | null
@@ -2422,10 +2422,10 @@ export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'role', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'materials', alias?: string  } 
   | { name: 'status', alias?: string  } 
@@ -2456,10 +2456,10 @@ export type MaterialCreateWithoutAuthorInputInputObject =
   
 export interface UserUpdateInput {
   role?: string | null
+  name?: string | null
   nickname?: string | null
   password?: string | null
   email?: string | null
-  name?: string | null
   openid?: string | null
   materials?: MaterialUpdateManyWithoutAuthorInput | null
   status?: string | null
@@ -2467,10 +2467,10 @@ export interface UserUpdateInput {
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'materials', alias?: string  } 
   | { name: 'status', alias?: string  } 
@@ -2682,20 +2682,20 @@ export type MaterialUpdateManyDataInputInputObject =
   
 export interface UserUpdateManyMutationInput {
   role?: string | null
+  name?: string | null
   nickname?: string | null
   password?: string | null
   email?: string | null
-  name?: string | null
   openid?: string | null
   status?: string | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2728,10 +2728,10 @@ export type UserCreateOneWithoutMaterialsInputInputObject =
 export interface UserCreateWithoutMaterialsInput {
   id?: string | null
   role?: string | null
+  name?: string
   nickname?: string | null
   password?: string | null
   email?: string | null
-  name?: string
   openid?: string | null
   status?: string | null
 }
@@ -2739,10 +2739,10 @@ export type UserCreateWithoutMaterialsInputInputObject =
   | Extract<keyof UserCreateWithoutMaterialsInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'role', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2780,20 +2780,20 @@ export type UserUpdateOneWithoutMaterialsInputInputObject =
   
 export interface UserUpdateWithoutMaterialsDataInput {
   role?: string | null
+  name?: string | null
   nickname?: string | null
   password?: string | null
   email?: string | null
-  name?: string | null
   openid?: string | null
   status?: string | null
 }
 export type UserUpdateWithoutMaterialsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutMaterialsDataInput, string>
   | { name: 'role', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2945,14 +2945,14 @@ export type UserOrderByInputValues =
   | 'id_DESC'
   | 'role_ASC'
   | 'role_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
   | 'nickname_ASC'
   | 'nickname_DESC'
   | 'password_ASC'
   | 'password_DESC'
   | 'email_ASC'
   | 'email_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
   | 'openid_ASC'
   | 'openid_DESC'
   | 'status_ASC'

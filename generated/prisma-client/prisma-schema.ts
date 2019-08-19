@@ -511,10 +511,10 @@ input SystemWhereUniqueInput {
 type User {
   id: ID!
   role: String
+  name: String!
   nickname: String
   password: String
   email: String
-  name: String!
   openid: String
   materials(where: MaterialWhereInput, orderBy: MaterialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Material!]
   status: String
@@ -529,10 +529,10 @@ type UserConnection {
 input UserCreateInput {
   id: ID
   role: String
+  name: String!
   nickname: String
   password: String
   email: String
-  name: String!
   openid: String
   materials: MaterialCreateManyWithoutAuthorInput
   status: String
@@ -546,10 +546,10 @@ input UserCreateOneWithoutMaterialsInput {
 input UserCreateWithoutMaterialsInput {
   id: ID
   role: String
+  name: String!
   nickname: String
   password: String
   email: String
-  name: String!
   openid: String
   status: String
 }
@@ -564,14 +564,14 @@ enum UserOrderByInput {
   id_DESC
   role_ASC
   role_DESC
+  name_ASC
+  name_DESC
   nickname_ASC
   nickname_DESC
   password_ASC
   password_DESC
   email_ASC
   email_DESC
-  name_ASC
-  name_DESC
   openid_ASC
   openid_DESC
   status_ASC
@@ -581,10 +581,10 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   role: String
+  name: String!
   nickname: String
   password: String
   email: String
-  name: String!
   openid: String
   status: String
 }
@@ -609,10 +609,10 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   role: String
+  name: String
   nickname: String
   password: String
   email: String
-  name: String
   openid: String
   materials: MaterialUpdateManyWithoutAuthorInput
   status: String
@@ -620,10 +620,10 @@ input UserUpdateInput {
 
 input UserUpdateManyMutationInput {
   role: String
+  name: String
   nickname: String
   password: String
   email: String
-  name: String
   openid: String
   status: String
 }
@@ -639,10 +639,10 @@ input UserUpdateOneWithoutMaterialsInput {
 
 input UserUpdateWithoutMaterialsDataInput {
   role: String
+  name: String
   nickname: String
   password: String
   email: String
-  name: String
   openid: String
   status: String
 }
@@ -681,6 +681,20 @@ input UserWhereInput {
   role_not_starts_with: String
   role_ends_with: String
   role_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
   nickname: String
   nickname_not: String
   nickname_in: [String!]
@@ -723,20 +737,6 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
   openid: String
   openid_not: String
   openid_in: [String!]

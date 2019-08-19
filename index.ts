@@ -1,4 +1,4 @@
-import * as allTypes from './resolvers'
+import * as allTypes from './src/resolvers'
 import * as path from 'path'
 
 import { ApolloServer, gql } from 'apollo-server'
@@ -7,6 +7,9 @@ import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
 // import { GraphQLServer } from 'graphql-yoga'
 import datamodelInfo from './generated/nexus-prisma'
 import { prisma } from './generated/prisma-client'
+import { configure, getLogger } from 'log4js'
+const globalAny:any = global;
+globalAny.logger = getLogger()
 
 async function main() {
   const schema = makePrismaSchema({

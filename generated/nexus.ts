@@ -489,11 +489,9 @@ export interface NexusGenFieldTypes {
     slogan: string | null; // String
   }
   User: { // field return type
-    fullname: string; // String!
     id: string; // ID!
     materials: NexusGenRootTypes['Material'][] | null; // [Material!]
     name: string; // String!
-    saul: string; // String!
   }
 }
 

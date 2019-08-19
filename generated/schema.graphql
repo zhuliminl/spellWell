@@ -327,11 +327,9 @@ input SystemWhereInput {
 }
 
 type User {
-  fullname: String!
   id: ID!
   materials(after: String, before: String, first: Int, last: Int, orderBy: MaterialOrderByInput, skip: Int, where: MaterialWhereInput): [Material!]
   name: String!
-  saul: String!
 }
 
 input UserCreateInput {

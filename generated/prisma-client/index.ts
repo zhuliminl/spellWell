@@ -208,14 +208,14 @@ export type UserOrderByInput =
   | "id_DESC"
   | "role_ASC"
   | "role_DESC"
+  | "name_ASC"
+  | "name_DESC"
   | "nickname_ASC"
   | "nickname_DESC"
   | "password_ASC"
   | "password_DESC"
   | "email_ASC"
   | "email_DESC"
-  | "name_ASC"
-  | "name_DESC"
   | "openid_ASC"
   | "openid_DESC"
   | "status_ASC"
@@ -310,10 +310,10 @@ export interface MaterialWhereInput {
 
 export interface UserUpdateInput {
   role?: Maybe<String>;
+  name?: Maybe<String>;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
   openid?: Maybe<String>;
   materials?: Maybe<MaterialUpdateManyWithoutAuthorInput>;
   status?: Maybe<String>;
@@ -368,10 +368,10 @@ export interface MaterialCreateInput {
 
 export interface UserUpdateManyMutationInput {
   role?: Maybe<String>;
+  name?: Maybe<String>;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -460,10 +460,10 @@ export interface SystemWhereInput {
 export interface UserCreateWithoutMaterialsInput {
   id?: Maybe<ID_Input>;
   role?: Maybe<String>;
+  name: String;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
-  name: String;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -561,10 +561,10 @@ export interface MaterialUpdateWithWhereUniqueWithoutAuthorInput {
 
 export interface UserUpdateWithoutMaterialsDataInput {
   role?: Maybe<String>;
+  name?: Maybe<String>;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -597,10 +597,10 @@ export interface SystemUpdateManyMutationInput {
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   role?: Maybe<String>;
+  name: String;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
-  name: String;
   openid?: Maybe<String>;
   materials?: Maybe<MaterialCreateManyWithoutAuthorInput>;
   status?: Maybe<String>;
@@ -635,6 +635,20 @@ export interface UserWhereInput {
   role_not_starts_with?: Maybe<String>;
   role_ends_with?: Maybe<String>;
   role_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
   nickname?: Maybe<String>;
   nickname_not?: Maybe<String>;
   nickname_in?: Maybe<String[] | String>;
@@ -677,20 +691,6 @@ export interface UserWhereInput {
   email_not_starts_with?: Maybe<String>;
   email_ends_with?: Maybe<String>;
   email_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
   openid?: Maybe<String>;
   openid_not?: Maybe<String>;
   openid_in?: Maybe<String[] | String>;
@@ -810,10 +810,10 @@ export interface BatchPayloadSubscription
 export interface UserPreviousValues {
   id: ID_Output;
   role?: String;
+  name: String;
   nickname?: String;
   password?: String;
   email?: String;
-  name: String;
   openid?: String;
   status?: String;
 }
@@ -823,10 +823,10 @@ export interface UserPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  name: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
   openid: () => Promise<String>;
   status: () => Promise<String>;
 }
@@ -836,10 +836,10 @@ export interface UserPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   role: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
   status: () => Promise<AsyncIterator<String>>;
 }
@@ -883,10 +883,10 @@ export interface SystemNullablePromise
 export interface User {
   id: ID_Output;
   role?: String;
+  name: String;
   nickname?: String;
   password?: String;
   email?: String;
-  name: String;
   openid?: String;
   status?: String;
 }
@@ -894,10 +894,10 @@ export interface User {
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  name: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
   openid: () => Promise<String>;
   materials: <T = FragmentableArray<Material>>(args?: {
     where?: MaterialWhereInput;
@@ -916,10 +916,10 @@ export interface UserSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   role: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
   materials: <T = Promise<AsyncIterator<MaterialSubscription>>>(args?: {
     where?: MaterialWhereInput;
@@ -938,10 +938,10 @@ export interface UserNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   role: () => Promise<String>;
+  name: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
   openid: () => Promise<String>;
   materials: <T = FragmentableArray<Material>>(args?: {
     where?: MaterialWhereInput;
