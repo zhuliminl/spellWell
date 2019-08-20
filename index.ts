@@ -1,15 +1,12 @@
-import * as allTypes from './src/resolvers'
-import * as path from 'path'
+import * as allTypes from './src/resolvers';
+import * as path from 'path';
 
-import { ApolloServer, gql } from 'apollo-server'
-import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
-
+import { ApolloServer } from 'apollo-server';
 // import { GraphQLServer } from 'graphql-yoga'
-import datamodelInfo from './generated/nexus-prisma'
-import { prisma } from './generated/prisma-client'
-import { configure, getLogger } from 'log4js'
-const globalAny:any = global;
-globalAny.logger = getLogger()
+import datamodelInfo from './generated/nexus-prisma';
+import { logger } from './src/common/logger'
+import { makePrismaSchema } from 'nexus-prisma';
+import { prisma } from './generated/prisma-client';
 
 async function main() {
   const schema = makePrismaSchema({
@@ -30,8 +27,9 @@ async function main() {
   //   context: { prisma },
   // })
   // server.start(() => console.log('Server is running on http://localhost:4000'))
+  // console.log('FIN all', allTypes)
 
-  console.log('FIN all', allTypes)
+  logger.info('FIN', allTypes)
 
   const server = new ApolloServer({
     schema,
@@ -42,4 +40,6 @@ async function main() {
   )
 }
 
-main().catch(e => console.error(e))
+main().catch(e => {
+  logger.error(e)
+})

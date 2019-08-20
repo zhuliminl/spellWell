@@ -340,6 +340,7 @@ input UserCreateInput {
   nickname: String
   openid: String
   password: String
+  phone_number: String
   role: String
   status: String
 }
@@ -359,6 +360,8 @@ enum UserOrderByInput {
   openid_DESC
   password_ASC
   password_DESC
+  phone_number_ASC
+  phone_number_DESC
   role_ASC
   role_DESC
   status_ASC
@@ -374,6 +377,7 @@ input UserUpdateInput {
   nickname: String
   openid: String
   password: String
+  phone_number: String
   role: String
   status: String
 }
@@ -469,6 +473,20 @@ input UserWhereInput {
   password_not_in: [String!]
   password_not_starts_with: String
   password_starts_with: String
+  phone_number: String
+  phone_number_contains: String
+  phone_number_ends_with: String
+  phone_number_gt: String
+  phone_number_gte: String
+  phone_number_in: [String!]
+  phone_number_lt: String
+  phone_number_lte: String
+  phone_number_not: String
+  phone_number_not_contains: String
+  phone_number_not_ends_with: String
+  phone_number_not_in: [String!]
+  phone_number_not_starts_with: String
+  phone_number_starts_with: String
   role: String
   role_contains: String
   role_ends_with: String

@@ -515,6 +515,7 @@ type User {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   materials(where: MaterialWhereInput, orderBy: MaterialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Material!]
   status: String
@@ -533,6 +534,7 @@ input UserCreateInput {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   materials: MaterialCreateManyWithoutAuthorInput
   status: String
@@ -550,6 +552,7 @@ input UserCreateWithoutMaterialsInput {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   status: String
 }
@@ -572,6 +575,8 @@ enum UserOrderByInput {
   password_DESC
   email_ASC
   email_DESC
+  phone_number_ASC
+  phone_number_DESC
   openid_ASC
   openid_DESC
   status_ASC
@@ -585,6 +590,7 @@ type UserPreviousValues {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   status: String
 }
@@ -613,6 +619,7 @@ input UserUpdateInput {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   materials: MaterialUpdateManyWithoutAuthorInput
   status: String
@@ -624,6 +631,7 @@ input UserUpdateManyMutationInput {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   status: String
 }
@@ -643,6 +651,7 @@ input UserUpdateWithoutMaterialsDataInput {
   nickname: String
   password: String
   email: String
+  phone_number: String
   openid: String
   status: String
 }
@@ -737,6 +746,20 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  phone_number: String
+  phone_number_not: String
+  phone_number_in: [String!]
+  phone_number_not_in: [String!]
+  phone_number_lt: String
+  phone_number_lte: String
+  phone_number_gt: String
+  phone_number_gte: String
+  phone_number_contains: String
+  phone_number_not_contains: String
+  phone_number_starts_with: String
+  phone_number_not_starts_with: String
+  phone_number_ends_with: String
+  phone_number_not_ends_with: String
   openid: String
   openid_not: String
   openid_in: [String!]

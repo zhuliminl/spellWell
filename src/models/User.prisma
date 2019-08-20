@@ -5,6 +5,7 @@ type User {
   nickname: String
   password: String
   email: String @unique
+  phone_number: String
   openid: String @unique
   materials: [Material!]!
   status: String

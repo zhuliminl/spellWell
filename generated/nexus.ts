@@ -271,6 +271,7 @@ export interface NexusGenInputs {
     nickname?: string | null; // String
     openid?: string | null; // String
     password?: string | null; // String
+    phone_number?: string | null; // String
     role?: string | null; // String
     status?: string | null; // String
   }
@@ -281,6 +282,7 @@ export interface NexusGenInputs {
     nickname?: string | null; // String
     openid?: string | null; // String
     password?: string | null; // String
+    phone_number?: string | null; // String
     role?: string | null; // String
     status?: string | null; // String
   }
@@ -375,6 +377,20 @@ export interface NexusGenInputs {
     password_not_in?: string[] | null; // [String!]
     password_not_starts_with?: string | null; // String
     password_starts_with?: string | null; // String
+    phone_number?: string | null; // String
+    phone_number_contains?: string | null; // String
+    phone_number_ends_with?: string | null; // String
+    phone_number_gt?: string | null; // String
+    phone_number_gte?: string | null; // String
+    phone_number_in?: string[] | null; // [String!]
+    phone_number_lt?: string | null; // String
+    phone_number_lte?: string | null; // String
+    phone_number_not?: string | null; // String
+    phone_number_not_contains?: string | null; // String
+    phone_number_not_ends_with?: string | null; // String
+    phone_number_not_in?: string[] | null; // [String!]
+    phone_number_not_starts_with?: string | null; // String
+    phone_number_starts_with?: string | null; // String
     role?: string | null; // String
     role_contains?: string | null; // String
     role_ends_with?: string | null; // String
@@ -414,7 +430,7 @@ export interface NexusGenInputs {
 export interface NexusGenEnums {
   MaterialOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "desc_ASC" | "desc_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SystemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "slogan_ASC" | "slogan_DESC" | "tel_ASC" | "tel_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_code_ASC" | "version_code_DESC"
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "nickname_ASC" | "nickname_DESC" | "openid_ASC" | "openid_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "nickname_ASC" | "nickname_DESC" | "openid_ASC" | "openid_DESC" | "password_ASC" | "password_DESC" | "phone_number_ASC" | "phone_number_DESC" | "role_ASC" | "role_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {

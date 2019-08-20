@@ -5,7 +5,8 @@ async function main() {
   const users = userSeed['users'] || []
 
   users.forEach(async user => {
-    console.log('FIN 正在创建用户', user['name'])
+    // log('FIN 正在创建用户', user['name'])
+    // log.info('xxx')
     try {
       await prisma.createUser({
         ...user

@@ -321,6 +321,7 @@ type UserObject =
   | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'phone_number', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
   | { name: 'materials', args?: UserMaterialsArgs[] | false, alias?: string  } 
   | { name: 'status', args?: [] | false, alias?: string  } 
@@ -332,6 +333,7 @@ type UserFields =
   | 'nickname'
   | 'password'
   | 'email'
+  | 'phone_number'
   | 'openid'
   | 'materials'
   | 'status'
@@ -389,6 +391,14 @@ export interface UserFieldDetails {
     resolve: undefined
   }
   email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  phone_number: {
     type: 'String'
     args: {}
     description: string
@@ -1505,6 +1515,7 @@ type UserPreviousValuesObject =
   | { name: 'nickname', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'phone_number', args?: [] | false, alias?: string  } 
   | { name: 'openid', args?: [] | false, alias?: string  } 
   | { name: 'status', args?: [] | false, alias?: string  } 
 
@@ -1515,6 +1526,7 @@ type UserPreviousValuesFields =
   | 'nickname'
   | 'password'
   | 'email'
+  | 'phone_number'
   | 'openid'
   | 'status'
 
@@ -1564,6 +1576,14 @@ export interface UserPreviousValuesFieldDetails {
     resolve: undefined
   }
   email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  phone_number: {
     type: 'String'
     args: {}
     description: string
@@ -2086,6 +2106,20 @@ export interface UserWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
+  phone_number?: string | null
+  phone_number_not?: string | null
+  phone_number_in?: string[]
+  phone_number_not_in?: string[]
+  phone_number_lt?: string | null
+  phone_number_lte?: string | null
+  phone_number_gt?: string | null
+  phone_number_gte?: string | null
+  phone_number_contains?: string | null
+  phone_number_not_contains?: string | null
+  phone_number_starts_with?: string | null
+  phone_number_not_starts_with?: string | null
+  phone_number_ends_with?: string | null
+  phone_number_not_ends_with?: string | null
   openid?: string | null
   openid_not?: string | null
   openid_in?: string[]
@@ -2207,6 +2241,20 @@ export type UserWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
+  | { name: 'phone_number_not', alias?: string  } 
+  | { name: 'phone_number_in', alias?: string  } 
+  | { name: 'phone_number_not_in', alias?: string  } 
+  | { name: 'phone_number_lt', alias?: string  } 
+  | { name: 'phone_number_lte', alias?: string  } 
+  | { name: 'phone_number_gt', alias?: string  } 
+  | { name: 'phone_number_gte', alias?: string  } 
+  | { name: 'phone_number_contains', alias?: string  } 
+  | { name: 'phone_number_not_contains', alias?: string  } 
+  | { name: 'phone_number_starts_with', alias?: string  } 
+  | { name: 'phone_number_not_starts_with', alias?: string  } 
+  | { name: 'phone_number_ends_with', alias?: string  } 
+  | { name: 'phone_number_not_ends_with', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'openid_not', alias?: string  } 
   | { name: 'openid_in', alias?: string  } 
@@ -2414,6 +2462,7 @@ export interface UserCreateInput {
   nickname?: string | null
   password?: string | null
   email?: string | null
+  phone_number?: string | null
   openid?: string | null
   materials?: MaterialCreateManyWithoutAuthorInput | null
   status?: string | null
@@ -2426,6 +2475,7 @@ export type UserCreateInputInputObject =
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'materials', alias?: string  } 
   | { name: 'status', alias?: string  } 
@@ -2460,6 +2510,7 @@ export interface UserUpdateInput {
   nickname?: string | null
   password?: string | null
   email?: string | null
+  phone_number?: string | null
   openid?: string | null
   materials?: MaterialUpdateManyWithoutAuthorInput | null
   status?: string | null
@@ -2471,6 +2522,7 @@ export type UserUpdateInputInputObject =
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'materials', alias?: string  } 
   | { name: 'status', alias?: string  } 
@@ -2686,6 +2738,7 @@ export interface UserUpdateManyMutationInput {
   nickname?: string | null
   password?: string | null
   email?: string | null
+  phone_number?: string | null
   openid?: string | null
   status?: string | null
 }
@@ -2696,6 +2749,7 @@ export type UserUpdateManyMutationInputInputObject =
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2732,6 +2786,7 @@ export interface UserCreateWithoutMaterialsInput {
   nickname?: string | null
   password?: string | null
   email?: string | null
+  phone_number?: string | null
   openid?: string | null
   status?: string | null
 }
@@ -2743,6 +2798,7 @@ export type UserCreateWithoutMaterialsInputInputObject =
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2784,6 +2840,7 @@ export interface UserUpdateWithoutMaterialsDataInput {
   nickname?: string | null
   password?: string | null
   email?: string | null
+  phone_number?: string | null
   openid?: string | null
   status?: string | null
 }
@@ -2794,6 +2851,7 @@ export type UserUpdateWithoutMaterialsDataInputInputObject =
   | { name: 'nickname', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  | { name: 'phone_number', alias?: string  } 
   | { name: 'openid', alias?: string  } 
   | { name: 'status', alias?: string  } 
   
@@ -2953,6 +3011,8 @@ export type UserOrderByInputValues =
   | 'password_DESC'
   | 'email_ASC'
   | 'email_DESC'
+  | 'phone_number_ASC'
+  | 'phone_number_DESC'
   | 'openid_ASC'
   | 'openid_DESC'
   | 'status_ASC'

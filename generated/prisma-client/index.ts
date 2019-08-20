@@ -216,6 +216,8 @@ export type UserOrderByInput =
   | "password_DESC"
   | "email_ASC"
   | "email_DESC"
+  | "phone_number_ASC"
+  | "phone_number_DESC"
   | "openid_ASC"
   | "openid_DESC"
   | "status_ASC"
@@ -314,6 +316,7 @@ export interface UserUpdateInput {
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
+  phone_number?: Maybe<String>;
   openid?: Maybe<String>;
   materials?: Maybe<MaterialUpdateManyWithoutAuthorInput>;
   status?: Maybe<String>;
@@ -372,6 +375,7 @@ export interface UserUpdateManyMutationInput {
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
+  phone_number?: Maybe<String>;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -464,6 +468,7 @@ export interface UserCreateWithoutMaterialsInput {
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
+  phone_number?: Maybe<String>;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -565,6 +570,7 @@ export interface UserUpdateWithoutMaterialsDataInput {
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
+  phone_number?: Maybe<String>;
   openid?: Maybe<String>;
   status?: Maybe<String>;
 }
@@ -601,6 +607,7 @@ export interface UserCreateInput {
   nickname?: Maybe<String>;
   password?: Maybe<String>;
   email?: Maybe<String>;
+  phone_number?: Maybe<String>;
   openid?: Maybe<String>;
   materials?: Maybe<MaterialCreateManyWithoutAuthorInput>;
   status?: Maybe<String>;
@@ -691,6 +698,20 @@ export interface UserWhereInput {
   email_not_starts_with?: Maybe<String>;
   email_ends_with?: Maybe<String>;
   email_not_ends_with?: Maybe<String>;
+  phone_number?: Maybe<String>;
+  phone_number_not?: Maybe<String>;
+  phone_number_in?: Maybe<String[] | String>;
+  phone_number_not_in?: Maybe<String[] | String>;
+  phone_number_lt?: Maybe<String>;
+  phone_number_lte?: Maybe<String>;
+  phone_number_gt?: Maybe<String>;
+  phone_number_gte?: Maybe<String>;
+  phone_number_contains?: Maybe<String>;
+  phone_number_not_contains?: Maybe<String>;
+  phone_number_starts_with?: Maybe<String>;
+  phone_number_not_starts_with?: Maybe<String>;
+  phone_number_ends_with?: Maybe<String>;
+  phone_number_not_ends_with?: Maybe<String>;
   openid?: Maybe<String>;
   openid_not?: Maybe<String>;
   openid_in?: Maybe<String[] | String>;
@@ -814,6 +835,7 @@ export interface UserPreviousValues {
   nickname?: String;
   password?: String;
   email?: String;
+  phone_number?: String;
   openid?: String;
   status?: String;
 }
@@ -827,6 +849,7 @@ export interface UserPreviousValuesPromise
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
+  phone_number: () => Promise<String>;
   openid: () => Promise<String>;
   status: () => Promise<String>;
 }
@@ -840,6 +863,7 @@ export interface UserPreviousValuesSubscription
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
+  phone_number: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
   status: () => Promise<AsyncIterator<String>>;
 }
@@ -887,6 +911,7 @@ export interface User {
   nickname?: String;
   password?: String;
   email?: String;
+  phone_number?: String;
   openid?: String;
   status?: String;
 }
@@ -898,6 +923,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
+  phone_number: () => Promise<String>;
   openid: () => Promise<String>;
   materials: <T = FragmentableArray<Material>>(args?: {
     where?: MaterialWhereInput;
@@ -920,6 +946,7 @@ export interface UserSubscription
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
+  phone_number: () => Promise<AsyncIterator<String>>;
   openid: () => Promise<AsyncIterator<String>>;
   materials: <T = Promise<AsyncIterator<MaterialSubscription>>>(args?: {
     where?: MaterialWhereInput;
@@ -942,6 +969,7 @@ export interface UserNullablePromise
   nickname: () => Promise<String>;
   password: () => Promise<String>;
   email: () => Promise<String>;
+  phone_number: () => Promise<String>;
   openid: () => Promise<String>;
   materials: <T = FragmentableArray<Material>>(args?: {
     where?: MaterialWhereInput;
