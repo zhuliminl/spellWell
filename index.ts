@@ -1,10 +1,12 @@
+import 'module-alias/register';
 import * as allTypes from './src/resolvers';
 import * as path from 'path';
 
 import { ApolloServer } from 'apollo-server';
 // import { GraphQLServer } from 'graphql-yoga'
 import datamodelInfo from './generated/nexus-prisma';
-import { logger } from './src/common/logger'
+import { logger } from '@/common/logger'
+
 import { makePrismaSchema } from 'nexus-prisma';
 import { prisma } from './generated/prisma-client';
 

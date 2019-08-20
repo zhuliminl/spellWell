@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-      "module": "commonjs",
-      "resolveJsonModule": true,
-      "esModuleInterop": true
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/common/*": [ "common/*" ],
+      "@/utils/*": [ "utils/*" ],
+      "@/constants/*": [ "constants/*" ],
+      "@/resolvers/*": [ "resolvers/*" ]
+    }
   },
-  // "typeRoots": ["src/types/global.d.ts" ],
-  "paths": {
-    "*": ["node_modules/*", "src/types/*"]
-  }
+  "typeRoots": [
+    "node_modules/@types",
+    "global.d.ts"
+  ],
 }
