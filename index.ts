@@ -1,15 +1,15 @@
-import { logger } from '@/common/logger';
+import 'module-alias/register';
+
+import * as allTypes from './src/resolvers';
+import * as path from 'path';
+
 import { ApolloServer } from 'apollo-server';
 import { applyMiddleware } from 'graphql-middleware';
-import 'module-alias/register';
-import { makePrismaSchema } from 'nexus-prisma';
-import * as path from 'path';
 import datamodelInfo from './generated/nexus-prisma';
-import { prisma } from './generated/prisma-client';
+import { logger } from '@/common/logger';
+import { makePrismaSchema } from 'nexus-prisma';
 import { middlewares } from './src/middlewares';
-import * as allTypes from './src/resolvers';
-
-
+import { prisma } from './generated/prisma-client';
 
 async function main() {
   const schema = makePrismaSchema({
