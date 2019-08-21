@@ -4,11 +4,13 @@
   "main": "index.ts",
   "license": "MIT",
   "scripts": {
+    "log:clear": "rm -rf logs",
     "prisma:reset": "sudo prisma reset --force",
     "prisma:deploy": "sudo prisma deploy --force",
     "seed": "ts-node ./script/seed.ts",
     "start": "ts-node index.ts",
     "dev": "ts-node-dev --no-notify --respawn  ./",
+    "dev:inspect": "ts-node-dev --inspect --no-notify --respawn  ./",
     "build": "tsc",
     "lint": "eslint '**/*.ts'",
     "nexus-prisma-generate": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma"
@@ -19,6 +21,7 @@
     "argon2": "^0.24.0",
     "fp-ts": "^2.0.0",
     "graphql": "^14.3.1",
+    "graphql-middleware": "^4.0.0",
     "graphql-shield": "^6.0.0",
     "graphql-yoga": "^1.17.4",
     "jsonwebtoken": "^8.5.1",
@@ -54,6 +57,7 @@
     "@/common": "src/common",
     "@/utils": "src/utils",
     "@/constants": "src/constants",
-    "@/resolvers": "src/resolvers"
+    "@/resolvers": "src/resolvers",
+    "@/middlewares": "src/middlewares"
   }
 }

@@ -1,14 +1,15 @@
-import 'module-alias/register';
-import * as allTypes from './src/resolvers';
-import * as path from 'path';
-
+import { logger } from '@/common/logger';
 import { ApolloServer } from 'apollo-server';
-// import { GraphQLServer } from 'graphql-yoga'
-import datamodelInfo from './generated/nexus-prisma';
-import { logger } from '@/common/logger'
-
+import { applyMiddleware } from 'graphql-middleware';
+import 'module-alias/register';
 import { makePrismaSchema } from 'nexus-prisma';
+import * as path from 'path';
+import datamodelInfo from './generated/nexus-prisma';
 import { prisma } from './generated/prisma-client';
+import { middlewares } from './src/middlewares';
+import * as allTypes from './src/resolvers';
+
+
 
 async function main() {
   const schema = makePrismaSchema({
@@ -24,18 +25,22 @@ async function main() {
     },
   })
 
-  // const server = new GraphQLServer({
-  //   schema,
-  //   context: { prisma },
-  // })
-  // server.start(() => console.log('Server is running on http://localhost:4000'))
-  // console.log('FIN all', allTypes)
+  logger.info('FIN allTypes', allTypes)
 
-  logger.info('FIN', allTypes)
+  const schemaWithMiddleware = applyMiddleware(
+    schema,
+    ...middlewares,
+  )
+
 
   const server = new ApolloServer({
-    schema,
-    context: { prisma },
+    schema: schemaWithMiddleware,
+    context: req => {
+      return {
+        ...req,
+        prisma,
+      }
+    }
   })
   server.listen({ port: 4000 }, () =>
     console.log(`🚀 Server ready at http://localhost:4000`),

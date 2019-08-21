@@ -496,6 +496,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     materials: NexusGenRootTypes['Material'][]; // [Material!]!
+    saul: string; // String!
     systems: NexusGenRootTypes['System'][]; // [System!]!
     users: NexusGenRootTypes['User'][]; // [User!]!
   }

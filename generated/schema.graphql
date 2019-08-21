@@ -223,6 +223,7 @@ type Mutation {
 
 type Query {
   materials(after: String, before: String, first: Int, last: Int, orderBy: MaterialOrderByInput, skip: Int, where: MaterialWhereInput): [Material!]!
+  saul: String!
   systems(after: String, before: String, first: Int, last: Int, orderBy: SystemOrderByInput, skip: Int, where: SystemWhereInput): [System!]!
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
 }

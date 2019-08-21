@@ -1663,6 +1663,13 @@ graphql-middleware@3.0.2:
   dependencies:
     graphql-tools "^4.0.4"
 
+graphql-middleware@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-4.0.0.tgz#80de33a2711d6ef00abd20bf7a245dc7a6f6d7ca"
+  integrity sha512-EoKd+waRF5YRgYXkpXpoJZNncrsfQrlRzI2pwFMRkgcIwSHnlL1M2PPthO3D7IhFFM2S/fDd0qgnMqbS5npOuw==
+  dependencies:
+    graphql-tools "^4.0.5"
+
 graphql-playground-html@1.6.12:
   version "1.6.12"
   resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.12.tgz#8b3b34ab6013e2c877f0ceaae478fafc8ca91b85"
@@ -1715,6 +1722,17 @@ graphql-tools@^4.0.0, graphql-tools@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-4.0.4.tgz#ca08a63454221fdde825fe45fbd315eb2a6d566b"
   integrity sha512-chF12etTIGVVGy3fCTJ1ivJX2KB7OSG4c6UOJQuqOHCmBQwTyNgCDuejZKvpYxNZiEx7bwIjrodDgDe9RIkjlw==
+  dependencies:
+    apollo-link "^1.2.3"
+    apollo-utilities "^1.0.1"
+    deprecated-decorator "^0.1.6"
+    iterall "^1.1.3"
+    uuid "^3.1.0"
+
+graphql-tools@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-4.0.5.tgz#d2b41ee0a330bfef833e5cdae7e1f0b0d86b1754"
+  integrity sha512-kQCh3IZsMqquDx7zfIGWBau42xe46gmqabwYkpPlCLIjcEY1XK+auP7iGRD9/205BPyoQdY8hT96MPpgERdC9Q==
   dependencies:
     apollo-link "^1.2.3"
     apollo-utilities "^1.0.1"
