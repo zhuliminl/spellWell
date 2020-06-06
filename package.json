@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@types/zxcvbn": "^4.4.0",
-    "apollo-server": "^2.8.1",
+    "apollo-server": "^2.14.2",
     "argon2": "^0.24.0",
     "fp-ts": "^2.0.0",
     "graphql": "^14.3.1",
